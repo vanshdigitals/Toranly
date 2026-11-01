@@ -11,6 +11,7 @@
     "test": "uv run --directory backend pytest -m \"not live\" && npm --prefix web test",
     "test:e2e": "npm --prefix web run e2e",
     "test:all": "npm run lint && npm run typecheck && npm test && npm run test:e2e",
-    "build": "npm --prefix web run build"
+    "build": "npm --prefix web run build",
+    "coverage": "uv run --directory backend pytest -m \"not live\" -q --cov=app --cov-report=term-missing:skip-covered && npm --prefix web run test:coverage"
   }
 }

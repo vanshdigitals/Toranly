@@ -36,7 +36,9 @@ jobs:
       - run: uv run ruff check .
       - run: uv run ruff format --check .
       - run: uv run mypy
-      - run: uv run pytest -m "not live"
+      # Coverage gate: domain logic and AI orchestration must stay well tested.
+      - run: uv run pytest -m "not live" --cov=app --cov-report=term
+      - run: uv run coverage report --include="app/domain/*,app/ai/*" --fail-under=80
       - name: web/openapi.json matches the API
         run: |
           uv run python -m scripts.export_openapi
@@ -65,7 +67,7 @@ jobs:
         run: npm run api:types:check
       - run: npm run lint
       - run: npm run typecheck
-      - run: npm test
+      - run: npm run test:coverage
       - run: npm run build
       - run: npm audit --audit-level=high
       - name: No xAI secrets or URLs in the web source or build
