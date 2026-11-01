@@ -16,12 +16,16 @@ export interface NormalizedQuote {
 /**
  * Normalizes a quote into total paise and per-guest paise.
  */
-export function normalizeQuote(quote: QuoteItem, guestCount: number): { totalPaise: number; perGuestPaise: number } {
+export function normalizeQuote(
+  quote: QuoteItem,
+  guestCount: number,
+): { totalPaise: number; perGuestPaise: number } {
   const safeGuests = Math.max(1, guestCount);
   let totalPaise = quote.amountPaise;
 
   if (quote.unit === 'per_plate' || quote.unit === 'per_guest') {
-    const multiplier = typeof quote.units === 'number' && quote.units > 0 ? quote.units : safeGuests;
+    const multiplier =
+      typeof quote.units === 'number' && quote.units > 0 ? quote.units : safeGuests;
     totalPaise = quote.amountPaise * multiplier;
   }
 
@@ -32,7 +36,10 @@ export function normalizeQuote(quote: QuoteItem, guestCount: number): { totalPai
 /**
  * Normalizes a list of quotes and marks the cheapest one.
  */
-export function normalizeAndCompareQuotes(quotes: QuoteItem[] = [], guestCount: number = 0): NormalizedQuote[] {
+export function normalizeAndCompareQuotes(
+  quotes: QuoteItem[] = [],
+  guestCount: number = 0,
+): NormalizedQuote[] {
   if (!quotes || quotes.length === 0) return [];
 
   const normalized = quotes.map((q) => {

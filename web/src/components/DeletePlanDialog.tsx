@@ -55,7 +55,8 @@ export const DeletePlanDialog: React.FC<DeletePlanDialogProps> = ({
             Delete celebration plan?
           </h2>
           <p className="delete-warning-text">
-            This action cannot be undone. All budget categories, expenses, tasks, and vendor records for <strong>{planTitle}</strong> will be permanently removed from this device.
+            This action cannot be undone. All budget categories, expenses, tasks, and vendor records
+            for <strong>{planTitle}</strong> will be permanently removed from this device.
           </p>
 
           <div className="delete-input-group">

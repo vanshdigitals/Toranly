@@ -30,3 +30,5 @@ htmlcov/
 *.sql.gz
 *.sqlite
 *.db
+# Ad-hoc local browser check scripts (not part of the product or CI)
+/scripts/

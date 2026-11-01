@@ -50,7 +50,8 @@ export class ErrorBoundary extends Component<Props, State> {
 
             <h1 className="error-boundary-title">Something went wrong</h1>
             <p className="error-boundary-desc">
-              An unexpected error occurred while rendering this page. Your planning data remains saved in your browser storage.
+              An unexpected error occurred while rendering this page. Your planning data remains
+              saved in your browser storage.
             </p>
 
             {this.state.error && (

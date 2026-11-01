@@ -6,7 +6,7 @@ from typing import Any
 import pytest
 from fastapi.testclient import TestClient
 
-import app.api.v1.plan as plan_module
+import app.services.plan_service as plan_module
 
 
 @pytest.fixture(autouse=True)

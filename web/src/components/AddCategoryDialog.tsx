@@ -130,18 +130,10 @@ export const AddCategoryDialog: React.FC<AddCategoryDialogProps> = ({
           </div>
 
           <div className="cat-modal-actions">
-            <Button
-              variant="secondary"
-              type="button"
-              onClick={onCancel}
-            >
+            <Button variant="secondary" type="button" onClick={onCancel}>
               Cancel
             </Button>
-            <Button
-              variant="primary"
-              type="submit"
-              disabled={!label.trim()}
-            >
+            <Button variant="primary" type="submit" disabled={!label.trim()}>
               Add Category
             </Button>
           </div>

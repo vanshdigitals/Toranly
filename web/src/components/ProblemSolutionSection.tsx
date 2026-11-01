@@ -39,7 +39,11 @@ export const ProblemSolutionSection: React.FC = () => {
           {ITEMS.map((item, idx) => (
             <div key={idx} className="why-toranly-card">
               <div className="why-card-problem">
-                <CircleAlert size={20} className="why-card-icon why-icon-warning" aria-hidden="true" />
+                <CircleAlert
+                  size={20}
+                  className="why-card-icon why-icon-warning"
+                  aria-hidden="true"
+                />
                 <p className="why-problem-text">{item.problem}</p>
               </div>
 
@@ -48,7 +52,11 @@ export const ProblemSolutionSection: React.FC = () => {
               </div>
 
               <div className="why-card-solution">
-                <CircleCheck size={20} className="why-card-icon why-icon-success" aria-hidden="true" />
+                <CircleCheck
+                  size={20}
+                  className="why-card-icon why-icon-success"
+                  aria-hidden="true"
+                />
                 <p className="why-solution-text">{item.solution}</p>
               </div>
             </div>

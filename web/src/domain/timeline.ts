@@ -53,7 +53,7 @@ export interface DateChangePreviewResult {
 export function previewDateChange(
   tasks: TaskItem[],
   oldEventDate: string,
-  newEventDate: string
+  newEventDate: string,
 ): DateChangePreviewResult {
   const oldDate = new Date(oldEventDate);
   const newDate = new Date(newEventDate);

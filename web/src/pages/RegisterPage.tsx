@@ -1,14 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  ArrowLeft,
-  Eye,
-  EyeOff,
-  Info,
-  CircleAlert,
-  CheckCircle2,
-  Loader2,
-} from 'lucide-react';
+import { ArrowLeft, Eye, EyeOff, Info, CircleAlert, CheckCircle2, Loader2 } from 'lucide-react';
 import { ToranlyLogomark } from '../components/ToranlyLogomark';
 import { Select } from '../components/Select';
 import './RegisterPage.css';
@@ -161,11 +153,7 @@ export const RegisterPage: React.FC = () => {
                 <Link to="/" className="btn btn-secondary register-success-btn">
                   Back to home
                 </Link>
-                <button
-                  type="button"
-                  onClick={handleReset}
-                  className="register-try-again-btn"
-                >
+                <button type="button" onClick={handleReset} className="register-try-again-btn">
                   Create another account
                 </button>
               </div>
@@ -200,9 +188,7 @@ export const RegisterPage: React.FC = () => {
                     type="email"
                     name="email"
                     autoComplete="email"
-                    className={`register-input ${
-                      emailError || conflictError ? 'is-invalid' : ''
-                    }`}
+                    className={`register-input ${emailError || conflictError ? 'is-invalid' : ''}`}
                     placeholder="arun.sharma@example.com"
                     value={email}
                     onChange={(e) => {

@@ -5,7 +5,11 @@ import { SectionHeading } from './SectionHeading';
 import './FeaturesSection.css';
 
 interface FeatureItem {
-  icon: React.ComponentType<{ size?: number; className?: string; 'aria-hidden'?: boolean | 'true' | 'false' }>;
+  icon: React.ComponentType<{
+    size?: number;
+    className?: string;
+    'aria-hidden'?: boolean | 'true' | 'false';
+  }>;
   title: string;
   description: string;
 }
@@ -14,12 +18,14 @@ const FEATURES: FeatureItem[] = [
   {
     icon: Wallet,
     title: 'Budget in rupees that adds up',
-    description: 'Set what each part can cost, log expenses, and see the moment a category goes over.',
+    description:
+      'Set what each part can cost, log expenses, and see the moment a category goes over.',
   },
   {
     icon: ListChecks,
     title: 'A checklist tied to your date',
-    description: 'Tasks count back from the event. Move the date and see what shifts before you confirm.',
+    description:
+      'Tasks count back from the event. Move the date and see what shifts before you confirm.',
   },
   {
     icon: Users,
@@ -98,7 +104,13 @@ export const FeaturesSection: React.FC = () => {
                   </span>
                 </div>
 
-                <div className="showcase-progress-bar" role="progressbar" aria-valuenow={53} aria-valuemin={0} aria-valuemax={100}>
+                <div
+                  className="showcase-progress-bar"
+                  role="progressbar"
+                  aria-valuenow={53}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                >
                   <div className="showcase-progress-fill" style={{ width: '53%' }} />
                 </div>
 
@@ -147,14 +159,26 @@ export const FeaturesSection: React.FC = () => {
               <div className="showcase-suggestion-card">
                 <div className="showcase-suggestion-top">
                   <span className="showcase-chip showcase-chip--suggested">Suggested</span>
-                  <span className="showcase-chip showcase-chip--estimate">Save ₹20,000 to ₹35,000</span>
+                  <span className="showcase-chip showcase-chip--estimate">
+                    Save ₹20,000 to ₹35,000
+                  </span>
                 </div>
-                <p className="showcase-suggestion-text">Reuse sangeet stage decor for the reception</p>
+                <p className="showcase-suggestion-text">
+                  Reuse sangeet stage decor for the reception
+                </p>
                 <div className="showcase-suggestion-actions">
-                  <button type="button" tabIndex={-1} className="showcase-btn showcase-btn--primary">
+                  <button
+                    type="button"
+                    tabIndex={-1}
+                    className="showcase-btn showcase-btn--primary"
+                  >
                     Accept
                   </button>
-                  <button type="button" tabIndex={-1} className="showcase-btn showcase-btn--secondary">
+                  <button
+                    type="button"
+                    tabIndex={-1}
+                    className="showcase-btn showcase-btn--secondary"
+                  >
                     Reject
                   </button>
                 </div>

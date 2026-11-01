@@ -35,7 +35,12 @@ export const UnsavedChangesDialog: React.FC<UnsavedChangesDialogProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="unsaved-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="unsaved-modal-title">
+    <div
+      className="unsaved-modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="unsaved-modal-title"
+    >
       <div className="unsaved-modal-card">
         <div className="unsaved-modal-header">
           <div className="unsaved-icon-badge">
@@ -46,7 +51,8 @@ export const UnsavedChangesDialog: React.FC<UnsavedChangesDialogProps> = ({
               Discard unsaved changes?
             </h3>
             <p className="unsaved-modal-desc">
-              You have unsaved changes in this form. If you leave now, your changes will be discarded.
+              You have unsaved changes in this form. If you leave now, your changes will be
+              discarded.
             </p>
           </div>
         </div>
@@ -60,11 +66,7 @@ export const UnsavedChangesDialog: React.FC<UnsavedChangesDialogProps> = ({
           >
             Keep editing
           </button>
-          <button
-            type="button"
-            className="unsaved-btn-discard"
-            onClick={onDiscard}
-          >
+          <button type="button" className="unsaved-btn-discard" onClick={onDiscard}>
             Discard changes
           </button>
         </div>
@@ -72,4 +74,3 @@ export const UnsavedChangesDialog: React.FC<UnsavedChangesDialogProps> = ({
     </div>
   );
 };
-

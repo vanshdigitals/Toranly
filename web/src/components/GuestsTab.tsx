@@ -157,27 +157,25 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
       eggetarian,
       vegan,
     }),
-    [veg, nonVeg, jain, eggetarian, vegan]
+    [veg, nonVeg, jain, eggetarian, vegan],
   );
 
   // Validation
   const dietValidation = useMemo(
     () => validateDietaryCounts(totalGuests, breakdown),
-    [totalGuests, breakdown]
+    [totalGuests, breakdown],
   );
 
   // Dietary coverage check against saved menu ideas
   const coverageResult = useMemo(
     () => checkDietaryCoverage(breakdown, plan.ideas || []),
-    [breakdown, plan.ideas]
+    [breakdown, plan.ideas],
   );
 
   // Shortlisted caterer rate details
   const catererInfo = useMemo(() => {
     // Look for catering vendor or per_plate quote
-    const cateringQuote = plan.quotes.find(
-      (q) => q.unit === 'per_plate' || q.unit === 'per_guest'
-    );
+    const cateringQuote = plan.quotes.find((q) => q.unit === 'per_plate' || q.unit === 'per_guest');
     if (cateringQuote) {
       const vendor = plan.vendors.find((v) => v.id === cateringQuote.vendorId);
       const rate = Math.round(cateringQuote.amountPaise / 100);
@@ -189,8 +187,7 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
 
     const cateringVendor = plan.vendors.find(
       (v) =>
-        v.categoryKey?.toLowerCase().includes('cater') ||
-        v.name?.toLowerCase().includes('cater')
+        v.categoryKey?.toLowerCase().includes('cater') || v.name?.toLowerCase().includes('cater'),
     );
     if (cateringVendor) {
       return {
@@ -215,7 +212,11 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
     if (eggetarian !== (plan.guests?.eggetarian ?? 10)) return true;
     if (vegan !== (plan.guests?.vegan ?? 0)) return true;
 
-    const origAllergies = plan.guests?.allergyTags || ['Peanut', 'Lactose intolerant', 'Shellfish & seafood'];
+    const origAllergies = plan.guests?.allergyTags || [
+      'Peanut',
+      'Lactose intolerant',
+      'Shellfish & seafood',
+    ];
     if (allergyTags.length !== origAllergies.length) return true;
     if (allergyTags.some((tag, idx) => tag !== origAllergies[idx])) return true;
 
@@ -272,7 +273,7 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
   // Accessibility toggle
   const handleToggleAccessibility = (id: string) => {
     setAccessibilityNeeds((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
     );
   };
 
@@ -319,12 +320,10 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
     setAllergyTags(
       plan.guests?.allergyTags?.length
         ? [...plan.guests.allergyTags]
-        : ['Peanut', 'Lactose intolerant', 'Shellfish & seafood']
+        : ['Peanut', 'Lactose intolerant', 'Shellfish & seafood'],
     );
     setAccessibilityNeeds(
-      plan.guests?.accessibilityNeeds?.length
-        ? [...plan.guests.accessibilityNeeds]
-        : ['ramps']
+      plan.guests?.accessibilityNeeds?.length ? [...plan.guests.accessibilityNeeds] : ['ramps'],
     );
     onShowToast('Discarded unsaved guest changes');
   };
@@ -351,9 +350,7 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
     };
 
     const csvData = generateDietaryCsv(currentPlanView);
-    const safeTitle = (plan.event.title || 'Toranly')
-      .replace(/[^a-zA-Z0-9_-]/g, '_')
-      .slice(0, 30);
+    const safeTitle = (plan.event.title || 'Toranly').replace(/[^a-zA-Z0-9_-]/g, '_').slice(0, 30);
     downloadCsv(csvData, `${safeTitle}_Dietary_Requirements.csv`);
     onShowToast('Exported dietary breakdown CSV');
   };
@@ -370,8 +367,12 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
     if (menuIdeas.length === 0) {
       return 'None yet (No menu ideas saved).';
     }
-    return menuIdeas.map((i) => i.title).slice(0, 4).join(', ') +
-      (menuIdeas.length > 4 ? ` (+${menuIdeas.length - 4} more)` : '');
+    return (
+      menuIdeas
+        .map((i) => i.title)
+        .slice(0, 4)
+        .join(', ') + (menuIdeas.length > 4 ? ` (+${menuIdeas.length - 4} more)` : '')
+    );
   }, [plan.ideas]);
 
   const uncoveredSummary = useMemo(() => {
@@ -457,15 +458,11 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
                 dietValidation.valid
                   ? 'guests-pill--valid'
                   : dietValidation.difference > 0
-                  ? 'guests-pill--error'
-                  : 'guests-pill--warning'
+                    ? 'guests-pill--error'
+                    : 'guests-pill--warning'
               }`}
             >
-              {dietValidation.valid ? (
-                <CheckCircle2 size={16} />
-              ) : (
-                <AlertCircle size={16} />
-              )}
+              {dietValidation.valid ? <CheckCircle2 size={16} /> : <AlertCircle size={16} />}
               <span>
                 {dietValidation.sum} of {totalGuests} guests assigned
               </span>
@@ -493,9 +490,7 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
                     type="number"
                     min={0}
                     value={totalGuests}
-                    onChange={(e) =>
-                      handleTotalGuestsChange(parseInt(e.target.value, 10) || 0)
-                    }
+                    onChange={(e) => handleTotalGuestsChange(parseInt(e.target.value, 10) || 0)}
                     className="guests-number-input"
                   />
                   <span className="guests-input-suffix">pax</span>
@@ -523,7 +518,8 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
                 <div className="guests-caterer-info">
                   <span className="guests-caterer-title">{catererInfo.name}</span>
                   <span className="guests-caterer-calc">
-                    ₹{catererInfo.ratePerPlate.toLocaleString('en-IN')} / plate × {totalGuests} pax ={' '}
+                    ₹{catererInfo.ratePerPlate.toLocaleString('en-IN')} / plate × {totalGuests} pax
+                    ={' '}
                     <strong>
                       ₹{(catererInfo.ratePerPlate * totalGuests).toLocaleString('en-IN')}
                     </strong>
@@ -554,8 +550,7 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
           <div className="diet-grid">
             {DIETARY_CATEGORIES.map((cat) => {
               const count = breakdown[cat.key];
-              const pct =
-                totalGuests > 0 ? Math.round((count / totalGuests) * 100) : 0;
+              const pct = totalGuests > 0 ? Math.round((count / totalGuests) * 100) : 0;
 
               return (
                 <article key={cat.key} className="diet-card">
@@ -604,8 +599,8 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
               dietValidation.valid
                 ? 'diet-status-strip--valid'
                 : dietValidation.difference > 0
-                ? 'diet-status-strip--error'
-                : 'diet-status-strip--warning'
+                  ? 'diet-status-strip--error'
+                  : 'diet-status-strip--warning'
             }`}
           >
             <div className="diet-status-strip-left">
@@ -627,11 +622,8 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
                   </>
                 ) : dietValidation.difference > 0 ? (
                   <>
-                    Over-allocated:{' '}
-                    <strong>
-                      {dietValidation.sum} guests assigned
-                    </strong>{' '}
-                    for {totalGuests} expected guests (+{dietValidation.difference} extra).
+                    Over-allocated: <strong>{dietValidation.sum} guests assigned</strong> for{' '}
+                    {totalGuests} expected guests (+{dietValidation.difference} extra).
                   </>
                 ) : (
                   <>
@@ -648,8 +640,8 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
               {dietValidation.valid
                 ? 'Balanced'
                 : dietValidation.difference > 0
-                ? `Over by +${dietValidation.difference}`
-                : `Mismatch (${dietValidation.difference})`}
+                  ? `Over by +${dietValidation.difference}`
+                  : `Mismatch (${dietValidation.difference})`}
             </span>
           </div>
         </section>
@@ -804,15 +796,10 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
           </div>
 
           <div className="guests-coverage-actions">
-            <button
-              type="button"
-              className="guests-secondary-btn"
-              onClick={handleAiSuggestIdeas}
-            >
+            <button type="button" className="guests-secondary-btn" onClick={handleAiSuggestIdeas}>
               <Sparkles size={16} />
               <span>
-                Get menu ideas with AI{' '}
-                {uncoveredSummaryShort ? `(${uncoveredSummaryShort})` : ''}
+                Get menu ideas with AI {uncoveredSummaryShort ? `(${uncoveredSummaryShort})` : ''}
               </span>
             </button>
             <button

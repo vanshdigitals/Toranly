@@ -7,7 +7,7 @@ import './ThemeToggle.css';
  * Per DESIGN_SYSTEM.md §9 and User requirements, light theme only is defined for MVP.
  * Set to false until dark theme tokens are finalized.
  */
-export const THEME_TOGGLE_ENABLED = false;
+const THEME_TOGGLE_ENABLED = false;
 
 interface ThemeToggleProps {
   size?: 'desktop' | 'mobile';

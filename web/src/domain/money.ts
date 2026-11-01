@@ -22,7 +22,7 @@ export interface SplitResult {
  */
 export function splitMoneyLargestRemainder(
   totalPaise: number,
-  shares: ShareInput[]
+  shares: ShareInput[],
 ): SplitResult[] {
   if (shares.length === 0) return [];
   if (totalPaise <= 0) {
@@ -101,11 +101,17 @@ export function formatPaise(paise: number, options: FormatOptions = {}): string 
 
   if (compact) {
     if (abs >= 10000000) {
-      const cr = (abs / 10000000).toFixed(2).replace(/\.00$/, '').replace(/(\.[1-9])0$/, '$1');
+      const cr = (abs / 10000000)
+        .toFixed(2)
+        .replace(/\.00$/, '')
+        .replace(/(\.[1-9])0$/, '$1');
       return `${prefix}${cr} Cr`;
     }
     if (abs >= 100000) {
-      const lakh = (abs / 100000).toFixed(2).replace(/\.00$/, '').replace(/(\.[1-9])0$/, '$1');
+      const lakh = (abs / 100000)
+        .toFixed(2)
+        .replace(/\.00$/, '')
+        .replace(/(\.[1-9])0$/, '$1');
       return `${prefix}${lakh} L`;
     }
     if (abs >= 1000) {
@@ -128,4 +134,3 @@ export function formatPaise(paise: number, options: FormatOptions = {}): string 
 
   return baseStr;
 }
-

@@ -134,7 +134,11 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
               FAQ
             </a>
             {hasPlans && (
-              <Link to="/events" className="drawer-nav-item" onClick={() => handleLinkClick('/events')}>
+              <Link
+                to="/events"
+                className="drawer-nav-item"
+                onClick={() => handleLinkClick('/events')}
+              >
                 My plans
               </Link>
             )}

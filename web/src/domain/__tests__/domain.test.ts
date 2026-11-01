@@ -66,9 +66,27 @@ describe('Domain: Budget Status & Metrics', () => {
       { id: 'cat-1', key: 'venue', label: 'Venue', allocatedPaise: 500000, position: 1 },
     ];
     const expenses = [
-      { id: 'e1', categoryId: 'cat-1', description: 'Deposit', amountPaise: 200000, kind: 'paid' as const },
-      { id: 'e2', categoryId: 'cat-1', description: 'Estimate', amountPaise: 350000, kind: 'planned' as const },
-      { id: 'e3', categoryId: 'cat-1', description: 'Quote', amountPaise: 460000, kind: 'quoted' as const },
+      {
+        id: 'e1',
+        categoryId: 'cat-1',
+        description: 'Deposit',
+        amountPaise: 200000,
+        kind: 'paid' as const,
+      },
+      {
+        id: 'e2',
+        categoryId: 'cat-1',
+        description: 'Estimate',
+        amountPaise: 350000,
+        kind: 'planned' as const,
+      },
+      {
+        id: 'e3',
+        categoryId: 'cat-1',
+        description: 'Quote',
+        amountPaise: 460000,
+        kind: 'quoted' as const,
+      },
     ];
 
     const metrics = calculateBudgetMetrics(categories, expenses);
@@ -87,15 +105,60 @@ describe('Domain: Timeline & Dependencies', () => {
 
   it('detects circular dependencies via Kahn algorithm', () => {
     const normalTasks: TaskItem[] = [
-      { id: 't1', title: 'Task 1', dependsOn: [], dateMode: 'relative', isMilestone: false, status: 'open', source: 'template', position: 1 },
-      { id: 't2', title: 'Task 2', dependsOn: ['t1'], dateMode: 'relative', isMilestone: false, status: 'open', source: 'template', position: 2 },
+      {
+        id: 't1',
+        title: 'Task 1',
+        dependsOn: [],
+        dateMode: 'relative',
+        isMilestone: false,
+        status: 'open',
+        source: 'template',
+        position: 1,
+      },
+      {
+        id: 't2',
+        title: 'Task 2',
+        dependsOn: ['t1'],
+        dateMode: 'relative',
+        isMilestone: false,
+        status: 'open',
+        source: 'template',
+        position: 2,
+      },
     ];
     expect(detectTaskCycle(normalTasks).hasCycle).toBe(false);
 
     const cyclicTasks: TaskItem[] = [
-      { id: 't1', title: 'Task 1', dependsOn: ['t3'], dateMode: 'relative', isMilestone: false, status: 'open', source: 'template', position: 1 },
-      { id: 't2', title: 'Task 2', dependsOn: ['t1'], dateMode: 'relative', isMilestone: false, status: 'open', source: 'template', position: 2 },
-      { id: 't3', title: 'Task 3', dependsOn: ['t2'], dateMode: 'relative', isMilestone: false, status: 'open', source: 'template', position: 3 },
+      {
+        id: 't1',
+        title: 'Task 1',
+        dependsOn: ['t3'],
+        dateMode: 'relative',
+        isMilestone: false,
+        status: 'open',
+        source: 'template',
+        position: 1,
+      },
+      {
+        id: 't2',
+        title: 'Task 2',
+        dependsOn: ['t1'],
+        dateMode: 'relative',
+        isMilestone: false,
+        status: 'open',
+        source: 'template',
+        position: 2,
+      },
+      {
+        id: 't3',
+        title: 'Task 3',
+        dependsOn: ['t2'],
+        dateMode: 'relative',
+        isMilestone: false,
+        status: 'open',
+        source: 'template',
+        position: 3,
+      },
     ];
     const cycleRes = detectTaskCycle(cyclicTasks);
     expect(cycleRes.hasCycle).toBe(true);
@@ -106,8 +169,26 @@ describe('Domain: Timeline & Dependencies', () => {
 
   it('blocks completion when open dependencies exist', () => {
     const allTasks: TaskItem[] = [
-      { id: 't1', title: 'Venue booking', dependsOn: [], dateMode: 'relative', isMilestone: false, status: 'open', source: 'template', position: 1 },
-      { id: 't2', title: 'Send invites', dependsOn: ['t1'], dateMode: 'relative', isMilestone: false, status: 'open', source: 'template', position: 2 },
+      {
+        id: 't1',
+        title: 'Venue booking',
+        dependsOn: [],
+        dateMode: 'relative',
+        isMilestone: false,
+        status: 'open',
+        source: 'template',
+        position: 1,
+      },
+      {
+        id: 't2',
+        title: 'Send invites',
+        dependsOn: ['t1'],
+        dateMode: 'relative',
+        isMilestone: false,
+        status: 'open',
+        source: 'template',
+        position: 2,
+      },
     ];
 
     const gateOpen = checkTaskCompletionGate(allTasks[1], allTasks);
@@ -177,7 +258,13 @@ describe('Domain: Guests & Dietary Validation', () => {
   it('checks dietary coverage against menu ideas', () => {
     const breakdown = { veg: 100, nonVeg: 50, jain: 20, eggetarian: 0, vegan: 0 };
     const ideas = [
-      { id: 'i1', kind: 'menu' as const, title: 'Dal Baati', dietTags: ['veg', 'jain'], source: 'user' as const },
+      {
+        id: 'i1',
+        kind: 'menu' as const,
+        title: 'Dal Baati',
+        dietTags: ['veg', 'jain'],
+        source: 'user' as const,
+      },
     ];
 
     const coverage = checkDietaryCoverage(breakdown, ideas);
@@ -191,9 +278,30 @@ describe('Domain: Guests & Dietary Validation', () => {
 describe('Domain: Schedule Overlaps', () => {
   it('detects overlapping time blocks within the same function', () => {
     const items = [
-      { id: 's1', functionId: 'fn1', startTime: '18:00', durationMin: 60, title: 'Toast', position: 1 },
-      { id: 's2', functionId: 'fn1', startTime: '18:30', durationMin: 45, title: 'Cake Cutting', position: 2 },
-      { id: 's3', functionId: 'fn2', startTime: '18:00', durationMin: 60, title: 'Welcome', position: 1 },
+      {
+        id: 's1',
+        functionId: 'fn1',
+        startTime: '18:00',
+        durationMin: 60,
+        title: 'Toast',
+        position: 1,
+      },
+      {
+        id: 's2',
+        functionId: 'fn1',
+        startTime: '18:30',
+        durationMin: 45,
+        title: 'Cake Cutting',
+        position: 2,
+      },
+      {
+        id: 's3',
+        functionId: 'fn2',
+        startTime: '18:00',
+        durationMin: 60,
+        title: 'Welcome',
+        position: 1,
+      },
     ];
 
     const overlaps = detectScheduleOverlaps(items);

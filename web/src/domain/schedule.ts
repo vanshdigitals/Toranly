@@ -109,7 +109,7 @@ export function detectScheduleOverlaps(items: ScheduleItem[]): ScheduleOverlap[]
  */
 export function detectEnrichedScheduleOverlaps(
   items: ScheduleItem[],
-  ignoredIds?: Set<string>
+  ignoredIds?: Set<string>,
 ): EnrichedScheduleOverlap[] {
   const byFunction = new Map<string, ScheduleItem[]>();
   for (const item of items) {
@@ -123,7 +123,7 @@ export function detectEnrichedScheduleOverlaps(
   for (const [funcId, funcItems] of byFunction.entries()) {
     // Sort items chronologically first
     const sorted = [...funcItems].sort(
-      (a, b) => timeToMinutes(a.startTime) - timeToMinutes(b.startTime) || a.position - b.position
+      (a, b) => timeToMinutes(a.startTime) - timeToMinutes(b.startTime) || a.position - b.position,
     );
 
     for (let i = 0; i < sorted.length; i++) {
@@ -179,7 +179,7 @@ export function detectEnrichedScheduleOverlaps(
  */
 export function resolveByShifting(
   items: ScheduleItem[],
-  overlap: ScheduleOverlap | EnrichedScheduleOverlap
+  overlap: ScheduleOverlap | EnrichedScheduleOverlap,
 ): ScheduleItem[] {
   const startA = timeToMinutes(overlap.itemA.startTime);
   const endA = startA + overlap.itemA.durationMin;
@@ -218,7 +218,7 @@ export function resolveByShifting(
  */
 export function resolveByShortening(
   items: ScheduleItem[],
-  overlap: ScheduleOverlap | EnrichedScheduleOverlap
+  overlap: ScheduleOverlap | EnrichedScheduleOverlap,
 ): ScheduleItem[] {
   const startA = timeToMinutes(overlap.itemA.startTime);
   const startB = timeToMinutes(overlap.itemB.startTime);
@@ -373,7 +373,7 @@ export function computeTimelineProgress(params: {
 export function generateDraftScheduleForFunction(
   functionId: string,
   functionName: string,
-  defaultStartTime: string = '10:00'
+  defaultStartTime: string = '10:00',
 ): ScheduleItem[] {
   const lower = functionName.toLowerCase();
   const startMin = timeToMinutes(defaultStartTime);
@@ -383,7 +383,7 @@ export function generateDraftScheduleForFunction(
     offsetMin: number,
     durationMin: number,
     title: string,
-    notes: string
+    notes: string,
   ): ScheduleItem => ({
     id: `sched-${functionId}-${idx}-${Date.now()}`,
     functionId,
@@ -396,54 +396,174 @@ export function generateDraftScheduleForFunction(
 
   if (lower.includes('wedding') || lower.includes('shaadi') || lower.includes('phera')) {
     return [
-      makeItem(1, 0, 45, 'Baraat arrival', 'Procession at grand gate, dhol troupe and milni scarves ready'),
+      makeItem(
+        1,
+        0,
+        45,
+        'Baraat arrival',
+        'Procession at grand gate, dhol troupe and milni scarves ready',
+      ),
       makeItem(2, 45, 30, 'Jaimala', 'Floral stage exchange, rose petal shower coordination'),
-      makeItem(3, 75, 90, 'Pheras', 'Vedic ceremony inside mandap (Pandit Ji confirmed for 11:15 sharp)'),
-      makeItem(4, 150, 90, 'Lunch', 'Buffet opens while Vedic phero ceremony is still underway. Guests cannot attend both simultaneously unless planned as concurrent.'),
-      makeItem(5, 240, 45, 'Vidaai', 'Farewell ritual at main porch, vintage car departure at 14:45'),
+      makeItem(
+        3,
+        75,
+        90,
+        'Pheras',
+        'Vedic ceremony inside mandap (Pandit Ji confirmed for 11:15 sharp)',
+      ),
+      makeItem(
+        4,
+        150,
+        90,
+        'Lunch',
+        'Buffet opens while Vedic phero ceremony is still underway. Guests cannot attend both simultaneously unless planned as concurrent.',
+      ),
+      makeItem(
+        5,
+        240,
+        45,
+        'Vidaai',
+        'Farewell ritual at main porch, vintage car departure at 14:45',
+      ),
     ];
   }
 
   if (lower.includes('mehendi') || lower.includes('mehndi')) {
     return [
-      makeItem(1, 0, 60, 'Guests arrive and welcome drinks', 'Thandai counter, fresh sugarcane juice stall, and floral gajra welcome'),
-      makeItem(2, 60, 90, 'Mehendi for the bride', 'Traditional bridal henna artist application with photo moments'),
-      makeItem(3, 150, 60, 'Folk dances and dholki', 'Sangeet practice, family performances and dholki songs'),
-      makeItem(4, 210, 90, 'High tea and chaat street buffet', 'Live golgappa, kachori and hot jalebi stations'),
+      makeItem(
+        1,
+        0,
+        60,
+        'Guests arrive and welcome drinks',
+        'Thandai counter, fresh sugarcane juice stall, and floral gajra welcome',
+      ),
+      makeItem(
+        2,
+        60,
+        90,
+        'Mehendi for the bride',
+        'Traditional bridal henna artist application with photo moments',
+      ),
+      makeItem(
+        3,
+        150,
+        60,
+        'Folk dances and dholki',
+        'Sangeet practice, family performances and dholki songs',
+      ),
+      makeItem(
+        4,
+        210,
+        90,
+        'High tea and chaat street buffet',
+        'Live golgappa, kachori and hot jalebi stations',
+      ),
     ];
   }
 
   if (lower.includes('sangeet')) {
     return [
-      makeItem(1, 0, 45, 'Welcome mocktails & appetizers', 'Signature cocktail bar and live acoustic singer'),
-      makeItem(2, 45, 75, 'Family dance choreography', 'Bride & groom family dance sequences and awards'),
-      makeItem(3, 120, 60, 'DJ and open dance floor', 'High energy celebration with Punjabi dhol & lights'),
+      makeItem(
+        1,
+        0,
+        45,
+        'Welcome mocktails & appetizers',
+        'Signature cocktail bar and live acoustic singer',
+      ),
+      makeItem(
+        2,
+        45,
+        75,
+        'Family dance choreography',
+        'Bride & groom family dance sequences and awards',
+      ),
+      makeItem(
+        3,
+        120,
+        60,
+        'DJ and open dance floor',
+        'High energy celebration with Punjabi dhol & lights',
+      ),
       makeItem(4, 180, 60, 'Gala dinner feast', 'Midnight snack counter and grand buffet spread'),
     ];
   }
 
   if (lower.includes('reception')) {
     return [
-      makeItem(1, 0, 60, 'Red carpet arrivals & photo booth', 'Welcome drinks, live string quartet and stage photos'),
-      makeItem(2, 60, 45, 'Couple grand entrance & cake cutting', 'Champagne toast, speeches and ceremonial cake cutting'),
-      makeItem(3, 105, 90, 'Banquet dinner & musical evening', 'Multi-course plated royal banquet and live ghazal band'),
-      makeItem(4, 195, 30, 'Farewell & thank-you gifts', 'Shagun return favors and concluding family photographs'),
+      makeItem(
+        1,
+        0,
+        60,
+        'Red carpet arrivals & photo booth',
+        'Welcome drinks, live string quartet and stage photos',
+      ),
+      makeItem(
+        2,
+        60,
+        45,
+        'Couple grand entrance & cake cutting',
+        'Champagne toast, speeches and ceremonial cake cutting',
+      ),
+      makeItem(
+        3,
+        105,
+        90,
+        'Banquet dinner & musical evening',
+        'Multi-course plated royal banquet and live ghazal band',
+      ),
+      makeItem(
+        4,
+        195,
+        30,
+        'Farewell & thank-you gifts',
+        'Shagun return favors and concluding family photographs',
+      ),
     ];
   }
 
   if (lower.includes('haldi')) {
     return [
-      makeItem(1, 0, 60, 'Haldi ritual & floral holi', 'Yellow paste application with yellow marigold petals shower'),
-      makeItem(2, 60, 45, 'Holy bath & change of attire', 'Mangalsnan ritual followed by family blessings'),
+      makeItem(
+        1,
+        0,
+        60,
+        'Haldi ritual & floral holi',
+        'Yellow paste application with yellow marigold petals shower',
+      ),
+      makeItem(
+        2,
+        60,
+        45,
+        'Holy bath & change of attire',
+        'Mangalsnan ritual followed by family blessings',
+      ),
       makeItem(3, 105, 60, 'Traditional festive lunch', 'Authentic satvik feast on banana leaves'),
     ];
   }
 
   // Generic Celebration Itinerary
   return [
-    makeItem(1, 0, 45, 'Welcome & guest arrival', 'Warm reception, welcome drinks, and introductory mingling'),
+    makeItem(
+      1,
+      0,
+      45,
+      'Welcome & guest arrival',
+      'Warm reception, welcome drinks, and introductory mingling',
+    ),
     makeItem(2, 45, 90, 'Ceremony & main event', 'Key rituals, speeches, and highlighted moments'),
-    makeItem(3, 135, 75, 'Celebration dinner & drinks', 'Festive banquet catering and social dining'),
-    makeItem(4, 210, 45, 'Photography & wrap up', 'Group photographs, favors distribution, and closing remarks'),
+    makeItem(
+      3,
+      135,
+      75,
+      'Celebration dinner & drinks',
+      'Festive banquet catering and social dining',
+    ),
+    makeItem(
+      4,
+      210,
+      45,
+      'Photography & wrap up',
+      'Group photographs, favors distribution, and closing remarks',
+    ),
   ];
 }

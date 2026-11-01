@@ -12,18 +12,17 @@ import {
 } from 'lucide-react';
 
 export type CanonicalEventType =
-  | 'wedding'
-  | 'engagement'
-  | 'birthday'
-  | 'anniversary'
-  | 'community'
-  | 'family';
+  'wedding' | 'engagement' | 'birthday' | 'anniversary' | 'community' | 'family';
 
 export interface EventCategory {
   id: string;
   name: string;
   canonicalType: CanonicalEventType;
-  icon: React.ComponentType<{ size?: number; className?: string; 'aria-hidden'?: boolean | 'true' | 'false' }>;
+  icon: React.ComponentType<{
+    size?: number;
+    className?: string;
+    'aria-hidden'?: boolean | 'true' | 'false';
+  }>;
   defaultPlaceholder: string;
   description?: string;
 }
@@ -62,7 +61,7 @@ export const EVENT_CATEGORIES: EventCategory[] = [
     name: 'Anniversary',
     canonicalType: 'anniversary',
     icon: Heart,
-    defaultPlaceholder: "Sharma Family 25th Silver Anniversary",
+    defaultPlaceholder: 'Sharma Family 25th Silver Anniversary',
     description: 'Couple milestones, nostalgic gatherings, and dinners.',
   },
   {
@@ -110,7 +109,7 @@ export const EVENT_CATEGORIES: EventCategory[] = [
 /**
  * Documented aliases to resolve URLs like ?type=weddings or ?type=birthdays cleanly.
  */
-export const CATEGORY_ALIASES: Record<string, string> = {
+const CATEGORY_ALIASES: Record<string, string> = {
   wedding: 'wedding',
   weddings: 'wedding',
   birthday: 'birthday',

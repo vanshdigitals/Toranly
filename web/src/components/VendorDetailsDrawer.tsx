@@ -33,16 +33,10 @@ export const VendorDetailsDrawer: React.FC<VendorDetailsDrawerProps> = ({
 }) => {
   if (!isOpen || !vendor) return null;
 
-  const vendorQuotes = quotes.filter(
-    (q) => q.vendorId === vendor.id || q.vendorId === vendor.name
-  );
+  const vendorQuotes = quotes.filter((q) => q.vendorId === vendor.id || q.vendorId === vendor.name);
 
   return (
-    <div
-      className="vendor-drawer-scrim"
-      role="presentation"
-      onClick={onClose}
-    >
+    <div className="vendor-drawer-scrim" role="presentation" onClick={onClose}>
       <div
         className="vendor-drawer-panel"
         role="dialog"
@@ -53,9 +47,7 @@ export const VendorDetailsDrawer: React.FC<VendorDetailsDrawerProps> = ({
         {/* Drawer Header */}
         <div className="vendor-drawer-header">
           <div className="drawer-title-group">
-            <span className="drawer-cat-eyebrow">
-              {categoryLabel} Vendor
-            </span>
+            <span className="drawer-cat-eyebrow">{categoryLabel} Vendor</span>
             <h2 id="drawer-vendor-title" className="drawer-vendor-title">
               {vendor.name}
             </h2>
@@ -80,10 +72,7 @@ export const VendorDetailsDrawer: React.FC<VendorDetailsDrawerProps> = ({
                 <Select
                   value={vendor.status}
                   onChange={(val) =>
-                    onUpdateStatus(
-                      vendor.id,
-                      val as 'shortlisted' | 'booked' | 'dropped'
-                    )
+                    onUpdateStatus(vendor.id, val as 'shortlisted' | 'booked' | 'dropped')
                   }
                   variant="status"
                   aria-label={`Workflow status for ${vendor.name}`}
@@ -100,10 +89,7 @@ export const VendorDetailsDrawer: React.FC<VendorDetailsDrawerProps> = ({
               <div className="drawer-contact-col">
                 <span className="drawer-contact-lbl">Primary contact</span>
                 {vendor.phone ? (
-                  <a
-                    href={`tel:${vendor.phone}`}
-                    className="drawer-contact-val tabular-nums"
-                  >
+                  <a href={`tel:${vendor.phone}`} className="drawer-contact-val tabular-nums">
                     <Phone size={13} />
                     <span>{vendor.phone}</span>
                   </a>
@@ -114,10 +100,7 @@ export const VendorDetailsDrawer: React.FC<VendorDetailsDrawerProps> = ({
               <div className="drawer-contact-col">
                 <span className="drawer-contact-lbl">Email</span>
                 {vendor.email ? (
-                  <a
-                    href={`mailto:${vendor.email}`}
-                    className="drawer-contact-val"
-                  >
+                  <a href={`mailto:${vendor.email}`} className="drawer-contact-val">
                     <Mail size={13} />
                     <span>{vendor.email}</span>
                   </a>
@@ -131,9 +114,7 @@ export const VendorDetailsDrawer: React.FC<VendorDetailsDrawerProps> = ({
           {/* Quotes Section */}
           <div className="drawer-quotes-section">
             <div className="drawer-quotes-header">
-              <h3 className="drawer-section-heading">
-                Quotes ({vendorQuotes.length})
-              </h3>
+              <h3 className="drawer-section-heading">Quotes ({vendorQuotes.length})</h3>
               <button
                 type="button"
                 className="drawer-add-quote-btn"
@@ -171,8 +152,8 @@ export const VendorDetailsDrawer: React.FC<VendorDetailsDrawerProps> = ({
                               {q.unit === 'total'
                                 ? 'total'
                                 : q.unit === 'per_plate'
-                                ? '/ plate'
-                                : '/ guest'}
+                                  ? '/ plate'
+                                  : '/ guest'}
                             </small>
                           </div>
                         </div>
@@ -195,15 +176,13 @@ export const VendorDetailsDrawer: React.FC<VendorDetailsDrawerProps> = ({
                             {q.unit === 'total'
                               ? 'Fixed total'
                               : q.unit === 'per_plate'
-                              ? 'Per Plate'
-                              : 'Per Guest'}
+                                ? 'Per Plate'
+                                : 'Per Guest'}
                           </strong>
                         </div>
                         <div className="breakdown-row">
                           <span>Expected guest count</span>
-                          <strong className="text-text tabular-nums">
-                            {guestCount} pax
-                          </strong>
+                          <strong className="text-text tabular-nums">{guestCount} pax</strong>
                         </div>
                         <div className="breakdown-row total-row">
                           <span>Calculated total</span>
@@ -215,9 +194,7 @@ export const VendorDetailsDrawer: React.FC<VendorDetailsDrawerProps> = ({
 
                       {q.inclusions && q.inclusions.length > 0 && (
                         <div className="drawer-quote-inclusions">
-                          <span className="inclusions-heading">
-                            Included in package:
-                          </span>
+                          <span className="inclusions-heading">Included in package:</span>
                           <ul className="inclusions-list">
                             {q.inclusions.map((inc, i) => (
                               <li key={i}>
@@ -258,11 +235,7 @@ export const VendorDetailsDrawer: React.FC<VendorDetailsDrawerProps> = ({
             <Trash2 size={16} />
             <span>Remove vendor</span>
           </button>
-          <button
-            type="button"
-            className="vendor-primary-pill-btn"
-            onClick={onClose}
-          >
+          <button type="button" className="vendor-primary-pill-btn" onClick={onClose}>
             Done
           </button>
         </div>
@@ -270,4 +243,3 @@ export const VendorDetailsDrawer: React.FC<VendorDetailsDrawerProps> = ({
     </div>
   );
 };
-

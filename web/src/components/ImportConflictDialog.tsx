@@ -62,7 +62,8 @@ export const ImportConflictDialog: React.FC<ImportConflictDialogProps> = ({
             Plan already exists
           </h2>
           <p className="conflict-intro">
-            A celebration with the same plan ID was found in this browser. How would you like to handle this file?
+            A celebration with the same plan ID was found in this browser. How would you like to
+            handle this file?
           </p>
 
           <div className="conflict-comparison">

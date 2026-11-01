@@ -92,11 +92,7 @@ export const LoginPage: React.FC = () => {
 
           {/* Accessible 401 Auth Error State Alert */}
           {authError && (
-            <div
-              className="signin-alert-error"
-              role="alert"
-              aria-live="assertive"
-            >
+            <div className="signin-alert-error" role="alert" aria-live="assertive">
               <CircleAlert size={20} className="signin-alert-icon" aria-hidden="true" />
               <div className="signin-alert-text">
                 <p className="signin-alert-title">Authentication failed</p>
@@ -179,11 +175,7 @@ export const LoginPage: React.FC = () => {
 
             {/* Submit Button */}
             <div className="signin-submit-row">
-              <button
-                type="submit"
-                className="signin-submit-btn"
-                disabled={isLoading}
-              >
+              <button type="submit" className="signin-submit-btn" disabled={isLoading}>
                 {isLoading ? (
                   <>
                     <Loader2 size={18} className="signin-spinner" aria-hidden="true" />
@@ -216,9 +208,13 @@ export const LoginPage: React.FC = () => {
 
           <div className="signin-legal-links">
             <span className="signin-legal-item">Privacy</span>
-            <span className="signin-legal-sep" aria-hidden="true">·</span>
+            <span className="signin-legal-sep" aria-hidden="true">
+              ·
+            </span>
             <span className="signin-legal-item">Terms</span>
-            <span className="signin-legal-sep" aria-hidden="true">·</span>
+            <span className="signin-legal-sep" aria-hidden="true">
+              ·
+            </span>
             <span className="signin-legal-item">Support</span>
           </div>
         </div>

@@ -39,8 +39,7 @@ def budget_status(allocated_paise: int, committed_paise: int) -> BudgetStatus:
     """over if committed > allocated; warning if committed >= exactly 90% of allocated.
 
     A zero allocation with any committed amount is over. Integer comparison only, so 89.9%
-    is ok and 90.0% is warning. Note: the web app compares against Math.round(allocated*0.9),
-    which differs for allocations where 90% has a fraction below .5 (see tests/parity).
+    is ok and 90.0% is warning. The web app uses the same integer rule (tests/parity).
     """
     if allocated_paise <= 0:
         return "over" if committed_paise > 0 else "ok"

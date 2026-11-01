@@ -100,4 +100,3 @@ describe('Ideas Domain & Validation', () => {
     expect(coverage.uncoveredDiets).toHaveLength(0);
   });
 });
-

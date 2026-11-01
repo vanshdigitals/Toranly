@@ -31,27 +31,21 @@ export const CompareQuotesModal: React.FC<CompareQuotesModalProps> = ({
   // Calculate price variance if 2 or more quotes exist
   let varianceText: string | null = null;
   if (quotes.length >= 2) {
-    const sorted = [...quotes].sort(
-      (a, b) => a.totalCalculatedPaise - b.totalCalculatedPaise
-    );
+    const sorted = [...quotes].sort((a, b) => a.totalCalculatedPaise - b.totalCalculatedPaise);
     const lowest = sorted[0];
     const highest = sorted[sorted.length - 1];
     const diffPaise = highest.totalCalculatedPaise - lowest.totalCalculatedPaise;
     if (diffPaise > 0 && lowest.totalCalculatedPaise > 0) {
       const pct = Math.round((diffPaise / lowest.totalCalculatedPaise) * 100);
       const highVendor = vendors.find(
-        (v) => v.id === highest.vendorId || v.name === highest.vendorId
+        (v) => v.id === highest.vendorId || v.name === highest.vendorId,
       );
       varianceText = `Variance: ${highVendor?.name || 'Higher quote'} is ${formatPaise(diffPaise)} more (+${pct}%)`;
     }
   }
 
   return (
-    <div
-      className="vendor-compare-scrim"
-      role="presentation"
-      onClick={onClose}
-    >
+    <div className="vendor-compare-scrim" role="presentation" onClick={onClose}>
       <div
         className="vendor-compare-dialog"
         role="dialog"
@@ -62,9 +56,7 @@ export const CompareQuotesModal: React.FC<CompareQuotesModalProps> = ({
         {/* Header */}
         <div className="compare-dialog-header">
           <div className="compare-dialog-eyebrow-group">
-            <span className="compare-dialog-eyebrow">
-              {categoryLabel} Category
-            </span>
+            <span className="compare-dialog-eyebrow">{categoryLabel} Category</span>
             <h2 id="compare-dialog-title" className="compare-dialog-title">
               Compare {categoryLabel.toLowerCase()} quotes
             </h2>
@@ -84,33 +76,21 @@ export const CompareQuotesModal: React.FC<CompareQuotesModalProps> = ({
           {quotes.length === 0 ? (
             <div className="compare-empty-box">
               <p>No quotes recorded for vendors in this category yet.</p>
-              <button
-                type="button"
-                className="vendor-primary-pill-btn"
-                onClick={onAddQuote}
-              >
+              <button type="button" className="vendor-primary-pill-btn" onClick={onAddQuote}>
                 <Plus size={16} />
                 <span>Add first quote</span>
               </button>
             </div>
           ) : (
-            <div
-              className={`compare-cards-grid ${
-                quotes.length === 1 ? 'single-col' : ''
-              }`}
-            >
+            <div className={`compare-cards-grid ${quotes.length === 1 ? 'single-col' : ''}`}>
               {quotes.map((q) => {
-                const vendor = vendors.find(
-                  (v) => v.id === q.vendorId || v.name === q.vendorId
-                );
+                const vendor = vendors.find((v) => v.id === q.vendorId || v.name === q.vendorId);
                 const vendorName = vendor ? vendor.name : q.vendorId;
 
                 return (
                   <div
                     key={q.id}
-                    className={`compare-quote-card ${
-                      q.isCheapest ? 'is-cheapest' : ''
-                    }`}
+                    className={`compare-quote-card ${q.isCheapest ? 'is-cheapest' : ''}`}
                   >
                     <div className="compare-card-top">
                       {q.isCheapest && (
@@ -139,16 +119,14 @@ export const CompareQuotesModal: React.FC<CompareQuotesModalProps> = ({
                           {q.unit === 'total'
                             ? 'total'
                             : q.unit === 'per_plate'
-                            ? `(₹${paiseToRupees(q.rawAmountPaise)} / plate × ${guestCount} pax)`
-                            : `(₹${paiseToRupees(q.rawAmountPaise)} / guest × ${guestCount} pax)`}
+                              ? `(₹${paiseToRupees(q.rawAmountPaise)} / plate × ${guestCount} pax)`
+                              : `(₹${paiseToRupees(q.rawAmountPaise)} / guest × ${guestCount} pax)`}
                         </span>
                       </div>
                     </div>
 
                     <div className="compare-inclusions-box">
-                      <span className="inclusions-label">
-                        Key Features &amp; Differences:
-                      </span>
+                      <span className="inclusions-label">Key Features &amp; Differences:</span>
                       {q.inclusions && q.inclusions.length > 0 ? (
                         <ul className="inclusions-check-list">
                           {q.inclusions.map((inc, i) => (
@@ -159,9 +137,7 @@ export const CompareQuotesModal: React.FC<CompareQuotesModalProps> = ({
                           ))}
                         </ul>
                       ) : (
-                        <span className="text-muted text-xs">
-                          Standard service package
-                        </span>
+                        <span className="text-muted text-xs">Standard service package</span>
                       )}
                     </div>
 
@@ -172,8 +148,8 @@ export const CompareQuotesModal: React.FC<CompareQuotesModalProps> = ({
                           vendor?.status === 'booked'
                             ? 'is-booked'
                             : q.isCheapest
-                            ? 'is-primary'
-                            : 'is-secondary'
+                              ? 'is-primary'
+                              : 'is-secondary'
                         }`}
                         onClick={() => {
                           if (vendor) {
@@ -182,9 +158,7 @@ export const CompareQuotesModal: React.FC<CompareQuotesModalProps> = ({
                           }
                         }}
                       >
-                        {vendor?.status === 'booked'
-                          ? '✓ Currently Booked'
-                          : 'Choose this vendor'}
+                        {vendor?.status === 'booked' ? '✓ Currently Booked' : 'Choose this vendor'}
                       </button>
                     </div>
                   </div>
@@ -197,14 +171,9 @@ export const CompareQuotesModal: React.FC<CompareQuotesModalProps> = ({
         {/* Footer */}
         <div className="compare-dialog-footer">
           <span className="compare-variance-note">
-            {varianceText ||
-              `Normalized rates calculated for ${guestCount} expected guests.`}
+            {varianceText || `Normalized rates calculated for ${guestCount} expected guests.`}
           </span>
-          <button
-            type="button"
-            className="compare-close-action"
-            onClick={onClose}
-          >
+          <button type="button" className="compare-close-action" onClick={onClose}>
             Close comparison
           </button>
         </div>
@@ -212,4 +181,3 @@ export const CompareQuotesModal: React.FC<CompareQuotesModalProps> = ({
     </div>
   );
 };
-

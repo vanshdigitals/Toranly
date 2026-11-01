@@ -55,13 +55,16 @@ export const StorageNoticeDialog: React.FC = () => {
             Your plans are saved right here
           </h2>
           <p className="storage-notice-text">
-            Toranly saves all your celebration details locally in this browser on this device. Your data is never uploaded to an account or shared with third parties.
+            Toranly saves all your celebration details locally in this browser on this device. Your
+            data is never uploaded to an account or shared with third parties.
           </p>
 
           <div className="storage-notice-callout">
             <ShieldAlert size={18} className="storage-notice-callout-icon" aria-hidden="true" />
             <p className="storage-notice-callout-text">
-              Clearing browsing history or using a private window removes your saved plans. You can download a <strong>.toranly.json backup</strong> anytime from Settings to keep a safe copy.
+              Clearing browsing history or using a private window removes your saved plans. You can
+              download a <strong>.toranly.json backup</strong> anytime from Settings to keep a safe
+              copy.
             </p>
           </div>
         </div>
@@ -75,4 +78,3 @@ export const StorageNoticeDialog: React.FC = () => {
     </div>
   );
 };
-

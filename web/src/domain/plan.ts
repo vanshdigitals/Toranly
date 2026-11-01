@@ -15,7 +15,7 @@ export const CanonicalEventTypeSchema = z.enum([
 
 export type CanonicalEventType = z.infer<typeof CanonicalEventTypeSchema>;
 
-export const EventPreferencesSchema = z.object({
+const EventPreferencesSchema = z.object({
   themeWords: z.array(z.string()).default([]),
   dietFocus: z.array(z.string()).default([]),
   customs: z.array(z.string()).default([]),
@@ -25,7 +25,7 @@ export const EventPreferencesSchema = z.object({
 
 export type EventPreferences = z.infer<typeof EventPreferencesSchema>;
 
-export const EventDetailsSchema = z.object({
+const EventDetailsSchema = z.object({
   type: CanonicalEventTypeSchema,
   title: z.string().min(1).max(120),
   eventDate: z.string().nullable().default(null),
@@ -84,9 +84,9 @@ export const ExpenseItemSchema = z.object({
 
 export type ExpenseItem = z.infer<typeof ExpenseItemSchema>;
 
-export const TaskDateModeSchema = z.enum(['relative', 'fixed']);
-export const TaskStatusSchema = z.enum(['open', 'done']);
-export const TaskSourceSchema = z.enum(['template', 'user', 'ai']);
+const TaskDateModeSchema = z.enum(['relative', 'fixed']);
+const TaskStatusSchema = z.enum(['open', 'done']);
+const TaskSourceSchema = z.enum(['template', 'user', 'ai']);
 
 export const TaskItemSchema = z.object({
   id: z.string(),
@@ -106,7 +106,7 @@ export const TaskItemSchema = z.object({
 
 export type TaskItem = z.infer<typeof TaskItemSchema>;
 
-export const VendorStatusSchema = z.enum(['shortlisted', 'booked', 'dropped']);
+const VendorStatusSchema = z.enum(['shortlisted', 'booked', 'dropped']);
 
 export const VendorItemSchema = z.object({
   id: z.string(),
@@ -135,7 +135,7 @@ export const QuoteItemSchema = z.object({
 
 export type QuoteItem = z.infer<typeof QuoteItemSchema>;
 
-export const GuestsSummarySchema = z
+const GuestsSummarySchema = z
   .object({
     total: z.number().int().min(0),
     veg: z.number().int().min(0).default(0),
@@ -164,7 +164,7 @@ export type ScheduleItem = z.infer<typeof ScheduleItemSchema>;
 
 export const IdeaKindSchema = z.enum(['theme', 'decor', 'menu', 'saving', 'other']);
 export type IdeaKind = z.infer<typeof IdeaKindSchema>;
-export const IdeaSourceSchema = z.enum(['ai', 'user']);
+const IdeaSourceSchema = z.enum(['ai', 'user']);
 export type IdeaSource = z.infer<typeof IdeaSourceSchema>;
 
 export const IdeaItemSchema = z.object({
@@ -252,29 +252,37 @@ export function migrate(raw: unknown): Plan {
   const now = new Date().toISOString();
   const rawId = (obj.id || obj.eventId || `plan-${Date.now()}`) as string;
   const rawType = (obj.type || obj.canonicalType || 'wedding') as CanonicalEventType;
-  const rawTitle = (obj.title || obj.eventName || "Our Celebration") as string;
+  const rawTitle = (obj.title || obj.eventName || 'Our Celebration') as string;
   const rawDate = (obj.eventDate || null) as string | null;
   const rawCity = (obj.city || null) as string | null;
   const rawGuests = typeof obj.guestEstimate === 'number' ? obj.guestEstimate : 0;
-  const rawBudget = typeof obj.budgetTotalPaise === 'number'
-    ? obj.budgetTotalPaise
-    : typeof obj.budgetTotal === 'number'
-      ? obj.budgetTotal * 100
-      : null;
+  const rawBudget =
+    typeof obj.budgetTotalPaise === 'number'
+      ? obj.budgetTotalPaise
+      : typeof obj.budgetTotal === 'number'
+        ? obj.budgetTotal * 100
+        : null;
 
-  const rawPref = (typeof obj.preferences === 'object' && obj.preferences !== null)
-    ? (obj.preferences as Record<string, unknown>)
-    : {};
-  const rawDiet = (typeof obj.dietBreakdown === 'object' && obj.dietBreakdown !== null)
-    ? (obj.dietBreakdown as Record<string, unknown>)
-    : null;
+  const rawPref =
+    typeof obj.preferences === 'object' && obj.preferences !== null
+      ? (obj.preferences as Record<string, unknown>)
+      : {};
+  const rawDiet =
+    typeof obj.dietBreakdown === 'object' && obj.dietBreakdown !== null
+      ? (obj.dietBreakdown as Record<string, unknown>)
+      : null;
 
   const upgraded = {
     schemaVersion: 1,
     id: rawId,
     createdAt: (obj.createdAt as string) || now,
     updatedAt: (obj.updatedAt as string) || now,
-    wizardStep: typeof obj.wizardStep === 'number' ? obj.wizardStep : (typeof obj.step === 'number' ? obj.step : 1),
+    wizardStep:
+      typeof obj.wizardStep === 'number'
+        ? obj.wizardStep
+        : typeof obj.step === 'number'
+          ? obj.step
+          : 1,
     status: (obj.status as 'draft' | 'active' | 'completed') || 'draft',
     event: {
       type: rawType,
@@ -303,7 +311,12 @@ export function migrate(raw: unknown): Plan {
       const g = obj.guests as Record<string, unknown> | null | undefined;
       if (g) {
         return {
-          total: typeof g.total === 'number' ? g.total : (typeof g.expectedTotal === 'number' ? g.expectedTotal : rawGuests),
+          total:
+            typeof g.total === 'number'
+              ? g.total
+              : typeof g.expectedTotal === 'number'
+                ? g.expectedTotal
+                : rawGuests,
           veg: typeof g.veg === 'number' ? g.veg : 0,
           nonVeg: typeof g.nonVeg === 'number' ? g.nonVeg : 0,
           jain: typeof g.jain === 'number' ? g.jain : 0,
@@ -333,5 +346,3 @@ export function migrate(raw: unknown): Plan {
 
   return PlanSchema.parse(upgraded);
 }
-
-export const upgradeLegacyPlan = migrate;

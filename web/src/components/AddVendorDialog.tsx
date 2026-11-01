@@ -13,7 +13,7 @@ export interface AddVendorDialogProps {
   initialCategoryKey?: string;
   onSave: (
     vendor: VendorItem,
-    initialQuote?: { amountPaise: number; unit: QuoteUnit; inclusions?: string[] }
+    initialQuote?: { amountPaise: number; unit: QuoteUnit; inclusions?: string[] },
   ) => void;
   onCancel: () => void;
 }
@@ -130,11 +130,7 @@ export const AddVendorDialog: React.FC<AddVendorDialogProps> = ({
   };
 
   return (
-    <div
-      className="vendor-modal-overlay"
-      role="presentation"
-      onClick={onCancel}
-    >
+    <div className="vendor-modal-overlay" role="presentation" onClick={onCancel}>
       <div
         className="vendor-modal-dialog"
         role="dialog"

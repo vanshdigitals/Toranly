@@ -16,7 +16,7 @@ export interface TemplateDefinition {
   }[];
 }
 
-export const CANONICAL_TEMPLATES: Record<CanonicalEventType, TemplateDefinition> = {
+const CANONICAL_TEMPLATES: Record<CanonicalEventType, TemplateDefinition> = {
   wedding: {
     shares: [
       { key: 'venue', label: 'Venue & Stays', sharePercent: 28, position: 1 },

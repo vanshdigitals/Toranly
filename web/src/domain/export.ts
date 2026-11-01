@@ -83,9 +83,7 @@ export function generateTasksCsv(plan: Plan): string {
   const rows: string[][] = [headers];
 
   for (const t of plan.tasks) {
-    const depTitles = (t.dependsOn || [])
-      .map((id) => taskMap.get(id) || id)
-      .join('; ');
+    const depTitles = (t.dependsOn || []).map((id) => taskMap.get(id) || id).join('; ');
 
     rows.push([
       t.title,
@@ -121,29 +119,71 @@ export function generateDietaryCsv(plan: Plan): string {
     ['Total Headcount', String(total)],
     [],
     ['Dietary Group', 'Headcount', 'Percentage of Total', 'Preparation / Chef Notes'],
-    ['Pure Veg', String(veg), total > 0 ? `${Math.round((veg / total) * 100)}%` : '0%', 'Standard Indian vegetarian'],
-    ['Non-Veg', String(nonVeg), total > 0 ? `${Math.round((nonVeg / total) * 100)}%` : '0%', 'Halal / separate grill & cookware'],
-    ['Jain', String(jain), total > 0 ? `${Math.round((jain / total) * 100)}%` : '0%', 'Strict no onion, garlic, or root vegetables'],
-    ['Eggetarian', String(eggetarian), total > 0 ? `${Math.round((eggetarian / total) * 100)}%` : '0%', 'Vegetarian with eggs allowed (bakery / breakfast)'],
-    ['Vegan', String(vegan), total > 0 ? `${Math.round((vegan / total) * 100)}%` : '0%', '100% plant-based / zero dairy / zero ghee'],
+    [
+      'Pure Veg',
+      String(veg),
+      total > 0 ? `${Math.round((veg / total) * 100)}%` : '0%',
+      'Standard Indian vegetarian',
+    ],
+    [
+      'Non-Veg',
+      String(nonVeg),
+      total > 0 ? `${Math.round((nonVeg / total) * 100)}%` : '0%',
+      'Halal / separate grill & cookware',
+    ],
+    [
+      'Jain',
+      String(jain),
+      total > 0 ? `${Math.round((jain / total) * 100)}%` : '0%',
+      'Strict no onion, garlic, or root vegetables',
+    ],
+    [
+      'Eggetarian',
+      String(eggetarian),
+      total > 0 ? `${Math.round((eggetarian / total) * 100)}%` : '0%',
+      'Vegetarian with eggs allowed (bakery / breakfast)',
+    ],
+    [
+      'Vegan',
+      String(vegan),
+      total > 0 ? `${Math.round((vegan / total) * 100)}%` : '0%',
+      '100% plant-based / zero dairy / zero ghee',
+    ],
     [],
     ['ALLERGIES & FOOD SENSITIVITIES'],
-    ['Allergy Tags', (g?.allergyTags && g.allergyTags.length > 0) ? g.allergyTags.join('; ') : 'None listed'],
+    [
+      'Allergy Tags',
+      g?.allergyTags && g.allergyTags.length > 0 ? g.allergyTags.join('; ') : 'None listed',
+    ],
     [],
     ['ACCESSIBILITY & VENUE SUPPORT REQUIREMENTS'],
     ['Requirement', 'Status'],
   ];
 
   const accessibilityOptions = [
-    { id: 'ramps', label: 'Step-free access & ramps (Mandap entrance, dining courtyard, and restroom corridors)' },
-    { id: 'seating', label: 'Seating support & front-row low chairs (Reserved cushioned chairs near havan kund)' },
+    {
+      id: 'ramps',
+      label: 'Step-free access & ramps (Mandap entrance, dining courtyard, and restroom corridors)',
+    },
+    {
+      id: 'seating',
+      label: 'Seating support & front-row low chairs (Reserved cushioned chairs near havan kund)',
+    },
     { id: 'hearing', label: 'Hearing loop / amplified audio near mandap (Clear ceremonial audio)' },
-    { id: 'visual', label: 'Visual assistance & high-contrast signage (Legible dietary markers at live counters)' },
-    { id: 'transit', label: 'Elderly mobility transit golf carts (Shuttle between parking and reception)' },
+    {
+      id: 'visual',
+      label: 'Visual assistance & high-contrast signage (Legible dietary markers at live counters)',
+    },
+    {
+      id: 'transit',
+      label: 'Elderly mobility transit golf carts (Shuttle between parking and reception)',
+    },
   ];
 
   for (const opt of accessibilityOptions) {
-    const isChecked = (g?.accessibilityNeeds || []).includes(opt.id) || (g?.accessibilityNeeds || []).includes(opt.label);
+    const isChecked =
+      (g?.accessibilityNeeds || []).includes(opt.id) ||
+      (g?.accessibilityNeeds || []).includes(opt.label);
     rows.push([opt.label, isChecked ? 'REQUIRED' : 'NOT REQUESTED']);
   }
 

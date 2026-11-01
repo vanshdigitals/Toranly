@@ -24,7 +24,7 @@ const PrintPlanPage = lazy(() =>
   import('./pages/PrintPlanPage').then((m) => ({ default: m.PrintPlanPage })),
 );
 
-export function App() {
+function App() {
   return (
     <BrowserRouter>
       {/* Accessible skip link: first item in keyboard order */}

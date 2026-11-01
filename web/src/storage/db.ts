@@ -109,7 +109,9 @@ export async function listPlans(): Promise<Plan[]> {
     const db = await getDB();
     if (!db || isMemoryMode) {
       const plans = Array.from(inMemoryPlans.values());
-      return plans.sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime());
+      return plans.sort(
+        (a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
+      );
     }
 
     const plans = await db.getAll('plans');
@@ -242,7 +244,9 @@ export async function getSnapshots(planId: string): Promise<PlanSnapshot[]> {
   const db = await getDB();
   if (!db || isMemoryMode) {
     const snaps = inMemorySnapshots.get(planId) || [];
-    return [...snaps].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+    return [...snaps].sort(
+      (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+    );
   }
 
   try {
@@ -310,7 +314,10 @@ export async function setMeta(key: string, value: unknown): Promise<void> {
 // Internal Snapshot and Persistence Helpers
 // ----------------------------------------------------------------------
 
-async function manageSnapshotIndexedDB(db: IDBPDatabase<ToranlyDBSchema>, plan: Plan): Promise<void> {
+async function manageSnapshotIndexedDB(
+  db: IDBPDatabase<ToranlyDBSchema>,
+  plan: Plan,
+): Promise<void> {
   try {
     const snaps = await getSnapshots(plan.id);
     const now = Date.now();

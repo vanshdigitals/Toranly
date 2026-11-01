@@ -38,7 +38,9 @@ describe('Settings Export & Backup Integration', () => {
 
   it('generates valid budget CSV with correct headers', () => {
     const csv = generateBudgetCsv(plan);
-    expect(csv).toContain('Category,Allocated (INR),Committed (INR),Paid (INR),Remaining (INR),Status');
+    expect(csv).toContain(
+      'Category,Allocated (INR),Committed (INR),Paid (INR),Remaining (INR),Status',
+    );
     expect(csv).toContain('Venue & Stays,700000.00');
     expect(csv).toContain('TOTAL,2500000.00');
   });

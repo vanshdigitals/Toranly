@@ -4,7 +4,7 @@
  * Errors are RFC 9457 Problem Details from the backend, surfaced as `ApiError`.
  */
 
-export const API_BASE = '/api/v1';
+const API_BASE = '/api/v1';
 
 const DEFAULT_TIMEOUT_MS = 15_000;
 

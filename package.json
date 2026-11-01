@@ -1,0 +1,16 @@
+{
+  "name": "toranly",
+  "private": true,
+  "description": "Toranly: celebration and event planner. One command per task for the web app and the backend.",
+  "scripts": {
+    "setup": "npm --prefix web ci && uv sync --directory backend",
+    "dev:api": "uv run --directory backend uvicorn app.main:app_factory --factory --reload --port 8000",
+    "dev:web": "npm --prefix web run dev",
+    "lint": "uv run --directory backend ruff check . && uv run --directory backend ruff format --check . && npm --prefix web run lint",
+    "typecheck": "uv run --directory backend mypy && npm --prefix web run typecheck",
+    "test": "uv run --directory backend pytest -m \"not live\" && npm --prefix web test",
+    "test:e2e": "npm --prefix web run e2e",
+    "test:all": "npm run lint && npm run typecheck && npm test && npm run test:e2e",
+    "build": "npm --prefix web run build"
+  }
+}

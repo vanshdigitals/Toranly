@@ -247,11 +247,7 @@ export const EventsDashboardPage: React.FC = () => {
               </p>
             </div>
             <div className="dashboard-header-cta-group">
-              <button
-                type="button"
-                className="dashboard-import-btn"
-                onClick={handleImportClick}
-              >
+              <button type="button" className="dashboard-import-btn" onClick={handleImportClick}>
                 <Upload size={16} aria-hidden="true" />
                 <span>Import plan</span>
               </button>
@@ -265,11 +261,7 @@ export const EventsDashboardPage: React.FC = () => {
           {importError && (
             <div className="dashboard-import-error" role="alert">
               <span>{importError}</span>
-              <button
-                type="button"
-                onClick={() => setImportError(null)}
-                className="error-dismiss"
-              >
+              <button type="button" onClick={() => setImportError(null)} className="error-dismiss">
                 ✕
               </button>
             </div>
@@ -293,11 +285,7 @@ export const EventsDashboardPage: React.FC = () => {
                   <Plus size={18} />
                   <span>Plan a celebration</span>
                 </Link>
-                <button
-                  type="button"
-                  className="dashboard-import-btn"
-                  onClick={handleImportClick}
-                >
+                <button type="button" className="dashboard-import-btn" onClick={handleImportClick}>
                   <Upload size={16} />
                   <span>Import backup (.toranly.json)</span>
                 </button>
@@ -306,10 +294,7 @@ export const EventsDashboardPage: React.FC = () => {
               <div className="dashboard-shortcuts-section">
                 <span className="dashboard-shortcuts-label">Or start with a ready template:</span>
                 <div className="dashboard-shortcuts-grid">
-                  <Link
-                    to="/events/new?type=wedding"
-                    className="dashboard-shortcut-card"
-                  >
+                  <Link to="/events/new?type=wedding" className="dashboard-shortcut-card">
                     <div className="dashboard-shortcut-icon">
                       <HeartHandshake size={20} />
                     </div>
@@ -318,10 +303,7 @@ export const EventsDashboardPage: React.FC = () => {
                       <span>Mehendi, sangeet, reception &amp; budget</span>
                     </div>
                   </Link>
-                  <Link
-                    to="/events/new?type=birthday"
-                    className="dashboard-shortcut-card"
-                  >
+                  <Link to="/events/new?type=birthday" className="dashboard-shortcut-card">
                     <div className="dashboard-shortcut-icon">
                       <Cake size={20} />
                     </div>
@@ -330,10 +312,7 @@ export const EventsDashboardPage: React.FC = () => {
                       <span>Theme, cake, games &amp; return gifts</span>
                     </div>
                   </Link>
-                  <Link
-                    to="/events/new?type=community"
-                    className="dashboard-shortcut-card"
-                  >
+                  <Link to="/events/new?type=community" className="dashboard-shortcut-card">
                     <div className="dashboard-shortcut-icon">
                       <Users size={20} />
                     </div>
@@ -351,7 +330,9 @@ export const EventsDashboardPage: React.FC = () => {
               {plans.map((p) => {
                 const cat = getCategoryById(p.event.type);
                 const Icon = cat.icon;
-                const daysRemaining = p.event.eventDate ? calculateDaysRemaining(p.event.eventDate) : null;
+                const daysRemaining = p.event.eventDate
+                  ? calculateDaysRemaining(p.event.eventDate)
+                  : null;
                 const metrics = calculateBudgetMetrics(p.budgetCategories, p.expenses);
                 const openTasksCount = p.tasks.filter((t) => t.status === 'open').length;
 
@@ -364,9 +345,7 @@ export const EventsDashboardPage: React.FC = () => {
                       </div>
                       <div className="dashboard-card-top-actions">
                         {daysRemaining !== null && (
-                          <span className="dashboard-days-pill">
-                            {daysRemaining} days to go
-                          </span>
+                          <span className="dashboard-days-pill">{daysRemaining} days to go</span>
                         )}
                         <button
                           type="button"
@@ -409,7 +388,9 @@ export const EventsDashboardPage: React.FC = () => {
                           <span className="dashboard-stat-label">Budget committed</span>
                           <span className="dashboard-stat-value">
                             {formatPaise(metrics.totalCommittedPaise, { compact: true })} of{' '}
-                            {p.event.budgetTotalPaise ? formatPaise(p.event.budgetTotalPaise, { compact: true }) : 'Flexible'}
+                            {p.event.budgetTotalPaise
+                              ? formatPaise(p.event.budgetTotalPaise, { compact: true })
+                              : 'Flexible'}
                           </span>
                         </div>
                         <div className="dashboard-card-stat">

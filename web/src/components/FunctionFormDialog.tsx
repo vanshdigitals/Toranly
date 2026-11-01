@@ -76,7 +76,12 @@ export const FunctionFormDialog: React.FC<FunctionFormDialogProps> = ({
   };
 
   return (
-    <div className="fn-dialog-overlay" role="dialog" aria-modal="true" aria-labelledby="fn-dialog-title">
+    <div
+      className="fn-dialog-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="fn-dialog-title"
+    >
       <div className="fn-dialog-card">
         <div className="fn-dialog-header">
           <h3 id="fn-dialog-title" className="fn-dialog-title">
@@ -164,11 +169,7 @@ export const FunctionFormDialog: React.FC<FunctionFormDialogProps> = ({
           </div>
 
           <div className="fn-dialog-footer">
-            <button
-              type="button"
-              className="fn-dialog-cancel-btn"
-              onClick={onCancel}
-            >
+            <button type="button" className="fn-dialog-cancel-btn" onClick={onCancel}>
               Cancel
             </button>
             <button type="submit" className="fn-dialog-save-btn">
@@ -180,4 +181,3 @@ export const FunctionFormDialog: React.FC<FunctionFormDialogProps> = ({
     </div>
   );
 };
-

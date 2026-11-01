@@ -52,11 +52,17 @@ const FUNCTION_DOT_COLORS = [
 function formatIndianLakhShorthand(rupees: number): string {
   if (!rupees || rupees <= 0) return '₹0';
   if (rupees >= 10000000) {
-    const cr = (rupees / 10000000).toFixed(2).replace(/\.00$/, '').replace(/(\.[1-9])0$/, '$1');
+    const cr = (rupees / 10000000)
+      .toFixed(2)
+      .replace(/\.00$/, '')
+      .replace(/(\.[1-9])0$/, '$1');
     return `${cr} crore`;
   }
   if (rupees >= 100000) {
-    const lakh = (rupees / 100000).toFixed(2).replace(/\.00$/, '').replace(/(\.[1-9])0$/, '$1');
+    const lakh = (rupees / 100000)
+      .toFixed(2)
+      .replace(/\.00$/, '')
+      .replace(/(\.[1-9])0$/, '$1');
     return `${lakh} lakh`;
   }
   if (rupees >= 1000) {
@@ -83,7 +89,11 @@ function getDaysUntil(dateStr?: string | null): { text: string; isPast: boolean 
   return { text: `${Math.abs(diffDays)} days ago`, isPast: true };
 }
 
-function isMainFunction(fn: FunctionItem, allFunctions: FunctionItem[], eventDate: string | null): boolean {
+function isMainFunction(
+  fn: FunctionItem,
+  allFunctions: FunctionItem[],
+  eventDate: string | null,
+): boolean {
   if (/wedding|pheras|varmala|marriage/i.test(fn.name)) return true;
   if (eventDate && fn.date === eventDate) {
     const firstOnDate = allFunctions.find((f) => f.date === eventDate);
@@ -105,13 +115,13 @@ export const SettingsTab: React.FC<SettingsTabProps> = ({
   const [city, setCity] = useState(plan.event.city || '');
   const [guestEstimate, setGuestEstimate] = useState<number>(plan.event.guestEstimate || 0);
   const [budgetRupees, setBudgetRupees] = useState<number>(
-    plan.event.budgetTotalPaise ? paiseToRupees(plan.event.budgetTotalPaise) : 0
+    plan.event.budgetTotalPaise ? paiseToRupees(plan.event.budgetTotalPaise) : 0,
   );
   const [notes, setNotes] = useState(plan.event.preferences?.notes || '');
   const [themeWords, setThemeWords] = useState<string[]>(plan.event.preferences?.themeWords || []);
   const [newThemeWord, setNewThemeWord] = useState('');
   const [avoidColours, setAvoidColours] = useState<string[]>(
-    plan.event.preferences?.avoidColours || []
+    plan.event.preferences?.avoidColours || [],
   );
   const [newAvoidColour, setNewAvoidColour] = useState('');
   const [customs, setCustoms] = useState<string[]>(plan.event.preferences?.customs || []);
@@ -274,7 +284,7 @@ export const SettingsTab: React.FC<SettingsTabProps> = ({
     let updatedFunctions: FunctionItem[];
     if (editingFunction) {
       updatedFunctions = plan.functions.map((f) =>
-        f.id === editingFunction.id ? { ...f, ...data } : f
+        f.id === editingFunction.id ? { ...f, ...data } : f,
       );
     } else {
       const newFn: FunctionItem = {
@@ -385,7 +395,8 @@ export const SettingsTab: React.FC<SettingsTabProps> = ({
         <header className="settings-page-header">
           <h1 className="settings-page-title">Event settings</h1>
           <p className="settings-page-desc">
-            Manage your celebration details, functions schedule, data exports, or change your event date.
+            Manage your celebration details, functions schedule, data exports, or change your event
+            date.
           </p>
         </header>
 
@@ -401,7 +412,8 @@ export const SettingsTab: React.FC<SettingsTabProps> = ({
                   Event Details
                 </h2>
                 <p className="settings-card-subtitle">
-                  Key parameters shaping your budget calculations, print outputs, and guest allocations.
+                  Key parameters shaping your budget calculations, print outputs, and guest
+                  allocations.
                 </p>
               </div>
               <span className="settings-active-plan-badge">Active Plan</span>
@@ -698,8 +710,8 @@ export const SettingsTab: React.FC<SettingsTabProps> = ({
                   )}
                 </div>
                 <p className="settings-card-desc-compact">
-                  Changing the date recalculates relative timeline tasks and checks function schedules
-                  across all connected vendors.
+                  Changing the date recalculates relative timeline tasks and checks function
+                  schedules across all connected vendors.
                 </p>
               </div>
 
@@ -741,8 +753,8 @@ export const SettingsTab: React.FC<SettingsTabProps> = ({
               <div className="settings-empty-state">
                 <p className="settings-empty-title">No functions added yet</p>
                 <p className="settings-empty-desc">
-                  Add ceremonies and gatherings (such as Mehendi, Sangeet, or Pheras) to structure your
-                  celebration timeline.
+                  Add ceremonies and gatherings (such as Mehendi, Sangeet, or Pheras) to structure
+                  your celebration timeline.
                 </p>
                 <button
                   type="button"
@@ -832,8 +844,8 @@ export const SettingsTab: React.FC<SettingsTabProps> = ({
               Data &amp; Export
             </h2>
             <p className="settings-card-subtitle max-w-2xl">
-              Download spreadsheet-compatible CSV files of your current budget allocations, expenses log,
-              and task checklist.
+              Download spreadsheet-compatible CSV files of your current budget allocations, expenses
+              log, and task checklist.
             </p>
 
             <div className="settings-export-actions">
@@ -863,7 +875,11 @@ export const SettingsTab: React.FC<SettingsTabProps> = ({
                 onClick={() => setShowAdvancedData((prev) => !prev)}
                 aria-expanded={showAdvancedData}
               >
-                <span>{showAdvancedData ? 'Hide backup & restore options' : 'Backup & snapshot restore options'}</span>
+                <span>
+                  {showAdvancedData
+                    ? 'Hide backup & restore options'
+                    : 'Backup & snapshot restore options'}
+                </span>
               </button>
 
               {showAdvancedData && (
@@ -901,7 +917,11 @@ export const SettingsTab: React.FC<SettingsTabProps> = ({
                         {snapshots.map((snap, idx) => (
                           <div key={snap.id} className="settings-snapshot-chip">
                             <span>
-                              Snapshot {idx + 1} · {new Date(snap.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                              Snapshot {idx + 1} ·{' '}
+                              {new Date(snap.createdAt).toLocaleTimeString([], {
+                                hour: '2-digit',
+                                minute: '2-digit',
+                              })}
                             </span>
                             <button
                               type="button"
@@ -924,7 +944,10 @@ export const SettingsTab: React.FC<SettingsTabProps> = ({
           {/* ========================================================= */}
           {/* 7. DANGER ZONE CARD                                      */}
           {/* ========================================================= */}
-          <section className="settings-card settings-danger-card" aria-labelledby="card-danger-zone">
+          <section
+            className="settings-card settings-danger-card"
+            aria-labelledby="card-danger-zone"
+          >
             <div className="settings-danger-row">
               <div className="settings-danger-info">
                 <div className="settings-danger-title-row">
@@ -934,9 +957,10 @@ export const SettingsTab: React.FC<SettingsTabProps> = ({
                   </h2>
                 </div>
                 <p className="settings-danger-desc">
-                  Deleting removes <strong className="settings-danger-strong">{plan.event.title}</strong>{' '}
-                  and all associated budget items, tasks, vendor quotes, and guest dietary records permanently.
-                  This action cannot be undone.
+                  Deleting removes{' '}
+                  <strong className="settings-danger-strong">{plan.event.title}</strong> and all
+                  associated budget items, tasks, vendor quotes, and guest dietary records
+                  permanently. This action cannot be undone.
                 </p>
               </div>
 

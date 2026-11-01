@@ -4,7 +4,7 @@ import { getCategoryById, resolveCategoryId } from '../types/wizard';
 const DRAFT_STORAGE_KEY = 'toranly_wizard_draft';
 const EVENTS_STORAGE_KEY = 'toranly_events';
 
-export const DEFAULT_DIET_BREAKDOWN: DietBreakdown = {
+const DEFAULT_DIET_BREAKDOWN: DietBreakdown = {
   veg: 0,
   jain: 0,
   nonVeg: 0,
@@ -12,21 +12,12 @@ export const DEFAULT_DIET_BREAKDOWN: DietBreakdown = {
   vegan: 0,
 };
 
-export const DEFAULT_PREFERENCES: EventPreferences = {
+const DEFAULT_PREFERENCES: EventPreferences = {
   themeWords: [],
   avoidColours: [],
   customs: [],
   notes: '',
 };
-
-/**
- * Get a default future date (e.g. 110 days in future) formatted YYYY-MM-DD
- */
-export function getDefaultFutureDate(daysAhead = 110): string {
-  const d = new Date();
-  d.setDate(d.getDate() + daysAhead);
-  return d.toISOString().split('T')[0];
-}
 
 /**
  * Default initial wizard state
@@ -142,30 +133,6 @@ export function saveWizardDraft(updates: Partial<WizardData>): WizardData {
     console.warn('Could not save wizard draft', err);
   }
   return next;
-}
-
-/**
- * Reset wizard draft
- */
-export function resetWizardDraft(rawType?: string | null): WizardData {
-  const fresh = createInitialWizardData(rawType);
-  try {
-    localStorage.setItem(DRAFT_STORAGE_KEY, JSON.stringify(fresh));
-  } catch (err) {
-    console.warn('Could not reset wizard draft', err);
-  }
-  return fresh;
-}
-
-/**
- * Clear wizard draft
- */
-export function clearWizardDraft(): void {
-  try {
-    localStorage.removeItem(DRAFT_STORAGE_KEY);
-  } catch (err) {
-    console.warn('Could not clear wizard draft', err);
-  }
 }
 
 /**

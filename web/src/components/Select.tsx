@@ -63,7 +63,7 @@ export function Select<T extends string = string>({
   // Controlled vs Uncontrolled state
   const isControlled = controlledValue !== undefined;
   const [internalValue, setInternalValue] = useState<T | undefined>(
-    defaultValue !== undefined ? defaultValue : (options[0]?.value as T | undefined)
+    defaultValue !== undefined ? defaultValue : (options[0]?.value as T | undefined),
   );
   const selectedValue = isControlled ? controlledValue : internalValue;
 
@@ -80,7 +80,7 @@ export function Select<T extends string = string>({
   // Active option
   const selectedOption = useMemo(
     () => options.find((o) => o.value === selectedValue),
-    [options, selectedValue]
+    [options, selectedValue],
   );
 
   // Filtered options if searchable
@@ -89,8 +89,7 @@ export function Select<T extends string = string>({
     const q = searchQuery.toLowerCase().trim();
     return options.filter(
       (o) =>
-        o.label.toLowerCase().includes(q) ||
-        (o.sublabel && o.sublabel.toLowerCase().includes(q))
+        o.label.toLowerCase().includes(q) || (o.sublabel && o.sublabel.toLowerCase().includes(q)),
     );
   }, [options, searchable, searchQuery]);
 
@@ -166,7 +165,7 @@ export function Select<T extends string = string>({
   useEffect(() => {
     if (isOpen && highlightedIndex >= 0 && menuRef.current) {
       const highlightedEl = menuRef.current.querySelector(
-        `[data-index="${highlightedIndex}"]`
+        `[data-index="${highlightedIndex}"]`,
       ) as HTMLElement | null;
       if (highlightedEl) {
         highlightedEl.scrollIntoView({ block: 'nearest' });
@@ -256,8 +255,7 @@ export function Select<T extends string = string>({
   };
 
   // Status variant class
-  const statusClass =
-    variant === 'status' && selectedValue ? `is-status-${selectedValue}` : '';
+  const statusClass = variant === 'status' && selectedValue ? `is-status-${selectedValue}` : '';
 
   return (
     <div
@@ -268,14 +266,7 @@ export function Select<T extends string = string>({
       onKeyDown={handleKeyDown}
     >
       {/* Hidden input for form integration */}
-      {name && (
-        <input
-          type="hidden"
-          name={name}
-          value={selectedValue || ''}
-          required={required}
-        />
-      )}
+      {name && <input type="hidden" name={name} value={selectedValue || ''} required={required} />}
 
       {/* Trigger Button */}
       <button
@@ -303,13 +294,9 @@ export function Select<T extends string = string>({
                   {selectedOption.icon}
                 </span>
               )}
-              <span className="toranly-select-label-text">
-                {selectedOption.label}
-              </span>
+              <span className="toranly-select-label-text">{selectedOption.label}</span>
               {selectedOption.badge && (
-                <span className="toranly-select-item-badge">
-                  {selectedOption.badge}
-                </span>
+                <span className="toranly-select-item-badge">{selectedOption.badge}</span>
               )}
             </>
           ) : (
@@ -390,15 +377,11 @@ export function Select<T extends string = string>({
                       <span className="toranly-select-option-texts">
                         <span className="toranly-select-option-title">{opt.label}</span>
                         {opt.sublabel && (
-                          <span className="toranly-select-option-sublabel">
-                            {opt.sublabel}
-                          </span>
+                          <span className="toranly-select-option-sublabel">{opt.sublabel}</span>
                         )}
                       </span>
                       {opt.badge && (
-                        <span className="toranly-select-option-badge">
-                          {opt.badge}
-                        </span>
+                        <span className="toranly-select-option-badge">{opt.badge}</span>
                       )}
                     </span>
 
@@ -417,4 +400,3 @@ export function Select<T extends string = string>({
     </div>
   );
 }
-

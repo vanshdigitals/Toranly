@@ -9,11 +9,7 @@ import {
   restoreSnapshot,
   hasAnyPlans,
 } from '../db';
-import {
-  exportPlanBackup,
-  parseBackupFile,
-  detectPlanConflicts,
-} from '../backup';
+import { exportPlanBackup, parseBackupFile, detectPlanConflicts } from '../backup';
 import { generatePlanFromTemplate } from '../../domain/templates';
 
 describe('Storage Layer & IndexedDB', () => {
@@ -100,7 +96,9 @@ describe('Backup Export & Safe Import', () => {
 
   it('rejects invalid JSON or files without toranly-backup format', () => {
     expect(parseBackupFile('{ not-valid-json').success).toBe(false);
-    expect(parseBackupFile('{"format": "other", "schemaVersion": 1, "plans": []}').success).toBe(false);
+    expect(parseBackupFile('{"format": "other", "schemaVersion": 1, "plans": []}').success).toBe(
+      false,
+    );
   });
 
   it('detects existing ID conflicts before importing', async () => {

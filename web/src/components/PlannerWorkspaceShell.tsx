@@ -29,7 +29,7 @@ import {
 import type { Plan } from '../domain/plan';
 import { listPlans } from '../storage/db';
 import { formatDisplayDate } from '../lib/dateFormat';
-import type { SaveState } from './AutosaveStatus';
+import type { SaveState } from '../lib/saveState';
 import './PlannerWorkspaceShell.css';
 
 interface NavItemConfig {
@@ -514,82 +514,82 @@ export const PlannerWorkspaceShell: React.FC<PlannerWorkspaceShellProps> = ({
                 <User size={18} strokeWidth={2} className="planner-profile-white-icon" />
               </button>
 
-            {/* PROFILE MENU DROPDOWN */}
-            {isProfileOpen && (
-              <div className="planner-profile-dropdown" role="menu">
-                <div className="planner-profile-popover-header">
-                  <div className="planner-profile-popover-avatar">
-                    <User size={20} />
+              {/* PROFILE MENU DROPDOWN */}
+              {isProfileOpen && (
+                <div className="planner-profile-dropdown" role="menu">
+                  <div className="planner-profile-popover-header">
+                    <div className="planner-profile-popover-avatar">
+                      <User size={20} />
+                    </div>
+                    <div className="planner-profile-popover-info">
+                      <span className="planner-profile-popover-name">Guest Planner</span>
+                      <span className="planner-profile-popover-role">Local browser storage</span>
+                    </div>
                   </div>
-                  <div className="planner-profile-popover-info">
-                    <span className="planner-profile-popover-name">Guest Planner</span>
-                    <span className="planner-profile-popover-role">Local browser storage</span>
+
+                  <div className="planner-profile-storage-badge">
+                    <span className="planner-storage-dot" />
+                    <span>Private IndexedDB mode</span>
+                  </div>
+
+                  <div className="planner-profile-menu-list">
+                    <Link
+                      to="/events"
+                      className="planner-profile-menu-item"
+                      role="menuitem"
+                      onClick={() => setIsProfileOpen(false)}
+                    >
+                      <Layers size={16} />
+                      <span>My celebrations</span>
+                    </Link>
+
+                    <button
+                      type="button"
+                      className="planner-profile-menu-item"
+                      role="menuitem"
+                      onClick={() => {
+                        setIsProfileOpen(false);
+                        onSelectTab('settings');
+                      }}
+                    >
+                      <Settings size={16} />
+                      <span>Celebration settings</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      className="planner-profile-menu-item"
+                      role="menuitem"
+                      onClick={() => {
+                        setIsProfileOpen(false);
+                        onDownloadBackup();
+                      }}
+                    >
+                      <Download size={16} />
+                      <span>Download backup (.toranly.json)</span>
+                    </button>
+
+                    <Link
+                      to={`/events/${plan.id}/print`}
+                      className="planner-profile-menu-item"
+                      role="menuitem"
+                      onClick={() => setIsProfileOpen(false)}
+                    >
+                      <Printer size={16} />
+                      <span>Print celebration plan</span>
+                    </Link>
+                  </div>
+
+                  <div className="planner-profile-popover-footer">
+                    <span>Guest-first mode · No login required</span>
+                    <span className="planner-profile-footer-sub">Data stays on this device</span>
                   </div>
                 </div>
-
-                <div className="planner-profile-storage-badge">
-                  <span className="planner-storage-dot" />
-                  <span>Private IndexedDB mode</span>
-                </div>
-
-                <div className="planner-profile-menu-list">
-                  <Link
-                    to="/events"
-                    className="planner-profile-menu-item"
-                    role="menuitem"
-                    onClick={() => setIsProfileOpen(false)}
-                  >
-                    <Layers size={16} />
-                    <span>My celebrations</span>
-                  </Link>
-
-                  <button
-                    type="button"
-                    className="planner-profile-menu-item"
-                    role="menuitem"
-                    onClick={() => {
-                      setIsProfileOpen(false);
-                      onSelectTab('settings');
-                    }}
-                  >
-                    <Settings size={16} />
-                    <span>Celebration settings</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    className="planner-profile-menu-item"
-                    role="menuitem"
-                    onClick={() => {
-                      setIsProfileOpen(false);
-                      onDownloadBackup();
-                    }}
-                  >
-                    <Download size={16} />
-                    <span>Download backup (.toranly.json)</span>
-                  </button>
-
-                  <Link
-                    to={`/events/${plan.id}/print`}
-                    className="planner-profile-menu-item"
-                    role="menuitem"
-                    onClick={() => setIsProfileOpen(false)}
-                  >
-                    <Printer size={16} />
-                    <span>Print celebration plan</span>
-                  </Link>
-                </div>
-
-                <div className="planner-profile-popover-footer">
-                  <span>Guest-first mode · No login required</span>
-                  <span className="planner-profile-footer-sub">Data stays on this device</span>
-                </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
 
       {/* ------------------------------------------------------------- */}
       {/* APPLICATION BODY: SIDEBAR + MAIN CONTENT                       */}

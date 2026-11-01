@@ -95,7 +95,8 @@ export const AddQuoteDialog: React.FC<AddQuoteDialogProps> = ({
             Add vendor quote
           </h2>
           <p className="quote-modal-desc">
-            Record a vendor rate structure to compare normalized costs per guest and total commitment.
+            Record a vendor rate structure to compare normalized costs per guest and total
+            commitment.
           </p>
         </div>
 

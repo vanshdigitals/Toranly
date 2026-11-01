@@ -1681,5 +1681,3 @@ export const EventWizardPage: React.FC<EventWizardPageProps> = ({ initialStep })
     </div>
   );
 };
-
-export const WizardStep1Page = EventWizardPage;

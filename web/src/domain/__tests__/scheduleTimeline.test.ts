@@ -37,8 +37,22 @@ describe('Domain: Schedule & Real-Time Timeline', () => {
 
   it('detects enriched overlaps with precise duration and proposals', () => {
     const items: ScheduleItem[] = [
-      { id: 'item-1', functionId: 'fn-wedding', startTime: '11:15', durationMin: 90, title: 'Pheras', position: 1 },
-      { id: 'item-2', functionId: 'fn-wedding', startTime: '12:30', durationMin: 90, title: 'Lunch', position: 2 },
+      {
+        id: 'item-1',
+        functionId: 'fn-wedding',
+        startTime: '11:15',
+        durationMin: 90,
+        title: 'Pheras',
+        position: 1,
+      },
+      {
+        id: 'item-2',
+        functionId: 'fn-wedding',
+        startTime: '12:30',
+        durationMin: 90,
+        title: 'Lunch',
+        position: 2,
+      },
     ];
 
     const overlaps = detectEnrichedScheduleOverlaps(items);
@@ -68,9 +82,30 @@ describe('Domain: Schedule & Real-Time Timeline', () => {
 
   it('calculates real-time timeline progress for past, future, and today events', () => {
     const items: ScheduleItem[] = [
-      { id: '1', functionId: 'fn-1', startTime: '10:00', durationMin: 60, title: 'Arrival', position: 1 },
-      { id: '2', functionId: 'fn-1', startTime: '11:00', durationMin: 60, title: 'Ceremony', position: 2 },
-      { id: '3', functionId: 'fn-1', startTime: '12:00', durationMin: 60, title: 'Feast', position: 3 },
+      {
+        id: '1',
+        functionId: 'fn-1',
+        startTime: '10:00',
+        durationMin: 60,
+        title: 'Arrival',
+        position: 1,
+      },
+      {
+        id: '2',
+        functionId: 'fn-1',
+        startTime: '11:00',
+        durationMin: 60,
+        title: 'Ceremony',
+        position: 2,
+      },
+      {
+        id: '3',
+        functionId: 'fn-1',
+        startTime: '12:00',
+        durationMin: 60,
+        title: 'Feast',
+        position: 3,
+      },
     ];
 
     // 1. Past function on another date: 100% complete
@@ -148,4 +183,3 @@ describe('Domain: Schedule & Real-Time Timeline', () => {
     expect(mehendiDraft[0].startTime).toBe('16:00');
   });
 });
-

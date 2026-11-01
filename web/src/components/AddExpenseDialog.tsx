@@ -112,7 +112,9 @@ export const AddExpenseDialog: React.FC<AddExpenseDialogProps> = ({
                 step="1"
                 className="expense-text-input"
                 value={amountRupees}
-                onChange={(e) => setAmountRupees(e.target.value === '' ? '' : Number(e.target.value))}
+                onChange={(e) =>
+                  setAmountRupees(e.target.value === '' ? '' : Number(e.target.value))
+                }
                 placeholder="₹ Amount in rupees"
                 required
               />
