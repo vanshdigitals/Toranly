@@ -148,7 +148,14 @@ export function usePlanner() {
   }, [loadPlanData]);
 
   // Budget totals and status come from POST /plan/summary (device figures while offline).
-  const { metrics: budgetMetrics, source: summarySource } = usePlanSummary(plan);
+  const {
+    metrics: budgetMetrics,
+    source: summarySource,
+    summary: serverSummary,
+  } = usePlanSummary(plan);
+  // Decisions made by the backend from the whole plan (POST /plan/summary).
+  const nextActions = serverSummary?.nextActions ?? [];
+  const urgencyByTask = new Map((serverSummary?.taskUrgency ?? []).map((u) => [u.taskId, u]));
   const liveCheckNote =
     summarySource === 'device' ? (
       <p className="live-check-note" role="status">
@@ -631,6 +638,8 @@ export function usePlanner() {
     activeTabParam,
     budgetMetrics,
     summarySource,
+    nextActions,
+    urgencyByTask,
     navigate,
     setTab,
     showToast,

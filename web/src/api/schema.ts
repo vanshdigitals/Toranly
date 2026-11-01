@@ -11,7 +11,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** Ai Status */
+        /**
+         * Ai Status
+         * @description Whether AI is available for this device, how many suggestions are left, and when.
+         */
         get: operations["ai_status_api_v1_ai_status_get"];
         put?: never;
         post?: never;
@@ -30,7 +33,10 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Ai Suggest */
+        /**
+         * Ai Suggest
+         * @description Validated suggestions for one contract; nothing is stored or applied.
+         */
         post: operations["ai_suggest_api_v1_ai_suggest_post"];
         delete?: never;
         options?: never;
@@ -81,7 +87,10 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Plan Date Preview */
+        /**
+         * Plan Date Preview
+         * @description Preview of a date change; nothing is applied.
+         */
         post: operations["plan_date_preview_api_v1_plan_date_preview_post"];
         delete?: never;
         options?: never;
@@ -98,7 +107,10 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Plan Summary */
+        /**
+         * Plan Summary
+         * @description Budget totals and status, overdue tasks and diet coverage.
+         */
         post: operations["plan_summary_api_v1_plan_summary_post"];
         delete?: never;
         options?: never;
@@ -115,7 +127,10 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Plan Template */
+        /**
+         * Plan Template
+         * @description Starter budget split and checklist for an event type.
+         */
         post: operations["plan_template_api_v1_plan_template_post"];
         delete?: never;
         options?: never;
@@ -132,7 +147,10 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Plan Validate */
+        /**
+         * Plan Validate
+         * @description Cross-field problems (cycles, diet totals, schedule, quotes).
+         */
         post: operations["plan_validate_api_v1_plan_validate_post"];
         delete?: never;
         options?: never;
@@ -466,6 +484,28 @@ export interface components {
             /** Title */
             title: string;
         };
+        /** NextActionOut */
+        NextActionOut: {
+            /**
+             * Kind
+             * @enum {string}
+             */
+            kind: "task" | "blocked_task" | "budget_over" | "budget_warning" | "menu" | "schedule";
+            /**
+             * Reason
+             * @description One plain sentence explaining why this matters now
+             */
+            reason: string;
+            /** Refs */
+            refs: string[];
+            /**
+             * Tab
+             * @enum {string}
+             */
+            tab: "timeline" | "budget" | "ideas" | "schedule";
+            /** Title */
+            title: string;
+        };
         /** OverdueTaskOut */
         OverdueTaskOut: {
             /**
@@ -676,8 +716,15 @@ export interface components {
             /** Categories */
             categories: components["schemas"]["CategoryMetricsOut"][];
             dietCoverage: components["schemas"]["DietCoverageOut"] | null;
+            /**
+             * Nextactions
+             * @description Up to 5, most important first
+             */
+            nextActions: components["schemas"]["NextActionOut"][];
             /** Overduetasks */
             overdueTasks: components["schemas"]["OverdueTaskOut"][];
+            /** Taskurgency */
+            taskUrgency: components["schemas"]["TaskUrgencyOut"][];
             /**
              * Today
              * Format: date
@@ -730,6 +777,18 @@ export interface components {
             status: "open" | "done";
             /** Title */
             title: string;
+        };
+        /** TaskUrgencyOut */
+        TaskUrgencyOut: {
+            /**
+             * Level
+             * @enum {string}
+             */
+            level: "urgent" | "soon";
+            /** Reason */
+            reason: string;
+            /** Taskid */
+            taskId: string;
         };
         /** TemplateCategoryOut */
         TemplateCategoryOut: {

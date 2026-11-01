@@ -16,6 +16,7 @@ import { formatPaise } from '../../domain/money';
 import { isTaskOverdue } from '../../domain/timeline';
 import { formatDisplayDate } from '../../lib/dateFormat';
 import type { Planner } from './usePlanner';
+import { NextActionsPanel } from './NextActionsPanel';
 
 export function OverviewTab({ planner }: { planner: Planner }) {
   const {
@@ -24,6 +25,8 @@ export function OverviewTab({ planner }: { planner: Planner }) {
     setStarterPlanDismissed,
     budgetMetrics,
     setTab,
+    nextActions,
+    summarySource,
     liveCheckNote,
     handleToggleTask,
     handleDownloadBackup,
@@ -69,6 +72,8 @@ export function OverviewTab({ planner }: { planner: Planner }) {
           <span className="overview-countdown-label">days to go</span>
         </div>
       </section>
+
+      <NextActionsPanel actions={nextActions} source={summarySource} onOpenTab={setTab} />
 
       {/* STARTER-PLAN BANNER */}
       {!starterPlanDismissed && (

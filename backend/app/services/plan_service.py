@@ -12,11 +12,13 @@ from app.api.v1.plan_models import (
     DatePreviewRequest,
     DatePreviewResponse,
     DietCoverageOut,
+    NextActionOut,
     OverdueTaskOut,
     Plan,
     ShiftedTaskOut,
     StarterTaskOut,
     SummaryResponse,
+    TaskUrgencyOut,
     TemplateCategoryOut,
     TemplateRequest,
     TemplateResponse,
@@ -28,7 +30,8 @@ from app.core.clock import today_in
 from app.core.errors import ProblemError
 from app.domain.budget_engine import budget_summary
 from app.domain.dependency_graph import detect_cycle
-from app.domain.guests import DietCounts, diet_coverage, validate_diet_counts
+from app.domain.guests import DietCounts, DietCoverage, diet_coverage, validate_diet_counts
+from app.domain.insights import next_best_actions, task_urgencies
 from app.domain.quote_compare import compare_quotes
 from app.domain.schedule import detect_overlaps, outside_window
 from app.domain.templates import build_template
@@ -56,17 +59,32 @@ def starter_template(body: TemplateRequest) -> TemplateResponse:
 
 
 def summarize(plan: Plan) -> SummaryResponse:
-    """Budget totals and status per category, overdue tasks and menu diet coverage."""
+    """Budget totals and status, overdue tasks, diet coverage, task urgency and the
+    Next best actions for the Overview."""
     today = today_in(plan.event.timezone)
+    event_date = plan.event.event_date
     summary = budget_summary(plan.budget_categories, plan.expenses)
     budget_total = plan.event.budget_total_paise
     counts = _diet_counts(plan)
-    coverage = None
-    if counts is not None:
-        cov = diet_coverage(counts, plan.ideas)
-        coverage = DietCoverageOut(
+    cov: DietCoverage | None = diet_coverage(counts, plan.ideas) if counts is not None else None
+    coverage = (
+        DietCoverageOut(
             covered=cov.covered, uncovered=cov.uncovered, fully_covered=cov.fully_covered
         )
+        if cov is not None
+        else None
+    )
+    actions = next_best_actions(
+        plan.tasks,
+        today,
+        event_date,
+        summary.categories,
+        counts,
+        cov,
+        detect_overlaps(plan.schedule_items),
+        outside_window(plan.schedule_items, plan.functions),
+        {f.id: f.name for f in plan.functions},
+    )
     return SummaryResponse(
         today=today,
         budget=BudgetTotalsOut(
@@ -89,6 +107,11 @@ def summarize(plan: Plan) -> SummaryResponse:
             if t.due_date is not None and is_overdue(t.due_date, t.status, today)
         ],
         diet_coverage=coverage,
+        task_urgency=[
+            TaskUrgencyOut(task_id=u.task_id, level=u.level, reason=u.reason)
+            for u in task_urgencies(plan.tasks, today, event_date).values()
+        ],
+        next_actions=[NextActionOut(**a.__dict__) for a in actions],
     )
 
 

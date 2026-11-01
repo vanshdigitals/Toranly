@@ -169,6 +169,19 @@ def test_summary(client: TestClient) -> None:
     }
 
 
+def test_summary_next_actions_explain_the_plan(client: TestClient) -> None:
+    body = client.post("/api/v1/plan/summary", json={"plan": plan()}).json()
+    actions = body["nextActions"]
+    assert 1 <= len(actions) <= 5
+    assert all(a["title"] and a["reason"] and a["tab"] for a in actions)
+    kinds = [a["kind"] for a in actions]
+    # The overdue task comes first, then the over-budget food category with a rebalance hint.
+    assert kinds[0] in ("task", "blocked_task")
+    over = next(a for a in actions if a["kind"] == "budget_over")
+    assert over["reason"].startswith("Over by ") and over["tab"] == "budget"
+    assert {u["taskId"]: u["level"] for u in body["taskUrgency"]}["t1"] == "urgent"
+
+
 def test_date_preview(client: TestClient) -> None:
     r = client.post(
         "/api/v1/plan/date-preview",

@@ -78,3 +78,18 @@ def rescale_to_basis_points(weights: list[Decimal]) -> list[int]:
     for i in order[:leftover]:
         floors[i] += 1
     return floors
+
+
+def format_inr(paise: int) -> str:
+    """Whole rupees with Indian digit grouping, e.g. 125000000 paise -> "₹12,50,000"."""
+    rupees = round_half_up_div(abs(paise), 100)
+    digits = str(rupees)
+    head, tail = digits[:-3], digits[-3:]
+    groups: list[str] = []
+    while len(head) > 2:
+        groups.insert(0, head[-2:])
+        head = head[:-2]
+    if head:
+        groups.insert(0, head)
+    grouped = ",".join([*groups, tail]) if groups else tail
+    return f"{'-' if paise < 0 else ''}₹{grouped}"

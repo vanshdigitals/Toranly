@@ -761,3 +761,20 @@
     transition: none;
   }
 }
+
+/* Urgency from the backend (POST /plan/summary): icon + text, never colour alone */
+.tl-badge--urgent {
+  background: var(--color-error-bg);
+  color: var(--color-error);
+}
+
+.tl-badge--soon {
+  background: var(--color-warning-bg);
+  color: var(--color-warning);
+}
+
+.tl-urgency-reason {
+  margin: 2px 0 4px;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}

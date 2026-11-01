@@ -901,6 +901,57 @@
         "title": "IdeaItem",
         "type": "object"
       },
+      "NextActionOut": {
+        "properties": {
+          "kind": {
+            "enum": [
+              "task",
+              "blocked_task",
+              "budget_over",
+              "budget_warning",
+              "menu",
+              "schedule"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "reason": {
+            "description": "One plain sentence explaining why this matters now",
+            "title": "Reason",
+            "type": "string"
+          },
+          "refs": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Refs",
+            "type": "array"
+          },
+          "tab": {
+            "enum": [
+              "timeline",
+              "budget",
+              "ideas",
+              "schedule"
+            ],
+            "title": "Tab",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "title",
+          "reason",
+          "tab",
+          "refs"
+        ],
+        "title": "NextActionOut",
+        "type": "object"
+      },
       "OverdueTaskOut": {
         "properties": {
           "dueDate": {
@@ -1541,11 +1592,26 @@
               }
             ]
           },
+          "nextActions": {
+            "description": "Up to 5, most important first",
+            "items": {
+              "$ref": "#/components/schemas/NextActionOut"
+            },
+            "title": "Nextactions",
+            "type": "array"
+          },
           "overdueTasks": {
             "items": {
               "$ref": "#/components/schemas/OverdueTaskOut"
             },
             "title": "Overduetasks",
+            "type": "array"
+          },
+          "taskUrgency": {
+            "items": {
+              "$ref": "#/components/schemas/TaskUrgencyOut"
+            },
+            "title": "Taskurgency",
             "type": "array"
           },
           "today": {
@@ -1559,7 +1625,9 @@
           "budget",
           "categories",
           "overdueTasks",
-          "dietCoverage"
+          "dietCoverage",
+          "taskUrgency",
+          "nextActions"
         ],
         "title": "SummaryResponse",
         "type": "object"
@@ -1696,6 +1764,33 @@
           "title"
         ],
         "title": "TaskItem",
+        "type": "object"
+      },
+      "TaskUrgencyOut": {
+        "properties": {
+          "level": {
+            "enum": [
+              "urgent",
+              "soon"
+            ],
+            "title": "Level",
+            "type": "string"
+          },
+          "reason": {
+            "title": "Reason",
+            "type": "string"
+          },
+          "taskId": {
+            "title": "Taskid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "taskId",
+          "level",
+          "reason"
+        ],
+        "title": "TaskUrgencyOut",
         "type": "object"
       },
       "TemplateCategoryOut": {
@@ -2070,6 +2165,7 @@
   "paths": {
     "/api/v1/ai/status": {
       "get": {
+        "description": "Whether AI is available for this device, how many suggestions are left, and when.",
         "operationId": "ai_status_api_v1_ai_status_get",
         "responses": {
           "200": {
@@ -2091,6 +2187,7 @@
     },
     "/api/v1/ai/suggest": {
       "post": {
+        "description": "Validated suggestions for one contract; nothing is stored or applied.",
         "operationId": "ai_suggest_api_v1_ai_suggest_post",
         "requestBody": {
           "content": {
@@ -2180,6 +2277,7 @@
     },
     "/api/v1/plan/date-preview": {
       "post": {
+        "description": "Preview of a date change; nothing is applied.",
         "operationId": "plan_date_preview_api_v1_plan_date_preview_post",
         "requestBody": {
           "content": {
@@ -2221,6 +2319,7 @@
     },
     "/api/v1/plan/summary": {
       "post": {
+        "description": "Budget totals and status, overdue tasks and diet coverage.",
         "operationId": "plan_summary_api_v1_plan_summary_post",
         "requestBody": {
           "content": {
@@ -2262,6 +2361,7 @@
     },
     "/api/v1/plan/template": {
       "post": {
+        "description": "Starter budget split and checklist for an event type.",
         "operationId": "plan_template_api_v1_plan_template_post",
         "requestBody": {
           "content": {
@@ -2303,6 +2403,7 @@
     },
     "/api/v1/plan/validate": {
       "post": {
+        "description": "Cross-field problems (cycles, diet totals, schedule, quotes).",
         "operationId": "plan_validate_api_v1_plan_validate_post",
         "requestBody": {
           "content": {

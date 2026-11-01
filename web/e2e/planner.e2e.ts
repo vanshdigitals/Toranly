@@ -26,6 +26,9 @@ test('E2E-1 wizard values reach Overview; budget figures come from /plan/summary
   expect(body.budget.allocatedPaise).toBe(MEERA.budgetRupees * 100);
   await expect(main).toContainText(inr(body.budget.allocatedPaise / 100));
   await expect(page.locator('.live-check-note')).toHaveCount(0);
+  // Deterministic Next best actions from the same summary response.
+  expect(Array.isArray(body.nextActions)).toBe(true);
+  await expect(page.getByRole('heading', { name: 'Next best actions' })).toBeVisible();
   // Nothing from the old example data leaks in.
   await expect(main).not.toContainText('Ananya');
   await expect(main).not.toContainText('Jaipur');

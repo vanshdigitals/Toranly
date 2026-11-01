@@ -258,6 +258,20 @@ class OverdueTaskOut(Out):
     due_date: date
 
 
+class TaskUrgencyOut(Out):
+    task_id: str
+    level: Literal["urgent", "soon"]
+    reason: str
+
+
+class NextActionOut(Out):
+    kind: Literal["task", "blocked_task", "budget_over", "budget_warning", "menu", "schedule"]
+    title: str
+    reason: str = Field(description="One plain sentence explaining why this matters now")
+    tab: Literal["timeline", "budget", "ideas", "schedule"]
+    refs: list[str]
+
+
 class DietCoverageOut(Out):
     covered: list[str]
     uncovered: list[str]
@@ -270,6 +284,8 @@ class SummaryResponse(Out):
     categories: list[CategoryMetricsOut]
     overdue_tasks: list[OverdueTaskOut]
     diet_coverage: DietCoverageOut | None
+    task_urgency: list[TaskUrgencyOut]
+    next_actions: list[NextActionOut] = Field(description="Up to 5, most important first")
 
 
 class ShiftedTaskOut(Out):

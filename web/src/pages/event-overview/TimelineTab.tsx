@@ -1,5 +1,15 @@
 /** The timeline tab of the event planner. */
-import { Calendar, Flag, Trash2, Plus, FileSpreadsheet, Clock, Edit2, Check } from 'lucide-react';
+import {
+  AlertTriangle,
+  Calendar,
+  Flag,
+  Trash2,
+  Plus,
+  FileSpreadsheet,
+  Clock,
+  Edit2,
+  Check,
+} from 'lucide-react';
 import { isTaskOverdue, checkTaskCompletionGate } from '../../domain/timeline';
 import { formatDisplayDate } from '../../lib/dateFormat';
 import type { Planner } from './usePlanner';
@@ -7,6 +17,7 @@ import type { Planner } from './usePlanner';
 export function TimelineTab({ planner }: { planner: Planner }) {
   const {
     plan,
+    urgencyByTask,
     setShowTaskDialog,
     setEditingTask,
     pendingDeleteTaskId,
@@ -103,6 +114,7 @@ export function TimelineTab({ planner }: { planner: Planner }) {
           {visibleTasks.map((task) => {
             const isDone = task.status === 'done';
             const isOver = isTaskOverdue(task.dueDate, task.status);
+            const urgency = isDone ? undefined : urgencyByTask.get(task.id);
             const gate = checkTaskCompletionGate(task, plan.tasks);
             const isBlocked = !isDone && !gate.canComplete;
             const depTitles = (task.dependsOn || [])
@@ -130,9 +142,16 @@ export function TimelineTab({ planner }: { planner: Planner }) {
 
                 <div className="tl-task-body">
                   <span className="tl-task-title">{task.title}</span>
+                  {urgency && <p className="tl-urgency-reason">{urgency.reason}</p>}
                   <div className="tl-task-meta">
                     <span className="tl-tag">{categoryLabel(task.categoryKey)}</span>
                     {task.source === 'ai' && <span className="ai-source-badge">AI idea</span>}
+                    {urgency && (
+                      <span className={`tl-badge tl-badge--${urgency.level}`}>
+                        <AlertTriangle size={11} aria-hidden="true" />
+                        {urgency.level === 'urgent' ? 'Urgent' : 'Due soon'}
+                      </span>
+                    )}
                     {task.isMilestone && (
                       <span className="tl-badge tl-badge--milestone">
                         <Flag size={11} aria-hidden="true" /> Milestone
@@ -162,7 +181,9 @@ export function TimelineTab({ planner }: { planner: Planner }) {
                 </div>
 
                 <div className="tl-task-side">
-                  {isOver && <span className="tl-badge tl-badge--overdue">Overdue</span>}
+                  {isOver && !urgency && (
+                    <span className="tl-badge tl-badge--overdue">Overdue</span>
+                  )}
                   <span className="tl-due">
                     {task.dueDate ? formatDisplayDate(task.dueDate) : 'No due date'}
                   </span>
