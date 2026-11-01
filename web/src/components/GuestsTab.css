@@ -75,7 +75,10 @@
   border: none;
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(15, 110, 110, 0.2);
-  transition: background-color 150ms ease, transform 100ms ease, box-shadow 150ms ease;
+  transition:
+    background-color 150ms ease,
+    transform 100ms ease,
+    box-shadow 150ms ease;
   white-space: nowrap;
 }
 
@@ -109,7 +112,9 @@
   border-radius: 12px;
   border: 1px solid #8c8577;
   cursor: pointer;
-  transition: background-color 150ms ease, border-color 150ms ease;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease;
   white-space: nowrap;
 }
 
@@ -134,7 +139,9 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: text-decoration 150ms ease, opacity 150ms ease;
+  transition:
+    text-decoration 150ms ease,
+    opacity 150ms ease;
 }
 
 .guests-text-link-btn:hover {
@@ -316,7 +323,9 @@
   color: #1e2330;
   font-variant-numeric: tabular-nums;
   outline: none;
-  transition: border-color 150ms ease, box-shadow 150ms ease;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
 }
 
 .guests-number-input:focus {
@@ -346,7 +355,10 @@
   justify-content: center;
   cursor: pointer;
   flex-shrink: 0;
-  transition: background-color 150ms ease, border-color 150ms ease, transform 100ms ease;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    transform 100ms ease;
 }
 
 .guests-stepper-btn:hover {
@@ -484,7 +496,9 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 16px;
-  transition: border-color 150ms ease, box-shadow 150ms ease;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
 }
 
 .diet-card:hover {
@@ -552,7 +566,9 @@
   justify-content: center;
   cursor: pointer;
   font-weight: 600;
-  transition: background-color 150ms ease, transform 100ms ease;
+  transition:
+    background-color 150ms ease,
+    transform 100ms ease;
 }
 
 .diet-step-btn:hover:not(:disabled) {
@@ -721,7 +737,9 @@
   font-size: 14px;
   color: #1e2330;
   outline: none;
-  transition: border-color 150ms ease, box-shadow 150ms ease;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
 }
 
 .allergy-text-input:focus {
@@ -744,7 +762,9 @@
   font-weight: 600;
   cursor: pointer;
   flex-shrink: 0;
-  transition: background-color 150ms ease, border-color 150ms ease;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease;
 }
 
 .allergy-add-btn:hover:not(:disabled) {
@@ -782,7 +802,9 @@
   background-color: #ffffff;
   cursor: pointer;
   user-select: none;
-  transition: background-color 150ms ease, border-color 150ms ease;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease;
 }
 
 .accessibility-option-card:hover {
@@ -837,7 +859,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease;
   pointer-events: none;
 }
 
@@ -849,7 +874,9 @@
 
 .toranly-custom-checkbox-input:focus-visible + .toranly-custom-checkbox-box {
   outline: none;
-  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #0f6e6e;
+  box-shadow:
+    0 0 0 2px #ffffff,
+    0 0 0 4px #0f6e6e;
 }
 
 .toranly-checkbox-check {

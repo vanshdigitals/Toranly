@@ -61,7 +61,10 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  transition: border-color var(--motion-fast), transform var(--motion-fast), box-shadow var(--motion-fast);
+  transition:
+    border-color var(--motion-fast),
+    transform var(--motion-fast),
+    box-shadow var(--motion-fast);
 }
 
 .celebration-card:hover {
@@ -156,7 +159,9 @@
   font-size: 13px;
   font-weight: 600;
   color: var(--color-primary);
-  transition: opacity var(--motion-fast), transform var(--motion-fast);
+  transition:
+    opacity var(--motion-fast),
+    transform var(--motion-fast);
 }
 
 .celebration-card:hover .celebration-card-cta {

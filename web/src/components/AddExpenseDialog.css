@@ -14,9 +14,11 @@
 
 .expense-modal-dialog {
   background-color: var(--color-surface, #ffffff);
-  border: 1px solid var(--color-border, #E2E8F0);
+  border: 1px solid var(--color-border, #e2e8f0);
   border-radius: var(--radius-lg, 16px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
   max-width: 480px;
   width: 100%;
   padding: 24px;
@@ -34,21 +36,21 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background-color: var(--color-primary-light, #E6F4F1);
+  background-color: var(--color-primary-light, #e6f4f1);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .expense-modal-icon {
-  color: var(--color-primary, #0F6E6E);
+  color: var(--color-primary, #0f6e6e);
 }
 
 .expense-modal-close {
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--color-text-muted, #64748B);
+  color: var(--color-text-muted, #64748b);
   padding: 6px;
   border-radius: 6px;
   display: flex;
@@ -57,15 +59,15 @@
 }
 
 .expense-modal-close:hover {
-  background-color: var(--color-surface-hover, #F1F5F9);
-  color: var(--color-text-main, #0F172A);
+  background-color: var(--color-surface-hover, #f1f5f9);
+  color: var(--color-text-main, #0f172a);
 }
 
 .expense-modal-title {
   font-family: var(--font-heading, Fraunces, serif);
   font-size: 20px;
   font-weight: 600;
-  color: var(--color-text-main, #0F172A);
+  color: var(--color-text-main, #0f172a);
   margin: 0 0 16px 0;
 }
 
@@ -83,7 +85,7 @@
   display: block;
   font-size: 13px;
   font-weight: 500;
-  color: var(--color-text-main, #0F172A);
+  color: var(--color-text-main, #0f172a);
   margin-bottom: 6px;
 }
 
@@ -93,18 +95,18 @@
   width: 100%;
   box-sizing: border-box;
   padding: 10px 12px;
-  border: 1px solid var(--color-border, #CBD5E1);
+  border: 1px solid var(--color-border, #cbd5e1);
   border-radius: var(--radius-md, 8px);
   font-size: 14px;
   font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
-  color: var(--color-text-main, #0F172A);
+  color: var(--color-text-main, #0f172a);
   background-color: #ffffff;
 }
 
 .expense-text-input:focus,
 .expense-select-input:focus,
 .expense-textarea:focus {
-  border-color: var(--color-primary, #0F6E6E);
+  border-color: var(--color-primary, #0f6e6e);
   outline: none;
   box-shadow: 0 0 0 3px rgba(15, 110, 110, 0.15);
 }
@@ -116,4 +118,3 @@
   gap: 10px;
   margin-top: 20px;
 }
-

@@ -4,16 +4,16 @@
   align-items: center;
   justify-content: center;
   padding: var(--space-6, 24px);
-  background-color: var(--color-surface, #FAF7F2);
-  color: var(--color-ink, #2C2623);
+  background-color: var(--color-surface, #faf7f2);
+  color: var(--color-ink, #2c2623);
   font-family: var(--font-body, 'Plus Jakarta Sans', system-ui, sans-serif);
 }
 
 .error-boundary-card {
   max-width: 480px;
   width: 100%;
-  background-color: var(--color-card, #FFFFFF);
-  border: 1px solid var(--color-border, #E4DDD3);
+  background-color: var(--color-card, #ffffff);
+  border: 1px solid var(--color-border, #e4ddd3);
   border-radius: var(--radius-card, 16px);
   padding: var(--space-8, 32px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
@@ -34,8 +34,8 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background-color: #FEF2F2;
-  color: #DC2626;
+  background-color: #fef2f2;
+  color: #dc2626;
   margin-bottom: var(--space-4, 16px);
 }
 
@@ -43,7 +43,7 @@
   font-family: var(--font-heading, 'Fraunces', serif);
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--color-ink, #2C2623);
+  color: var(--color-ink, #2c2623);
   margin: 0 0 var(--space-2, 8px) 0;
   line-height: 1.25;
 }
@@ -51,19 +51,19 @@
 .error-boundary-desc {
   font-size: 0.9375rem;
   line-height: 1.5;
-  color: var(--color-muted, #726A64);
+  color: var(--color-muted, #726a64);
   margin: 0 0 var(--space-6, 24px) 0;
 }
 
 .error-boundary-details {
   width: 100%;
   text-align: left;
-  background-color: var(--color-surface, #FAF7F2);
-  border: 1px solid var(--color-border, #E4DDD3);
+  background-color: var(--color-surface, #faf7f2);
+  border: 1px solid var(--color-border, #e4ddd3);
   border-radius: var(--radius-sm, 8px);
   padding: var(--space-3, 12px);
   font-size: 0.8125rem;
-  color: #DC2626;
+  color: #dc2626;
   margin-bottom: var(--space-6, 24px);
   overflow-x: auto;
   word-break: break-all;
@@ -93,4 +93,3 @@
   gap: var(--space-2, 8px);
   font-weight: 500;
 }
-

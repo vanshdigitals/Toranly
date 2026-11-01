@@ -1,7 +1,7 @@
 .in-memory-banner {
-  background-color: var(--color-celebration-light, #FEF7EC);
-  border-bottom: 1px solid var(--color-celebration-border, #FAD59A);
-  color: var(--color-celebration-dark, #8F5400);
+  background-color: var(--color-celebration-light, #fef7ec);
+  border-bottom: 1px solid var(--color-celebration-border, #fad59a);
+  color: var(--color-celebration-dark, #8f5400);
   font-family: var(--font-body);
   font-size: 13px;
   line-height: 1.4;
@@ -20,7 +20,7 @@
 
 .in-memory-icon {
   flex-shrink: 0;
-  color: var(--color-celebration-base, #D97706);
+  color: var(--color-celebration-base, #d97706);
 }
 
 .in-memory-text {
@@ -30,4 +30,3 @@
 .in-memory-text strong {
   font-weight: 600;
 }
-

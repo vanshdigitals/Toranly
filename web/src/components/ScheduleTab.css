@@ -79,7 +79,10 @@ button.sched-btn-primary {
   cursor: pointer;
   text-decoration: none;
   box-shadow: 0 2px 6px rgba(15, 110, 110, 0.2);
-  transition: background-color 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
+  transition:
+    background-color 0.18s ease,
+    transform 0.12s ease,
+    box-shadow 0.18s ease;
 }
 
 .sched-primary-btn:hover,
@@ -135,8 +138,6 @@ button.sched-btn-primary {
 }
 
 /* Simulation Toggle Button */
-
-
 
 /* --------------------------------------------------------------------------
    Two-Column Main Grid Layout
@@ -585,7 +586,8 @@ button.sched-btn-primary {
 }
 
 @keyframes sched-dot-pulse {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 0 3px rgba(15, 110, 110, 0.3);
   }
   50% {
@@ -594,7 +596,8 @@ button.sched-btn-primary {
 }
 
 @keyframes sched-dot-pulse-warning {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.35);
   }
   50% {
@@ -942,7 +945,9 @@ button.sched-btn-primary {
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
   font-size: 14px;
   outline: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .sched-input:focus,
@@ -1051,4 +1056,3 @@ button.sched-btn-primary {
     animation: none !important;
   }
 }
-

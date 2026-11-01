@@ -14,9 +14,11 @@
 
 .cat-modal-dialog {
   background-color: var(--color-surface, #ffffff);
-  border: 1px solid var(--color-border, #E3DCCF);
+  border: 1px solid var(--color-border, #e3dccf);
   border-radius: var(--radius-lg, 16px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
   max-width: 440px;
   width: 100%;
   padding: 24px;
@@ -48,7 +50,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--color-text-muted, #64748B);
+  color: var(--color-text-muted, #64748b);
   padding: 6px;
   border-radius: 6px;
   display: flex;
@@ -58,15 +60,15 @@
 }
 
 .cat-modal-close:hover {
-  background-color: var(--color-surface-hover, #F1F5F9);
-  color: var(--color-text-main, #0F172A);
+  background-color: var(--color-surface-hover, #f1f5f9);
+  color: var(--color-text-main, #0f172a);
 }
 
 .cat-modal-title {
   font-family: var(--font-heading, Fraunces, serif);
   font-size: 20px;
   font-weight: 600;
-  color: var(--color-text-main, #0F172A);
+  color: var(--color-text-main, #0f172a);
   margin: 0 0 16px 0;
 }
 
@@ -78,7 +80,7 @@
   display: block;
   font-size: 13px;
   font-weight: 600;
-  color: var(--color-text, #1E2330);
+  color: var(--color-text, #1e2330);
   margin-bottom: 6px;
 }
 
@@ -86,13 +88,15 @@
   width: 100%;
   padding: 9px 12px;
   font-size: 14px;
-  border: 1px solid var(--color-border, #E3DCCF);
+  border: 1px solid var(--color-border, #e3dccf);
   border-radius: 8px;
   box-sizing: border-box;
   background-color: #ffffff;
-  color: var(--color-text, #1E2330);
-  font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
-  transition: border-color 150ms ease, box-shadow 150ms ease;
+  color: var(--color-text, #1e2330);
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
 }
 
 .cat-input:focus {
@@ -112,7 +116,7 @@
   left: 12px;
   font-weight: 600;
   font-size: 14px;
-  color: var(--color-text-secondary, #474F5E);
+  color: var(--color-text-secondary, #474f5e);
   pointer-events: none;
 }
 
@@ -125,7 +129,7 @@
 .cat-field-hint {
   display: block;
   font-size: 11px;
-  color: var(--color-text-muted, #646B78);
+  color: var(--color-text-muted, #646b78);
   margin-top: 5px;
 }
 
@@ -146,6 +150,5 @@
   gap: 10px;
   margin-top: 24px;
   padding-top: 16px;
-  border-top: 1px solid var(--color-border, #E3DCCF);
+  border-top: 1px solid var(--color-border, #e3dccf);
 }
-

@@ -70,7 +70,7 @@
 }
 
 .vendor-modal-title {
-  font-family: var(--font-heading, "Literata", Fraunces, serif);
+  font-family: var(--font-heading, 'Literata', Fraunces, serif);
   font-size: var(--font-size-card-heading, 20px);
   font-weight: 700;
   color: var(--color-text, #1e2330);
@@ -202,7 +202,7 @@
   user-select: none;
 }
 
-.vendor-checkbox-label input[type="checkbox"] {
+.vendor-checkbox-label input[type='checkbox'] {
   width: 16px;
   height: 16px;
   accent-color: var(--color-primary, #005454);
@@ -228,8 +228,12 @@
 }
 
 @keyframes vendorFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes vendorScaleUp {
@@ -249,4 +253,3 @@
     gap: 12px;
   }
 }
-

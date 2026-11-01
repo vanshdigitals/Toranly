@@ -77,7 +77,10 @@
   font-weight: 600;
   border: 1px solid transparent;
   cursor: pointer;
-  transition: background-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    transform 0.1s ease,
+    box-shadow 0.15s ease;
   box-shadow: 0 1px 2px rgba(15, 110, 110, 0.12);
 }
 
@@ -105,7 +108,10 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .ideas-btn-secondary:hover {
@@ -160,7 +166,10 @@
   color: var(--color-text-secondary, #474f5e);
   border: 1px solid var(--color-border, #e3dccf);
   cursor: pointer;
-  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -263,7 +272,9 @@
   cursor: pointer;
   padding: 4px 6px;
   border-radius: 6px;
-  transition: color 0.15s ease, background-color 0.15s ease;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease;
 }
 
 .ideas-diet-view-btn:hover {
@@ -331,7 +342,9 @@
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
   min-height: 180px;
 }
 
@@ -377,7 +390,9 @@
   justify-content: center;
   color: var(--color-text-secondary, #474f5e);
   cursor: pointer;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
 
 .idea-kebab-btn:hover {
@@ -394,7 +409,9 @@
   background-color: var(--color-surface, #ffffff);
   border: 1px solid var(--color-border, #e3dccf);
   border-radius: 12px;
-  box-shadow: 0 10px 25px -5px rgba(30, 35, 48, 0.12), 0 8px 10px -6px rgba(30, 35, 48, 0.08);
+  box-shadow:
+    0 10px 25px -5px rgba(30, 35, 48, 0.12),
+    0 8px 10px -6px rgba(30, 35, 48, 0.08);
   padding: 6px;
   z-index: 100;
   animation: ideasMenuFadeIn 0.12s ease-out;
@@ -426,7 +443,9 @@
   color: var(--color-text, #1e2330);
   text-align: left;
   cursor: pointer;
-  transition: background-color 0.12s ease, color 0.12s ease;
+  transition:
+    background-color 0.12s ease,
+    color 0.12s ease;
 }
 
 .idea-menu-item:hover {
@@ -616,7 +635,9 @@
   border: 1px solid var(--color-border, #e3dccf);
   border-radius: 20px;
   padding: 24px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 560px;
   max-height: 90vh;
@@ -672,7 +693,9 @@
   justify-content: center;
   color: var(--color-text-secondary, #474f5e);
   cursor: pointer;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
 
 .ideas-modal-close-btn:hover {
@@ -726,7 +749,9 @@
   color: var(--color-text, #1e2330);
   font-family: var(--font-ui, system-ui, sans-serif);
   font-size: 14px;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .ideas-form-input:focus {
@@ -835,7 +860,9 @@
   line-height: 1.5;
   resize: vertical;
   min-height: 84px;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .ideas-form-textarea:focus {
@@ -891,7 +918,9 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.15s ease, transform 0.1s ease;
+  transition:
+    background-color 0.15s ease,
+    transform 0.1s ease;
 }
 
 .ideas-modal-btn-submit:hover {
@@ -913,7 +942,9 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.15s ease, transform 0.1s ease;
+  transition:
+    background-color 0.15s ease,
+    transform 0.1s ease;
 }
 
 .ideas-modal-btn-danger:hover {
@@ -1055,4 +1086,3 @@
   color: var(--color-text-muted, #646b78);
   font-weight: 500;
 }
-
