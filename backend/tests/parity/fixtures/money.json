@@ -1,0 +1,178 @@
+[
+  {
+    "name": "split thirds of 1000.01",
+    "fn": "split",
+    "input": {
+      "totalPaise": 100001,
+      "shares": [
+        {
+          "key": "a",
+          "sharePercent": 33.33
+        },
+        {
+          "key": "b",
+          "sharePercent": 33.33
+        },
+        {
+          "key": "c",
+          "sharePercent": 33.34
+        }
+      ]
+    },
+    "expected": [
+      {
+        "key": "a",
+        "allocatedPaise": 33330
+      },
+      {
+        "key": "b",
+        "allocatedPaise": 33330
+      },
+      {
+        "key": "c",
+        "allocatedPaise": 33341
+      }
+    ],
+    "tsDivergence": null
+  },
+  {
+    "name": "split ties go to earlier position",
+    "fn": "split",
+    "input": {
+      "totalPaise": 2,
+      "shares": [
+        {
+          "key": "a",
+          "sharePercent": 50
+        },
+        {
+          "key": "b",
+          "sharePercent": 25
+        },
+        {
+          "key": "c",
+          "sharePercent": 25
+        }
+      ]
+    },
+    "expected": [
+      {
+        "key": "a",
+        "allocatedPaise": 1
+      },
+      {
+        "key": "b",
+        "allocatedPaise": 1
+      },
+      {
+        "key": "c",
+        "allocatedPaise": 0
+      }
+    ],
+    "tsDivergence": null
+  },
+  {
+    "name": "split zero total",
+    "fn": "split",
+    "input": {
+      "totalPaise": 0,
+      "shares": [
+        {
+          "key": "a",
+          "sharePercent": 60
+        },
+        {
+          "key": "b",
+          "sharePercent": 40
+        }
+      ]
+    },
+    "expected": [
+      {
+        "key": "a",
+        "allocatedPaise": 0
+      },
+      {
+        "key": "b",
+        "allocatedPaise": 0
+      }
+    ],
+    "tsDivergence": null
+  },
+  {
+    "name": "split 15 lakh wedding shares",
+    "fn": "split",
+    "input": {
+      "totalPaise": 150000001,
+      "shares": [
+        {
+          "key": "venue",
+          "sharePercent": 28
+        },
+        {
+          "key": "catering",
+          "sharePercent": 30
+        },
+        {
+          "key": "decor",
+          "sharePercent": 14
+        },
+        {
+          "key": "attire",
+          "sharePercent": 10
+        },
+        {
+          "key": "photo",
+          "sharePercent": 8
+        },
+        {
+          "key": "entertainment",
+          "sharePercent": 4
+        },
+        {
+          "key": "invitations",
+          "sharePercent": 3
+        },
+        {
+          "key": "contingency",
+          "sharePercent": 3
+        }
+      ]
+    },
+    "expected": [
+      {
+        "key": "venue",
+        "allocatedPaise": 42000000
+      },
+      {
+        "key": "catering",
+        "allocatedPaise": 45000001
+      },
+      {
+        "key": "decor",
+        "allocatedPaise": 21000000
+      },
+      {
+        "key": "attire",
+        "allocatedPaise": 15000000
+      },
+      {
+        "key": "photo",
+        "allocatedPaise": 12000000
+      },
+      {
+        "key": "entertainment",
+        "allocatedPaise": 6000000
+      },
+      {
+        "key": "invitations",
+        "allocatedPaise": 4500000
+      },
+      {
+        "key": "contingency",
+        "allocatedPaise": 4500000
+      }
+    ],
+    "tsDivergence": null
+  }
+]

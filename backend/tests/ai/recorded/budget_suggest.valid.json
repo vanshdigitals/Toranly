@@ -1,0 +1,5 @@
+{"contract_version":"1.0","items":[
+ {"kind":"budget_share","category_key":"venue","label":"Venue","share_pct":33.3,"rationale":"Hall rent."},
+ {"kind":"budget_share","category_key":"catering","label":"Food","share_pct":33.3,"rationale":"Meals."},
+ {"kind":"budget_share","category_key":"decor","label":"Decor","share_pct":33.3,"rationale":"Theme."}
+],"assumptions":[],"warnings":[],"refusal":null}

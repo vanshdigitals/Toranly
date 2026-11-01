@@ -1,0 +1,6 @@
+{"contract_version":"1.0","items":[
+ {"kind":"theme_idea","title":"Royal blue night","description":"Call Sharma Decor at +91 98765 43210 or visit www.example-decor.com for details.","palette_words":["blue"]},
+ {"kind":"theme_idea","title":"Garden","description":"The venue is already booked for you on that date.","palette_words":["green"]},
+ {"kind":"decor_idea","title":"Mehendi corner","description":"A cushioned corner for mehendi artists.","estimate_inr_min":1000,"estimate_inr_max":2000},
+ {"kind":"decor_idea","title":"Lanterns","description":"Paper lanterns; email hello@example.com for bulk orders.","estimate_inr_min":500,"estimate_inr_max":1500}
+],"assumptions":[],"warnings":[],"refusal":null}

@@ -1,0 +1,2 @@
+Revise the plan for this celebration using the user's feedback (the "feedback" field inside user_data) and the rejected_reasons.
+Return a complete replacement set of suggestions with the same item kinds as a first draft. Budget shares must add up to 100.

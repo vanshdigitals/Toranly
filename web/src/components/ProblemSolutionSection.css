@@ -1,0 +1,93 @@
+/* Problem to Solution Section (id="why-toranly") */
+
+.why-toranly-section {
+  width: 100%;
+  padding-top: var(--landing-section-pad-y);
+  padding-bottom: var(--landing-section-pad-y);
+  scroll-margin-top: calc(var(--header-height, 72px) + 16px);
+  box-sizing: border-box;
+}
+
+.why-toranly-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .why-toranly-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+/* Card: surface, 1px border token, radius 16px, padding 24px, no shadow */
+.why-toranly-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); /* 16px */
+  padding: 24px;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+/* Problem: secondary text with circle-alert in warning colour */
+.why-card-problem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.why-card-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.why-icon-warning {
+  color: var(--color-warning);
+}
+
+.why-problem-text {
+  font-family: var(--font-ui);
+  font-size: var(--font-landing-card-text-size); /* 15px */
+  line-height: var(--font-landing-body-lh); /* 1.6 */
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Lucide arrow-down in muted colour */
+.why-card-arrow {
+  display: flex;
+  align-items: center;
+  padding-left: 1px;
+  margin: 16px 0;
+}
+
+.why-icon-muted {
+  color: var(--color-text-muted);
+}
+
+/* Solution: text colour, weight 600, circle-check in success colour */
+.why-card-solution {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.why-icon-success {
+  color: var(--color-success);
+}
+
+.why-solution-text {
+  font-family: var(--font-ui);
+  font-size: var(--font-landing-card-text-size); /* 15px */
+  font-weight: 600;
+  line-height: var(--font-landing-body-lh); /* 1.6 */
+  color: var(--color-text);
+  margin: 0;
+}

@@ -1,0 +1,15 @@
+**/node_modules
+**/.venv
+**/__pycache__
+**/.pytest_cache
+**/.mypy_cache
+**/.ruff_cache
+**/.env
+**/.env.*
+web/dist
+backend/tests
+celebration-event-planner-docs
+.claude
+.git
+/*.png
+**/.hypothesis

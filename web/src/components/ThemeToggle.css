@@ -1,0 +1,36 @@
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-circle);
+  background-color: transparent;
+  color: var(--color-text);
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--motion-fast);
+}
+
+/* Desktop sizing: 40px */
+.theme-toggle-btn.desktop {
+  width: 40px;
+  height: 40px;
+}
+
+/* Mobile sizing: 44px touch target */
+.theme-toggle-btn.mobile {
+  width: 44px;
+  height: 44px;
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--color-surface-subtle);
+}
+
+.theme-toggle-btn:active {
+  background-color: var(--color-border);
+}
+
+.theme-toggle-btn:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}

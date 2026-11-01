@@ -1,0 +1,347 @@
+/* Screen styling */
+.print-page-container {
+  min-height: 100vh;
+  background-color: #f1f5f9;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+}
+
+.print-screen-controls {
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.print-control-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 150ms ease;
+}
+
+.print-control-btn.back {
+  background-color: #ffffff;
+  color: var(--color-text-main, #0f172a);
+  border: 1px solid var(--color-border, #cbd5e1);
+}
+
+.print-control-btn.print-primary {
+  background-color: var(--color-primary, #0f6e6e);
+  color: #ffffff;
+  border: none;
+}
+
+.print-control-btn.print-primary:hover {
+  background-color: #0c5757;
+}
+
+.print-document {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
+  padding: 48px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  color: #0f172a;
+}
+
+.print-doc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #0f6e6e;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.print-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.print-logo {
+  width: 28px;
+  height: 28px;
+}
+
+.print-brand-name {
+  font-family: var(--font-heading, Fraunces, serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f6e6e;
+}
+
+.print-meta-date {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.print-section {
+  margin-bottom: 32px;
+}
+
+.print-title {
+  font-family: var(--font-heading, Fraunces, serif);
+  font-size: 26px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 16px 0;
+}
+
+.print-section-heading {
+  font-family: var(--font-heading, Fraunces, serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f6e6e;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 6px;
+  margin: 0 0 14px 0;
+}
+
+.print-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.print-overview-cell {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.print-cell-label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #64748b;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.print-cell-val {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.print-cell-val.highlight {
+  color: #0f6e6e;
+}
+
+/* Tables */
+.print-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.print-table th,
+.print-table td {
+  border: 1px solid #e2e8f0;
+  padding: 8px 10px;
+  text-align: left;
+}
+
+.print-table th {
+  background-color: #f8fafc;
+  font-weight: 600;
+  color: #334155;
+}
+
+.print-table td.num,
+.print-table th.num {
+  text-align: right;
+}
+
+.print-total-row {
+  background-color: #f8fafc;
+  border-top: 2px solid #cbd5e1;
+}
+
+.print-status-tag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+}
+
+.print-status-tag.ok {
+  color: #0f6e6e;
+  background-color: #e6f4f1;
+  border-color: #99d5ca;
+}
+
+.print-status-tag.warning {
+  color: #b45309;
+  background-color: #fef3c7;
+  border-color: #fde68a;
+}
+
+.print-status-tag.over {
+  color: #b91c1c;
+  background-color: #fee2e2;
+  border-color: #fecaca;
+}
+
+.print-checkbox {
+  display: inline-block;
+  width: 16px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.print-checkbox.checked {
+  color: #0f6e6e;
+}
+
+.print-milestone-tag {
+  display: inline-block;
+  font-size: 10px;
+  background-color: #e0e7ff;
+  color: #3730a3;
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-left: 6px;
+}
+
+.print-subtext {
+  display: block;
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* Diet grid */
+.print-diet-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.print-diet-box {
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 8px;
+  text-align: center;
+}
+
+.print-diet-count {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f6e6e;
+}
+
+.print-diet-label {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.print-doc-footer {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 16px;
+  margin-top: 40px;
+  text-align: center;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.print-loading,
+.print-not-found {
+  padding: 60px 20px;
+  text-align: center;
+  font-family: var(--font-body);
+}
+
+/* Print Media Query */
+@media print {
+  @page {
+    size: A4;
+    margin: 16mm;
+  }
+
+  body {
+    background-color: #ffffff !important;
+  }
+
+  .print-page-container {
+    background-color: transparent !important;
+    padding: 0 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-document {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr {
+    break-inside: avoid;
+  }
+
+  .print-section {
+    break-inside: avoid;
+  }
+}
+
+.print-check-note {
+  max-width: 210mm;
+  margin: 0 auto 16px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--color-warning-bg);
+  color: var(--color-warning);
+  font-size: 0.875rem;
+}
+
+.print-check-note ul {
+  margin: 6px 0 0;
+  padding-left: 18px;
+}
+
+/* Phone preview of the A4 sheet: wide tables scroll inside the sheet, not the page */
+@media screen and (max-width: 640px) {
+  .print-document {
+    padding: 20px 16px;
+  }
+
+  .print-overview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .print-diet-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .print-table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}

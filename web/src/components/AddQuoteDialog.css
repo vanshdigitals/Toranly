@@ -1,0 +1,196 @@
+/* AddQuoteDialog Styles */
+.quote-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(30, 35, 48, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+  animation: quoteFadeIn 150ms ease-out;
+}
+
+.quote-modal-dialog {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border, #e3dccf);
+  border-radius: 18px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 40px -8px rgba(30, 35, 48, 0.22);
+  padding: 24px;
+  box-sizing: border-box;
+  animation: quoteScaleUp 150ms ease-out;
+}
+
+.quote-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.quote-icon-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: #f4efe6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote-modal-icon {
+  color: var(--color-primary, #005454);
+}
+
+.quote-modal-close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #94a3b8;
+  padding: 6px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 140ms ease;
+}
+
+.quote-modal-close-btn:hover {
+  background-color: #f4efe6;
+  color: var(--color-text, #1e2330);
+}
+
+.quote-modal-title-group {
+  margin-bottom: 20px;
+}
+
+.quote-modal-title {
+  font-family: var(--font-heading, "Literata", Fraunces, serif);
+  font-size: var(--font-size-card-heading, 20px);
+  font-weight: 700;
+  color: var(--color-text, #1e2330);
+  margin: 0 0 4px 0;
+  line-height: 1.25;
+}
+
+.quote-modal-desc {
+  font-size: 13.5px;
+  color: var(--color-text-secondary, #474f5e);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.quote-modal-error {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.quote-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.quote-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.quote-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quote-form-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--color-text, #1e2330);
+}
+
+.quote-form-input,
+.quote-form-select {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--color-border, #e3dccf);
+  border-radius: 9px;
+  font-size: 13.5px;
+  font-family: inherit;
+  background-color: #faf8f4;
+  color: var(--color-text, #1e2330);
+  outline: none;
+  transition: all 140ms ease;
+  box-sizing: border-box;
+}
+
+.quote-form-input:focus,
+.quote-form-select:focus {
+  background-color: #ffffff;
+  border-color: var(--color-primary, #005454);
+  box-shadow: 0 0 0 2px rgba(0, 84, 84, 0.12);
+}
+
+.quote-currency-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.quote-currency-prefix {
+  position: absolute;
+  left: 12px;
+  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--color-text-secondary, #474f5e);
+  pointer-events: none;
+}
+
+.quote-form-input.has-prefix {
+  padding-left: 28px;
+}
+
+.quote-modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+  padding-top: 14px;
+  border-top: 1px solid #f2ede4;
+}
+
+@keyframes quoteFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes quoteScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .quote-form-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+

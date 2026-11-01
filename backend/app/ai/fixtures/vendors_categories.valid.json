@@ -1,0 +1,3 @@
+{"contract_version":"1.0","items":[
+ {"kind":"vendor_category","category_key":"catering","label":"Caterer","questions_to_ask":["Is a tasting included?","How many service staff come?"],"book_by_offset_days":25}
+],"assumptions":[],"warnings":[],"refusal":null}

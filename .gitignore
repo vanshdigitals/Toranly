@@ -1,0 +1,32 @@
+backend/.env
+backend/.env.*
+!backend/.env.example
+backend/.venv/
+**/__pycache__/
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+**/.hypothesis/
+**/node_modules/
+web/test-results/
+web/playwright-report/
+# Local tooling settings (ports, local database URLs)
+.claude/
+# Temporary browser profiles (cookies, sessions); never commit
+.tmp_*/
+# Design references and unused artwork (kept locally, not shipped)
+design/stitch-reference/
+/Emerald and Gold Botanical Logo.png
+web/public/Emerald and Gold Botanical Logo.png
+web/public/marigold-toran-doorway.jpg
+web/public/hero-courtyard-2400.webp
+# Generated or local-only artefacts
+coverage/
+htmlcov/
+.coverage
+*.zip
+*.log
+*.dump
+*.sql.gz
+*.sqlite
+*.db

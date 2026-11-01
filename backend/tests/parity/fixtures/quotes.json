@@ -1,0 +1,92 @@
+[
+  {
+    "name": "normalise total, per plate, missing units, rounding",
+    "fn": "quotes",
+    "input": {
+      "guestCount": 60,
+      "quotes": [
+        {
+          "id": "q1",
+          "vendorId": "v1",
+          "amountPaise": 2700000,
+          "unit": "total",
+          "inclusions": []
+        },
+        {
+          "id": "q2",
+          "vendorId": "v2",
+          "amountPaise": 40000,
+          "unit": "per_plate",
+          "units": 60,
+          "inclusions": []
+        },
+        {
+          "id": "q3",
+          "vendorId": "v3",
+          "amountPaise": 50000,
+          "unit": "per_guest",
+          "inclusions": []
+        },
+        {
+          "id": "q4",
+          "vendorId": "v4",
+          "amountPaise": 2400000,
+          "unit": "total",
+          "inclusions": []
+        }
+      ]
+    },
+    "expected": [
+      {
+        "id": "q1",
+        "totalPaise": 2700000,
+        "perGuestPaise": 45000,
+        "isCheapest": false
+      },
+      {
+        "id": "q2",
+        "totalPaise": 2400000,
+        "perGuestPaise": 40000,
+        "isCheapest": true
+      },
+      {
+        "id": "q3",
+        "totalPaise": 3000000,
+        "perGuestPaise": 50000,
+        "isCheapest": false
+      },
+      {
+        "id": "q4",
+        "totalPaise": 2400000,
+        "perGuestPaise": 40000,
+        "isCheapest": true
+      }
+    ],
+    "tsDivergence": null
+  },
+  {
+    "name": "per guest rounds half up",
+    "fn": "quotes",
+    "input": {
+      "guestCount": 2,
+      "quotes": [
+        {
+          "id": "q",
+          "vendorId": "v",
+          "amountPaise": 5,
+          "unit": "total",
+          "inclusions": []
+        }
+      ]
+    },
+    "expected": [
+      {
+        "id": "q",
+        "totalPaise": 5,
+        "perGuestPaise": 3,
+        "isCheapest": true
+      }
+    ],
+    "tsDivergence": null
+  }
+]

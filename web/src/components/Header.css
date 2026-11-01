@@ -1,0 +1,185 @@
+/* Header Component Styles */
+
+.site-header {
+  width: 100%;
+  background-color: var(--color-bg);
+  /* Solid page background: strictly no blur, no transparency, no gradient */
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--motion-fast);
+  box-sizing: border-box;
+}
+
+/* Mobile & Small Screens (< 768px): static, height 64px */
+@media (max-width: 767.98px) {
+  .site-header {
+    position: static;
+    height: var(--header-height-mobile); /* 64px */
+  }
+}
+
+/* Desktop & Laptop Screens (>= 768px): sticky at top, height 72px */
+@media (min-width: 768px) {
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: var(--header-height-desktop); /* 72px */
+  }
+
+  /* Scrolled state: 1px bottom border using border token with 120ms fade */
+  .site-header.is-scrolled {
+    border-bottom-color: var(--color-border);
+  }
+}
+
+/* Container inside Header */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* Header Logo: logomark + wordmark, 10px gap, vertically centred */
+.header-logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.header-logo-link:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.header-logomark {
+  display: block;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+}
+
+.header-wordmark {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--color-text);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .header-logomark {
+    width: 32px;
+    height: 32px;
+  }
+
+  .header-wordmark {
+    font-size: 22px;
+  }
+}
+
+/* Desktop Navigation & Actions */
+.header-desktop-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .header-desktop-nav {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .header-nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6); /* 24px between links */
+    white-space: nowrap;
+  }
+
+  .header-nav-link {
+    font-family: var(--font-ui);
+    font-size: var(--font-landing-nav-size); /* 15px */
+    font-weight: var(--font-landing-nav-weight); /* 500 */
+    color: var(--color-text);
+    text-decoration: none;
+    line-height: 1;
+    transition: color var(--motion-fast);
+    white-space: nowrap;
+  }
+
+  .header-nav-link:hover {
+    text-decoration: underline;
+  }
+
+  .header-nav-link:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Spacing: 24px between link group and toggle/CTA */
+  .header-nav-actions {
+    display: flex;
+    align-items: center;
+    margin-left: var(--space-6); /* 24px */
+    gap: var(--space-4); /* 16px between toggle and button */
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* Header button: 40px tall on desktop */
+  .header-cta-btn {
+    height: 40px;
+    padding: 0 var(--space-4); /* 16px */
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+}
+
+/* Mobile Actions: Hidden on Desktop */
+.header-mobile-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2); /* 8px between toggle and hamburger */
+}
+
+@media (min-width: 768px) {
+  .header-mobile-actions {
+    display: none;
+  }
+}
+
+/* Hamburger button: 44x44px touch target */
+.hamburger-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-circle);
+  background-color: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  border: none;
+  transition: background-color var(--motion-fast);
+}
+
+.hamburger-btn:hover {
+  background-color: var(--color-surface-subtle);
+}
+
+.hamburger-btn:active {
+  background-color: var(--color-border);
+}
+
+.hamburger-btn:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}

@@ -1,0 +1,1 @@
+List the kinds of vendors this celebration needs. Return vendor_category items with a few practical questions to ask each vendor and how many days before the event to book them. Never name a real vendor.

@@ -1,0 +1,22 @@
+# Local Postgres for development and tests. Not used in production (Neon).
+#   docker compose -f backend/docker-compose.yml up -d
+services:
+  db:
+    image: postgres:17.6-alpine
+    environment:
+      POSTGRES_USER: toranly
+      POSTGRES_PASSWORD: toranly # local development only
+      POSTGRES_DB: toranly
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - toranly-pg:/var/lib/postgresql/data
+      - ./docker/init-test-db.sql:/docker-entrypoint-initdb.d/init-test-db.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U toranly -d toranly"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  toranly-pg:

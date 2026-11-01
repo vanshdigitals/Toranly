@@ -1,0 +1,5 @@
+{"contract_version":"1.0","items":[
+ {"kind":"schedule_item","function_name":"Birthday Celebration & Party","start_time":"17:00","duration_min":60,"title":"Welcome and games"},
+ {"kind":"schedule_item","function_name":"Birthday Celebration & Party","start_time":"17:30","duration_min":30,"title":"Magic show"},
+ {"kind":"schedule_item","function_name":"Some other function","start_time":"18:00","duration_min":30,"title":"Cake cutting"}
+],"assumptions":[],"warnings":[],"refusal":null}

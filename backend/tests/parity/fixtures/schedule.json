@@ -1,0 +1,47 @@
+[
+  {
+    "name": "overlaps within a function",
+    "fn": "scheduleOverlaps",
+    "input": {
+      "items": [
+        {
+          "id": "a",
+          "functionId": "f1",
+          "startTime": "10:00",
+          "durationMin": 60
+        },
+        {
+          "id": "b",
+          "functionId": "f1",
+          "startTime": "10:59",
+          "durationMin": 10
+        },
+        {
+          "id": "c",
+          "functionId": "f1",
+          "startTime": "11:00",
+          "durationMin": 30
+        },
+        {
+          "id": "d",
+          "functionId": "f2",
+          "startTime": "10:00",
+          "durationMin": 60
+        }
+      ]
+    },
+    "expected": [
+      {
+        "itemAId": "a",
+        "itemBId": "b",
+        "functionId": "f1"
+      },
+      {
+        "itemAId": "b",
+        "itemBId": "c",
+        "functionId": "f1"
+      }
+    ],
+    "tsDivergence": null
+  }
+]

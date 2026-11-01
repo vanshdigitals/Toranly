@@ -1,0 +1,96 @@
+.error-boundary-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6, 24px);
+  background-color: var(--color-surface, #FAF7F2);
+  color: var(--color-ink, #2C2623);
+  font-family: var(--font-body, 'Plus Jakarta Sans', system-ui, sans-serif);
+}
+
+.error-boundary-card {
+  max-width: 480px;
+  width: 100%;
+  background-color: var(--color-card, #FFFFFF);
+  border: 1px solid var(--color-border, #E4DDD3);
+  border-radius: var(--radius-card, 16px);
+  padding: var(--space-8, 32px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.error-boundary-header {
+  margin-bottom: var(--space-4, 16px);
+}
+
+.error-boundary-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #FEF2F2;
+  color: #DC2626;
+  margin-bottom: var(--space-4, 16px);
+}
+
+.error-boundary-title {
+  font-family: var(--font-heading, 'Fraunces', serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-ink, #2C2623);
+  margin: 0 0 var(--space-2, 8px) 0;
+  line-height: 1.25;
+}
+
+.error-boundary-desc {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-muted, #726A64);
+  margin: 0 0 var(--space-6, 24px) 0;
+}
+
+.error-boundary-details {
+  width: 100%;
+  text-align: left;
+  background-color: var(--color-surface, #FAF7F2);
+  border: 1px solid var(--color-border, #E4DDD3);
+  border-radius: var(--radius-sm, 8px);
+  padding: var(--space-3, 12px);
+  font-size: 0.8125rem;
+  color: #DC2626;
+  margin-bottom: var(--space-6, 24px);
+  overflow-x: auto;
+  word-break: break-all;
+}
+
+.error-boundary-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3, 12px);
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  .error-boundary-actions {
+    flex-direction: row;
+  }
+
+  .error-boundary-btn {
+    flex: 1;
+  }
+}
+
+.error-boundary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2, 8px);
+  font-weight: 500;
+}
+

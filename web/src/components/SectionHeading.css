@@ -1,0 +1,46 @@
+/* ==========================================================================
+   Shared Section Heading Component Styles
+   ========================================================================== */
+
+.section-heading-block {
+  text-align: center;
+  margin-inline: auto;
+  margin-bottom: var(--landing-heading-gap); /* clamp(32px, 4vw, 48px) */
+  max-width: var(--font-landing-intro-max-ch);
+  box-sizing: border-box;
+}
+
+.section-heading-eyebrow {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: var(--font-landing-eyebrow-size); /* 12px */
+  font-weight: var(--font-landing-eyebrow-weight); /* 600 */
+  line-height: 1.4;
+  letter-spacing: var(--font-landing-eyebrow-tracking); /* 0.12em */
+  text-transform: uppercase;
+  color: var(--color-celebration-text);
+  margin-bottom: var(--space-3); /* 12px from eyebrow to heading */
+}
+
+.section-heading-title {
+  font-family: var(--font-display);
+  font-size: var(--font-landing-h2-size); /* clamp(1.625rem, 1.35rem + 1vw, 2.125rem) */
+  font-weight: 600;
+  line-height: var(--font-landing-h2-lh); /* 1.2 */
+  color: var(--color-text);
+  max-width: var(--font-landing-h2-max-ch); /* 22ch */
+  margin: 0 auto;
+  text-wrap: balance;
+  text-align: center;
+}
+
+.section-heading-intro {
+  font-family: var(--font-ui);
+  font-size: var(--font-landing-intro-size); /* clamp(1rem, 0.95rem + 0.2vw, 1.0625rem) */
+  font-weight: 400;
+  line-height: var(--font-landing-intro-lh); /* 1.6 */
+  color: var(--color-text-secondary);
+  max-width: var(--font-landing-intro-max-ch); /* 56ch */
+  margin: var(--space-4) auto 0 auto; /* 16px from heading to intro */
+  text-align: center;
+}

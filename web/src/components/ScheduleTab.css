@@ -1,0 +1,1054 @@
+/* ==========================================================================
+   Toranly Schedule Page & Real-Time Timeline Styles
+   Matches Stitch Reference P3-8 S-12 Schedule: Refined Conflict Resolution
+   ========================================================================== */
+
+.sched-page-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4px 60px 4px;
+}
+
+/* --------------------------------------------------------------------------
+   Page Header
+   -------------------------------------------------------------------------- */
+.sched-page-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+@media (min-width: 768px) {
+  .sched-page-header {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.sched-page-title {
+  font-family: var(--font-serif, 'Fraunces', Georgia, serif);
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--color-text, #1e2330);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.sched-page-desc {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
+  font-size: 14px;
+  color: var(--color-text-secondary, #646b7a);
+  margin-top: 6px;
+  margin-bottom: 0;
+  line-height: 1.5;
+  max-width: 680px;
+}
+
+.sched-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   MANDATORY BUTTON STYLING (Dark Teal with White Text & White Icons)
+   -------------------------------------------------------------------------- */
+.sched-primary-btn,
+.sched-btn-primary,
+button.sched-primary-btn,
+button.sched-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 20px;
+  border-radius: 9999px;
+  background-color: var(--color-primary, #0f6e6e) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--color-primary, #0f6e6e) !important;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(15, 110, 110, 0.2);
+  transition: background-color 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
+}
+
+.sched-primary-btn:hover,
+.sched-btn-primary:hover {
+  background-color: var(--color-primary-hover, #0b5858) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(15, 110, 110, 0.25);
+}
+
+.sched-primary-btn:active,
+.sched-btn-primary:active {
+  transform: scale(0.98);
+}
+
+.sched-primary-btn *,
+.sched-btn-primary *,
+.sched-primary-btn svg,
+.sched-btn-primary svg,
+.sched-primary-btn .material-symbols-outlined,
+.sched-btn-primary .material-symbols-outlined {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* Secondary Outlined Action Button */
+.sched-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 10px;
+  background-color: var(--color-surface, #ffffff);
+  color: var(--color-primary, #0f6e6e);
+  border: 1px solid var(--color-border-strong, #c4bbaf);
+  font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.sched-secondary-btn:hover {
+  background-color: var(--color-surface-subtle, #f4efe6);
+  border-color: var(--color-primary, #0f6e6e);
+}
+
+.sched-secondary-btn:active {
+  transform: scale(0.98);
+}
+
+/* Simulation Toggle Button */
+
+
+
+/* --------------------------------------------------------------------------
+   Two-Column Main Grid Layout
+   -------------------------------------------------------------------------- */
+.sched-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .sched-layout-grid {
+    grid-template-columns: 310px 1fr;
+    gap: 28px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Left Column: Functions Sticky Rail
+   -------------------------------------------------------------------------- */
+.sched-sidebar-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+@media (min-width: 1024px) {
+  .sched-sidebar-rail {
+    position: sticky;
+    top: 88px;
+  }
+}
+
+.sched-functions-card {
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #e3dccf);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(30, 35, 48, 0.03);
+}
+
+.sched-functions-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--color-border, #e3dccf);
+}
+
+.sched-functions-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary, #646b7a);
+}
+
+.sched-functions-month {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-muted, #8b92a0);
+}
+
+.sched-functions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sched-function-nav-item {
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #e3dccf);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-decoration: none;
+}
+
+.sched-function-nav-item:hover {
+  background: var(--color-surface-subtle, #f4efe6);
+  border-color: #c4bbaf;
+}
+
+.sched-function-nav-item.active {
+  background: rgba(15, 110, 110, 0.06);
+  border: 2px solid var(--color-primary, #0f6e6e);
+  box-shadow: 0 2px 8px rgba(15, 110, 110, 0.1);
+}
+
+.sched-function-item-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.sched-function-item-name {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text, #1e2330);
+}
+
+.sched-function-nav-item.active .sched-function-item-name {
+  color: var(--color-primary, #0f6e6e);
+}
+
+.sched-conflict-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.sched-intact-pill {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-muted, #8b92a0);
+}
+
+.sched-function-meta {
+  font-size: 12px;
+  color: var(--color-text-secondary, #646b7a);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.4;
+}
+
+.sched-function-items-count {
+  color: var(--color-text-muted, #8b92a0);
+  font-size: 11.5px;
+}
+
+/* Timeline Hygiene Tips Card */
+.sched-hygiene-card {
+  background: var(--color-surface-subtle, #f4efe6);
+  border: 1px solid var(--color-border, #e3dccf);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.sched-hygiene-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text, #1e2330);
+  margin-bottom: 6px;
+}
+
+.sched-hygiene-header svg {
+  color: var(--color-primary, #0f6e6e);
+}
+
+.sched-hygiene-text {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-text-secondary, #646b7a);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Right Column: Function Detailed Schedule
+   -------------------------------------------------------------------------- */
+.sched-main-card {
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #e3dccf);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 3px 12px rgba(30, 35, 48, 0.03);
+}
+
+.sched-card-top-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-border, #e3dccf);
+}
+
+@media (min-width: 640px) {
+  .sched-card-top-header {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.sched-function-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.sched-function-headline {
+  font-family: var(--font-serif, 'Fraunces', Georgia, serif);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-text, #1e2330);
+  margin: 0;
+}
+
+.sched-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.sched-status-badge.warning {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.sched-status-badge.success {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.sched-status-badge.in-progress {
+  background: rgba(15, 110, 110, 0.1);
+  color: var(--color-primary, #0f6e6e);
+  border: 1px solid rgba(15, 110, 110, 0.3);
+}
+
+.sched-timing-meta {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
+  font-size: 13.5px;
+  color: var(--color-text-secondary, #646b7a);
+  margin-top: 4px;
+  margin-bottom: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.sched-timing-meta strong {
+  color: var(--color-text, #1e2330);
+}
+
+.sched-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sched-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border, #e3dccf);
+  background: var(--color-surface, #ffffff);
+  color: var(--color-text-secondary, #646b7a);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.sched-icon-btn:hover {
+  background: var(--color-surface-subtle, #f4efe6);
+  color: var(--color-text, #1e2330);
+  border-color: #c4bbaf;
+}
+
+/* --------------------------------------------------------------------------
+   Progress Status Banner (When In Progress)
+   -------------------------------------------------------------------------- */
+.sched-progress-indicator-bar {
+  margin-top: 18px;
+  padding: 10px 14px;
+  background: rgba(15, 110, 110, 0.05);
+  border: 1px solid rgba(15, 110, 110, 0.2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12.5px;
+}
+
+.sched-progress-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-primary, #0f6e6e);
+  font-weight: 600;
+}
+
+.sched-progress-meter {
+  flex: 1;
+  max-width: 200px;
+  height: 6px;
+  background: #e3dccf;
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.sched-progress-meter-fill {
+  height: 100%;
+  background: var(--color-primary, #0f6e6e);
+  border-radius: 9999px;
+  transition: width 0.4s ease;
+}
+
+/* --------------------------------------------------------------------------
+   Vertical Continuous Timeline & Real-Time Progressive Rail
+   -------------------------------------------------------------------------- */
+.sched-timeline-container {
+  position: relative;
+  padding-top: 24px;
+  padding-bottom: 8px;
+}
+
+/* Two-layer connecting guide rail */
+.sched-timeline-track {
+  position: absolute;
+  top: 36px;
+  bottom: 40px;
+  left: 96px; /* 80px time col + 16px center of dot */
+  width: 2px;
+  background-color: rgba(15, 110, 110, 0.18);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Real-time progressive fill layer */
+.sched-timeline-progress-fill {
+  position: absolute;
+  top: 36px;
+  left: 96px;
+  width: 2.5px;
+  background-color: var(--color-primary, #0f6e6e);
+  transform: translateX(-50%);
+  z-index: 2;
+  border-radius: 9999px;
+  transition: height 0.5s ease-out;
+}
+
+.sched-timeline-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sched-timeline-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  position: relative;
+}
+
+/* Left Time Column */
+.sched-time-col {
+  width: 80px;
+  text-align: right;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.sched-time-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text, #1e2330);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+
+.sched-time-label.has-warning {
+  color: #d97706;
+}
+
+.sched-duration-label {
+  display: block;
+  font-size: 11px;
+  color: var(--color-text-muted, #8b92a0);
+  font-variant-numeric: tabular-nums;
+  margin-top: 3px;
+}
+
+/* Center Marker / Dot Column */
+.sched-marker-col {
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 5px;
+  position: relative;
+  z-index: 3;
+}
+
+.sched-timeline-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-surface, #ffffff);
+  border: 2.5px solid #c4bbaf;
+  transition: all 0.25s ease;
+}
+
+.sched-timeline-dot.completed {
+  background: var(--color-primary, #0f6e6e);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 1px rgba(15, 110, 110, 0.4);
+}
+
+.sched-timeline-dot.active {
+  width: 14px;
+  height: 14px;
+  background: var(--color-primary, #0f6e6e);
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 0 0 4px rgba(15, 110, 110, 0.25);
+  animation: sched-dot-pulse 2s infinite ease-in-out;
+}
+
+.sched-timeline-dot.warning {
+  width: 14px;
+  height: 14px;
+  background: #d97706;
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.25);
+  animation: sched-dot-pulse-warning 2s infinite ease-in-out;
+}
+
+@keyframes sched-dot-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 3px rgba(15, 110, 110, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(15, 110, 110, 0.15);
+  }
+}
+
+@keyframes sched-dot-pulse-warning {
+  0%, 100% {
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(217, 119, 6, 0.15);
+  }
+}
+
+/* Right Content Item Card */
+.sched-item-card {
+  flex: 1;
+  background: var(--color-surface-subtle, #f4efe6);
+  border: 1px solid var(--color-border, #e3dccf);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  transition: all 0.18s ease;
+}
+
+.sched-item-card:hover {
+  background: #ffffff;
+  border-color: #b8ada0;
+  box-shadow: 0 3px 10px rgba(30, 35, 48, 0.04);
+}
+
+.sched-item-main {
+  flex: 1;
+}
+
+.sched-item-title {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--color-text, #1e2330);
+  margin: 0;
+}
+
+.sched-item-desc {
+  font-size: 12.5px;
+  color: var(--color-text-secondary, #646b7a);
+  margin-top: 3px;
+  margin-bottom: 0;
+  line-height: 1.45;
+}
+
+.sched-item-menu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted, #8b92a0);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sched-item-menu-btn:hover {
+  background: rgba(30, 35, 48, 0.06);
+  color: var(--color-text, #1e2330);
+}
+
+/* --------------------------------------------------------------------------
+   Conflict Resolution Item Card
+   -------------------------------------------------------------------------- */
+.sched-conflict-card {
+  flex: 1;
+  background: #fffbeb;
+  border: 1px solid rgba(245, 158, 11, 0.6);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.08);
+}
+
+.sched-conflict-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sched-conflict-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sched-conflict-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  background: #fef3c7;
+  border: 1px solid rgba(245, 158, 11, 0.5);
+  color: #92400e;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.sched-conflict-desc {
+  font-size: 12px;
+  color: var(--color-text-secondary, #646b7a);
+  margin-top: 4px;
+  line-height: 1.45;
+}
+
+.sched-conflict-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-top: 10px;
+  border-top: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Primary Conflict Fix (Dark Teal with White Text & White Icon) */
+.sched-conflict-fix-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 10px;
+  background-color: var(--color-primary, #0f6e6e) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--color-primary, #0f6e6e) !important;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sched-conflict-fix-btn:hover {
+  background-color: var(--color-primary-hover, #0b5858) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+
+.sched-conflict-fix-btn *,
+.sched-conflict-fix-btn svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* Secondary Conflict Option */
+.sched-conflict-sub-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--color-text, #1e2330);
+  border: 1px solid var(--color-border-strong, #c4bbaf);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sched-conflict-sub-btn:hover {
+  background: var(--color-surface-subtle, #f4efe6);
+  border-color: #8b92a0;
+}
+
+/* Ghost Ignore / Concurrent Option */
+.sched-conflict-ghost-btn {
+  display: inline-flex;
+  align-items: center;
+  height: 38px;
+  padding: 0 12px;
+  background: transparent;
+  border: none;
+  color: var(--color-text-secondary, #646b7a);
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.sched-conflict-ghost-btn:hover {
+  color: var(--color-text, #1e2330);
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   Empty State
+   -------------------------------------------------------------------------- */
+.sched-empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 24px;
+  border: 2px dashed var(--color-border, #e3dccf);
+  border-radius: 16px;
+  background: var(--color-surface-subtle, #f4efe6);
+}
+
+.sched-empty-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(15, 110, 110, 0.1);
+  color: var(--color-primary, #0f6e6e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.sched-empty-title {
+  font-family: var(--font-serif, 'Fraunces', Georgia, serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-text, #1e2330);
+  margin: 0 0 6px 0;
+}
+
+.sched-empty-desc {
+  font-size: 13.5px;
+  color: var(--color-text-secondary, #646b7a);
+  max-width: 440px;
+  margin: 0 0 20px 0;
+  line-height: 1.5;
+}
+
+.sched-empty-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* --------------------------------------------------------------------------
+   Item Form Modal & Dialog Styles
+   -------------------------------------------------------------------------- */
+.sched-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(30, 35, 48, 0.45);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.sched-modal-card {
+  width: 100%;
+  max-width: 500px;
+  background: #ffffff;
+  border: 1px solid var(--color-border, #e3dccf);
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(30, 35, 48, 0.16);
+  padding: 24px;
+  position: relative;
+  animation: sched-modal-scale 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes sched-modal-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.sched-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border, #e3dccf);
+  margin-bottom: 20px;
+}
+
+.sched-modal-title {
+  font-family: var(--font-serif, 'Fraunces', Georgia, serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-text, #1e2330);
+  margin: 0;
+}
+
+.sched-modal-close-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted, #8b92a0);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease;
+}
+
+.sched-modal-close-btn:hover {
+  background: var(--color-surface-subtle, #f4efe6);
+  color: var(--color-text, #1e2330);
+}
+
+.sched-form-group {
+  margin-bottom: 18px;
+}
+
+.sched-form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text, #1e2330);
+  margin-bottom: 6px;
+}
+
+.sched-form-label .req {
+  color: #dc2626;
+}
+
+.sched-input,
+.sched-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border, #e3dccf);
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--color-text, #1e2330);
+  font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sched-input:focus,
+.sched-textarea:focus {
+  border-color: var(--color-primary, #0f6e6e);
+  box-shadow: 0 0 0 3px rgba(15, 110, 110, 0.15);
+}
+
+.sched-time-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.sched-preset-chip {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--color-surface-subtle, #f4efe6);
+  border: 1px solid var(--color-border, #e3dccf);
+  color: var(--color-text-secondary, #646b7a);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sched-preset-chip:hover {
+  border-color: var(--color-primary, #0f6e6e);
+  color: var(--color-primary, #0f6e6e);
+}
+
+.sched-preset-chip.active {
+  background: var(--color-primary, #0f6e6e);
+  color: #ffffff;
+  border-color: var(--color-primary, #0f6e6e);
+}
+
+.sched-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--color-border, #e3dccf);
+}
+
+.sched-cancel-btn {
+  padding: 0 16px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border, #e3dccf);
+  background: transparent;
+  color: var(--color-text-secondary, #646b7a);
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.sched-cancel-btn:hover {
+  background: var(--color-surface-subtle, #f4efe6);
+  color: var(--color-text, #1e2330);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Rules
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .sched-page-container {
+    padding: 0 0 50px 0;
+  }
+  .sched-page-title {
+    font-size: 24px;
+  }
+  .sched-main-card {
+    padding: 16px;
+    border-radius: 14px;
+  }
+  .sched-time-col {
+    width: 65px;
+  }
+  .sched-time-label {
+    font-size: 13px;
+  }
+  .sched-timeline-track,
+  .sched-timeline-progress-fill {
+    left: 81px; /* 65px + 16px */
+  }
+  .sched-timeline-row {
+    gap: 10px;
+  }
+  .sched-item-card {
+    padding: 12px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .sched-timeline-progress-fill,
+  .sched-timeline-dot,
+  .sched-modal-card {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+

@@ -1,0 +1,1 @@
+Suggest planning tasks for this celebration. Return only task items (8 to 20). offset_days counts back from the event day (0 = on the day). Mark key decisions as milestones. Use depends_on_titles only for titles in your own list or in existing_task_titles.

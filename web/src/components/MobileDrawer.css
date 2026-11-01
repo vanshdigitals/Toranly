@@ -1,0 +1,201 @@
+/* Mobile Navigation Drawer Overlay */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: var(--color-overlay);
+  display: flex;
+  justify-content: flex-end;
+  /* Prevent horizontal overflow during exit */
+  overflow: hidden;
+}
+
+.drawer-overlay[data-entering] {
+  animation: drawer-fade-in var(--motion-enter) forwards;
+}
+
+.drawer-overlay[data-exiting] {
+  animation: drawer-fade-out var(--motion-exit) forwards;
+}
+
+/* Drawer Sliding Panel */
+.drawer-panel {
+  width: min(360px, 85vw);
+  height: 100vh;
+  height: 100dvh;
+  background-color: var(--color-surface);
+  border-top-left-radius: var(--radius-xl);
+  border-bottom-left-radius: var(--radius-xl);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: var(--shadow-overlay);
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.drawer-panel[data-entering] {
+  animation: drawer-slide-in var(--motion-enter) forwards;
+}
+
+.drawer-panel[data-exiting] {
+  animation: drawer-slide-out var(--motion-exit) forwards;
+}
+
+/* Inner Dialog Container */
+.drawer-dialog {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--space-6); /* 24px */
+  outline: none;
+  box-sizing: border-box;
+}
+
+/* Header Row inside Drawer: Wordmark + Close button */
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-7); /* 32px */
+}
+
+.drawer-logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.drawer-logomark {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.drawer-wordmark {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+  line-height: 1;
+}
+
+.drawer-close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-circle);
+  color: var(--color-text);
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color var(--motion-fast);
+}
+
+.drawer-close-btn:hover {
+  background-color: var(--color-surface-subtle);
+}
+
+.drawer-close-btn:active {
+  background-color: var(--color-border);
+}
+
+.drawer-close-btn:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Nav Links inside Drawer */
+.drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1); /* 4px */
+  margin-bottom: var(--space-8); /* 40px */
+}
+
+.drawer-nav-item {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  font-family: var(--font-ui);
+  font-size: 1.125rem; /* 18px */
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  padding: 0 var(--space-2);
+  transition:
+    color var(--motion-fast),
+    background-color var(--motion-fast);
+}
+
+.drawer-nav-item:hover {
+  background-color: var(--color-surface-subtle);
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.drawer-nav-item:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Footer Action */
+.drawer-actions {
+  margin-top: auto;
+}
+
+/* Animations */
+@keyframes drawer-slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawer-slide-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes drawer-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes drawer-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Under prefers-reduced-motion, use opacity fade <= 100ms with no translate */
+@media (prefers-reduced-motion: reduce) {
+  .drawer-panel[data-entering],
+  .drawer-panel[data-exiting] {
+    transform: none;
+    animation: drawer-fade-in 100ms ease-out forwards;
+  }
+  .drawer-overlay[data-entering],
+  .drawer-overlay[data-exiting] {
+    animation: drawer-fade-in 100ms ease-out forwards;
+  }
+}

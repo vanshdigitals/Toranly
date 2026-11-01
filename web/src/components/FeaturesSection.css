@@ -1,0 +1,417 @@
+/* ==========================================================================
+   Toranly — Features Section (Product Showcase & Feature List)
+   ========================================================================== */
+
+.features-section {
+  width: 100%;
+  padding-top: var(--landing-section-pad-y);
+  padding-bottom: var(--landing-section-pad-y);
+  scroll-margin-top: calc(var(--header-height, 72px) + 16px);
+  border-top: 1px solid var(--color-border);
+  box-sizing: border-box;
+}
+
+/* Layout:
+   - Below 1024px: stacked with feature list first, showcase panel second
+   - 1024px and up: two columns (7/12 showcase on left, 5/12 feature list on right, 48px gap, vertically centered)
+*/
+.features-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8); /* 40px gap when stacked */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.features-list-wrapper {
+  order: 1; /* Feature list first on mobile / tablet */
+  width: 100%;
+}
+
+.features-showcase-wrapper {
+  order: 2; /* Showcase panel second on mobile / tablet */
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .features-layout {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: var(--space-9); /* 48px gap */
+    align-items: center; /* Vertically centered */
+  }
+
+  .features-showcase-wrapper {
+    order: 1; /* Left 7/12 column on desktop */
+  }
+
+  .features-list-wrapper {
+    order: 2; /* Right 5/12 column on desktop */
+  }
+}
+
+/* ==========================================================================
+   Product Showcase Panel (Left Column)
+   ========================================================================== */
+.showcase-panel {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); /* 16px */
+  box-shadow: var(--shadow-overlay); /* Overlay shadow permitted here only */
+  padding: var(--space-7); /* 32px desktop */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5); /* 20px */
+  user-select: none;
+  pointer-events: none; /* Decorative and non-interactive */
+}
+
+@media (max-width: 639.98px) {
+  .showcase-panel {
+    padding: var(--space-5); /* 20px mobile */
+    gap: var(--space-4);
+  }
+}
+
+/* Header */
+.showcase-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  gap: var(--space-4);
+}
+
+.showcase-header-main {
+  text-align: left;
+}
+
+.showcase-event-title {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.3;
+  color: var(--color-text);
+  margin: 0 0 var(--space-1) 0;
+}
+
+.showcase-event-meta {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.showcase-countdown {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.showcase-countdown-num {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--color-accent); /* Rani accent color */
+}
+
+.showcase-countdown-label {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+/* Budget Card */
+.showcase-budget-card {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  text-align: left;
+}
+
+.showcase-budget-figures {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.budget-stat {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.budget-val {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.budget-dot {
+  color: var(--color-border-strong);
+}
+
+.showcase-progress-bar {
+  width: 100%;
+  height: 6px;
+  background-color: var(--color-border);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.showcase-progress-fill {
+  height: 100%;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-pill);
+}
+
+.showcase-budget-alert-row {
+  display: flex;
+  align-items: center;
+}
+
+.showcase-status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-warning-bg);
+  color: var(--color-warning);
+  border: 1px solid color-mix(in srgb, var(--color-warning) 25%, transparent);
+}
+
+.status-chip-icon {
+  flex-shrink: 0;
+}
+
+/* Task Rows */
+.showcase-tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.showcase-task-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-1);
+  text-align: left;
+}
+
+.showcase-checkbox {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: 4px;
+  background-color: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.showcase-task-row:first-child .showcase-checkbox {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.showcase-check-icon {
+  color: #ffffff;
+}
+
+.showcase-task-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  flex: 1;
+  font-family: var(--font-ui);
+  font-size: 14px;
+}
+
+.showcase-task-name {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.showcase-task-date {
+  color: var(--color-text-secondary);
+}
+
+/* Chips */
+.showcase-chip {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  line-height: 1;
+}
+
+.showcase-chip--milestone {
+  background-color: var(--color-celebration-subtle);
+  color: var(--color-celebration-text);
+  border: 1px solid color-mix(in srgb, var(--color-celebration) 30%, transparent);
+}
+
+.showcase-chip--suggested {
+  background-color: var(--color-primary-subtle);
+  color: var(--color-primary);
+}
+
+.showcase-chip--estimate {
+  background-color: var(--color-info-bg);
+  color: var(--color-info);
+}
+
+/* Suggestion Card */
+.showcase-suggestion-card {
+  background-color: var(--color-primary-subtle);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  text-align: left;
+}
+
+.showcase-suggestion-top {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.showcase-suggestion-text {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.showcase-suggestion-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+}
+
+.showcase-btn {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: default;
+}
+
+.showcase-btn--primary {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.showcase-btn--secondary {
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+/* Below 640px: hide 3rd task row and suggestion row */
+@media (max-width: 639.98px) {
+  .showcase-task--milestone {
+    display: none;
+  }
+
+  .showcase-suggestion-card {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Feature List (Right Column)
+   ========================================================================== */
+.features-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.feature-item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4); /* 16px */
+  padding-top: var(--space-5); /* 20px */
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+}
+
+.feature-item-row:first-child {
+  padding-top: 0;
+}
+
+.feature-item-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.feature-item-icon-col {
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.feature-item-icon {
+  color: var(--color-primary);
+}
+
+.feature-item-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  text-align: left;
+}
+
+.feature-item-title {
+  font-family: var(--font-ui);
+  font-weight: var(--font-landing-card-title-weight); /* 700 */
+  font-size: var(--font-landing-card-title-size); /* 17px */
+  line-height: 1.35;
+  color: var(--color-text);
+  margin: 0;
+  text-align: left;
+}
+
+.feature-item-desc {
+  font-family: var(--font-ui);
+  font-size: var(--font-landing-card-text-size); /* 15px */
+  line-height: var(--font-landing-body-lh); /* 1.6 */
+  color: var(--color-text-secondary);
+  margin: 0;
+  text-align: left;
+}

@@ -1,0 +1,66 @@
+[project]
+name = "toranly-backend"
+version = "0.1.0"
+description = "Stateless companion API for Toranly: AI suggestions via xAI and reference domain endpoints."
+requires-python = ">=3.14,<3.15"
+dependencies = [
+    "fastapi==0.162.0",
+    "starlette==1.10.0",
+    "pydantic==2.14.1",
+    "pydantic-settings==2.16.2",
+    "sqlalchemy==2.1.6",
+    "psycopg[binary]==3.3.6",
+    "alembic==1.20.1",
+    "openai==3.40.0",
+    "uvicorn==0.54.0",
+    "tzdata==2026.6",
+]
+
+[dependency-groups]
+dev = [
+    "pytest==9.2.0",
+    "httpx==0.28.1",
+    "hypothesis==6.170.12",
+    "ruff==0.17.3",
+    "mypy==2.4.0",
+    "pip-audit==2.10.1",
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+extend-exclude = ["app/db/alembic/versions"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "SIM", "RUF", "ASYNC"]
+ignore = [
+    "S311", # random is not used for security; secrets module is used where it matters
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101", "S105", "S106", "S108"]
+"scripts/**" = ["S101"]
+
+[tool.mypy]
+python_version = "3.14"
+plugins = ["pydantic.mypy"]
+warn_unused_ignores = true
+warn_redundant_casts = true
+check_untyped_defs = true
+files = ["app"]
+
+[[tool.mypy.overrides]]
+module = ["app.domain.*", "app.ai.*"]
+strict = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra -m \"not live\""
+markers = [
+    "live: calls the real xAI API with XAI_API_KEY (costs money; run manually)",
+    "db: needs a reachable Postgres at TEST_DATABASE_URL",
+]
+filterwarnings = ["error::pytest.PytestUnraisableExceptionWarning"]

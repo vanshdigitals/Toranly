@@ -1,0 +1,213 @@
+/* ==========================================================================
+   Toranly — Every Celebration, Your Way (JS-Driven Infinite Loop & Arrows)
+   ========================================================================== */
+
+.celebrations-section {
+  width: 100%;
+  padding-top: var(--landing-section-pad-y);
+  padding-bottom: var(--landing-section-pad-y);
+  scroll-margin-top: calc(var(--header-height, 72px) + 16px);
+  border-top: 1px solid var(--color-border);
+  box-sizing: border-box;
+}
+
+/* Marquee Wrapper: Clipped strictly inside shared container, no edge fades */
+.celebrations-marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  touch-action: pan-y; /* Allow vertical scrolling while enabling horizontal gestures */
+}
+
+/* Marquee Track: Driven by JS requestAnimationFrame */
+.celebrations-marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Cards Group: 6 cards with 24px gap (16px on mobile) and matching trailing gap */
+.celebrations-cards-group {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--space-6); /* 24px */
+  padding-right: var(--space-6); /* 24px trailing gap so loop is seamless */
+  box-sizing: border-box;
+}
+
+@media (max-width: 639.98px) {
+  .celebrations-cards-group {
+    gap: var(--space-4); /* 16px */
+    padding-right: var(--space-4); /* 16px */
+  }
+}
+
+/* Card Widths:
+   - 380px from 1024px up
+   - 320px from 640px to 1023px
+   - 280px below 640px
+*/
+.celebration-card {
+  flex: 0 0 380px;
+  width: 380px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); /* 16px */
+  overflow: hidden;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  transition: border-color var(--motion-fast), transform var(--motion-fast), box-shadow var(--motion-fast);
+}
+
+.celebration-card:hover {
+  border-color: var(--color-border-strong);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.celebration-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  outline: none;
+}
+
+.celebration-card-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (min-width: 640px) and (max-width: 1023.98px) {
+  .celebration-card {
+    flex: 0 0 320px;
+    width: 320px;
+  }
+}
+
+@media (max-width: 639.98px) {
+  .celebration-card {
+    flex: 0 0 280px;
+    width: 280px;
+  }
+}
+
+/* Card Image Area: landscape 3:2 */
+.celebration-image-wrapper {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background-color: var(--color-surface-subtle);
+  border-top-left-radius: calc(var(--radius-lg) - 1px);
+  border-top-right-radius: calc(var(--radius-lg) - 1px);
+}
+
+.celebration-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.celebration-card:hover .celebration-card-image {
+  transform: scale(1.025);
+}
+
+/* Card Content Area: 20px padding, title 18px, description 15px */
+.celebration-card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.celebration-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2); /* 8px */
+}
+
+.celebration-card-title {
+  font-family: var(--font-ui);
+  font-weight: var(--font-landing-card-title-weight);
+  font-size: var(--font-landing-card-title-size); /* 17px */
+  line-height: 1.35;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.celebration-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: opacity var(--motion-fast), transform var(--motion-fast);
+}
+
+.celebration-card:hover .celebration-card-cta {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+.celebration-card-desc {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: var(--font-landing-card-text-size); /* 15px */
+  line-height: var(--font-landing-body-lh); /* 1.6 */
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Navigation Controls: Two circular 44px arrow buttons centered below track with 12px gap */
+.celebrations-nav-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: var(--space-8); /* 40px */
+}
+
+.celebrations-arrow-btn {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: var(--radius-circle);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 0;
+  transition:
+    background-color var(--motion-fast),
+    border-color var(--motion-fast),
+    color var(--motion-fast);
+}
+
+.celebrations-arrow-btn:hover {
+  background-color: var(--color-primary-subtle);
+}
+
+.celebrations-arrow-btn:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}

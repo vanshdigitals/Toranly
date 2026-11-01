@@ -1,0 +1,4 @@
+{"contract_version":"1.0","items":[
+ {"kind":"menu_item","course":"starter","dish_name":"Hara bhara kebab","diet_tags":["veg","jain"],"allergen_notes":null},
+ {"kind":"menu_item","course":"main","dish_name":"Dal makhani","diet_tags":["veg"],"allergen_notes":"Contains dairy"}
+],"assumptions":[],"warnings":[],"refusal":null}

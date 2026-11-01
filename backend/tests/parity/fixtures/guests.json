@@ -1,0 +1,115 @@
+[
+  {
+    "name": "diet counts match",
+    "fn": "dietCounts",
+    "input": {
+      "expectedTotal": 60,
+      "breakdown": {
+        "veg": 40,
+        "nonVeg": 12,
+        "jain": 8,
+        "eggetarian": 0,
+        "vegan": 0
+      }
+    },
+    "expected": {
+      "valid": true,
+      "sum": 60,
+      "expectedTotal": 60,
+      "difference": 0
+    },
+    "tsDivergence": null
+  },
+  {
+    "name": "diet counts exceed",
+    "fn": "dietCounts",
+    "input": {
+      "expectedTotal": 50,
+      "breakdown": {
+        "veg": 40,
+        "nonVeg": 12,
+        "jain": 8,
+        "eggetarian": 0,
+        "vegan": 0
+      }
+    },
+    "expected": {
+      "valid": false,
+      "sum": 60,
+      "expectedTotal": 50,
+      "difference": 10
+    },
+    "tsDivergence": null
+  },
+  {
+    "name": "coverage by menu tags",
+    "fn": "dietCoverage",
+    "input": {
+      "breakdown": {
+        "veg": 10,
+        "nonVeg": 5,
+        "jain": 2,
+        "eggetarian": 0,
+        "vegan": 1
+      },
+      "ideas": [
+        {
+          "kind": "menu",
+          "dietTags": [
+            "Veg",
+            "non-veg"
+          ]
+        },
+        {
+          "kind": "theme",
+          "dietTags": [
+            "jain"
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "covered": [
+        "veg",
+        "nonVeg"
+      ],
+      "uncovered": [
+        "jain",
+        "vegan"
+      ],
+      "fullyCovered": false
+    },
+    "tsDivergence": null
+  },
+  {
+    "name": "coverage with AI tag non_veg",
+    "fn": "dietCoverage",
+    "input": {
+      "breakdown": {
+        "veg": 10,
+        "nonVeg": 5,
+        "jain": 0,
+        "eggetarian": 0,
+        "vegan": 0
+      },
+      "ideas": [
+        {
+          "kind": "menu",
+          "dietTags": [
+            "veg",
+            "non_veg"
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "covered": [
+        "veg",
+        "nonVeg"
+      ],
+      "uncovered": [],
+      "fullyCovered": true
+    },
+    "tsDivergence": null
+  }
+]

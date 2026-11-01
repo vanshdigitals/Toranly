@@ -1,0 +1,1 @@
+Suggest a menu for this celebration. Return menu_item dishes across courses. Every diet group with a non-zero count in diet_counts must have dishes tagged for it. Note common allergens in allergen_notes.

@@ -1,0 +1,397 @@
+/* Toranly Premium Reusable Select Component Styles */
+
+.toranly-select-root {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--font-ui, 'Plus Jakarta Sans', system-ui, sans-serif);
+}
+
+/* 1. Trigger Button */
+.toranly-select-trigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 42px;
+  padding: 0 38px 0 14px; /* Ample right padding to prevent chevron collision */
+  background-color: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #e3dccf);
+  border-radius: var(--radius-md, 10px);
+  color: var(--color-text, #1e2330);
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+  box-shadow: 0 1px 2px rgba(30, 35, 48, 0.03);
+  transition: border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+/* Size Variants */
+.toranly-select-root.size-sm .toranly-select-trigger {
+  height: 34px;
+  padding: 0 32px 0 10px;
+  font-size: 12.5px;
+  border-radius: var(--radius-sm, 8px);
+}
+
+.toranly-select-root.size-lg .toranly-select-trigger {
+  height: 46px;
+  padding: 0 42px 0 16px;
+  font-size: 14.5px;
+  border-radius: var(--radius-md, 12px);
+}
+
+/* Subtle Variant (e.g. toolbars, table headers, filter strips) */
+.toranly-select-root.variant-subtle .toranly-select-trigger {
+  background-color: #faf8f4;
+  border-color: var(--color-border, #e3dccf);
+}
+
+/* Status Variant (e.g. vendor drawer status selector) */
+.toranly-select-root.variant-status .toranly-select-trigger {
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 12px;
+  height: 32px;
+  padding: 0 28px 0 12px;
+}
+
+.toranly-select-root.is-status-shortlisted .toranly-select-trigger {
+  background-color: #fef3c7;
+  color: #92400e;
+  border-color: #fcd34d;
+}
+
+.toranly-select-root.is-status-booked .toranly-select-trigger {
+  background-color: #e6f7ef;
+  color: #065f46;
+  border-color: #a7f3d0;
+}
+
+.toranly-select-root.is-status-dropped .toranly-select-trigger {
+  background-color: #f1f5f9;
+  color: #64748b;
+  border-color: #cbd5e1;
+}
+
+/* Hover State */
+.toranly-select-trigger:hover:not(:disabled) {
+  border-color: var(--color-border-strong, #8c8577);
+  background-color: #ffffff;
+}
+
+.toranly-select-root.variant-subtle .toranly-select-trigger:hover:not(:disabled) {
+  background-color: #f4efe6;
+  border-color: var(--color-border-strong, #8c8577);
+}
+
+/* Focus and Open State */
+.toranly-select-trigger:focus-visible,
+.toranly-select-root.is-open .toranly-select-trigger {
+  border-color: var(--color-primary, #0f6e6e);
+  box-shadow: 0 0 0 3px rgba(15, 110, 110, 0.14);
+  background-color: #ffffff;
+}
+
+/* Disabled State */
+.toranly-select-root.is-disabled .toranly-select-trigger {
+  background-color: #ede8df;
+  border-color: #dcd5c7;
+  color: var(--color-disabled-text, #8c8577);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Error State */
+.toranly-select-root.is-error .toranly-select-trigger {
+  border-color: var(--color-error, #b42318);
+}
+
+.toranly-select-root.is-error .toranly-select-trigger:focus-visible {
+  box-shadow: 0 0 0 3px rgba(180, 35, 24, 0.15);
+}
+
+/* Trigger Label & Value Display */
+.toranly-select-label-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+}
+
+.toranly-select-label-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.toranly-select-placeholder {
+  color: var(--color-text-muted, #646b78);
+  font-weight: 400;
+}
+
+.toranly-select-item-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-primary, #0f6e6e);
+}
+
+.toranly-select-item-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 6px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+  background-color: #f0ebe1;
+  color: #474f5e;
+  margin-left: 4px;
+}
+
+/* Chevron Positioning & Rotation */
+.toranly-select-chevron-wrap {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.toranly-select-root.size-sm .toranly-select-chevron-wrap {
+  right: 8px;
+}
+
+.toranly-select-chevron {
+  color: var(--color-text-secondary, #474f5e);
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), color 150ms ease;
+  flex-shrink: 0;
+}
+
+.toranly-select-chevron.is-rotated {
+  transform: rotate(180deg);
+  color: var(--color-primary, #0f6e6e);
+}
+
+/* 2. Popover Dropdown Menu */
+.toranly-select-menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 250;
+  min-width: 100%;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border, #e3dccf);
+  border-radius: 12px;
+  padding: 6px;
+  box-shadow: 0 10px 30px -4px rgba(30, 35, 48, 0.12), 0 4px 10px -2px rgba(30, 35, 48, 0.04);
+  box-sizing: border-box;
+}
+
+.toranly-select-menu.placement-bottom {
+  top: calc(100% + 5px);
+  animation: selectMenuFadeInBottom 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toranly-select-menu.placement-top {
+  bottom: calc(100% + 5px);
+  animation: selectMenuFadeInTop 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Animations */
+@keyframes selectMenuFadeInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes selectMenuFadeInTop {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toranly-select-menu,
+  .toranly-select-chevron {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Search Box */
+.toranly-select-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 4px 6px 8px 6px;
+  border-bottom: 1px solid #f0ebe1;
+  margin-bottom: 4px;
+}
+
+.toranly-select-search-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--color-text-muted, #646b78);
+  pointer-events: none;
+}
+
+.toranly-select-search-input {
+  width: 100%;
+  height: 34px;
+  padding: 0 10px 0 32px;
+  border: 1px solid var(--color-border, #e3dccf);
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--color-text, #1e2330);
+  background-color: #faf8f4;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.toranly-select-search-input:focus {
+  border-color: var(--color-primary, #0f6e6e);
+  background-color: #ffffff;
+}
+
+/* Options Scrollable Container */
+.toranly-select-options-list {
+  max-height: 250px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  scrollbar-width: thin;
+}
+
+.toranly-select-empty-msg {
+  padding: 16px 12px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--color-text-muted, #646b78);
+}
+
+/* Option Row Button */
+.toranly-select-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: 38px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--color-text, #1e2330);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  text-align: left;
+  transition: background-color 100ms ease, color 100ms ease;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.toranly-select-option:hover,
+.toranly-select-option.is-highlighted {
+  background-color: #f7f4ed;
+  color: #111827;
+}
+
+/* Selected State - Soft Teal, NO Bright Blue */
+.toranly-select-option.is-selected {
+  background-color: var(--color-primary-subtle, #e6f2f2);
+  color: var(--color-primary, #0f6e6e);
+  font-weight: 600;
+}
+
+.toranly-select-option.is-selected.is-highlighted {
+  background-color: #dbeeed;
+}
+
+.toranly-select-option.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.toranly-select-option-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
+}
+
+.toranly-select-option-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.toranly-select-option-texts {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.toranly-select-option-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.toranly-select-option-sublabel {
+  font-size: 11.5px;
+  color: var(--color-text-muted, #646b78);
+}
+
+.toranly-select-option-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 6px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+  background-color: #ece6dc;
+  color: #474f5e;
+}
+
+.toranly-select-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary, #0f6e6e);
+  flex-shrink: 0;
+}
+

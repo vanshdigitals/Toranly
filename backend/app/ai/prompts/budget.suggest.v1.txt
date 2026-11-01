@@ -1,0 +1,1 @@
+Suggest how to split the total budget across categories. Return only budget_share items. Their share_pct values must add up to 100. Reuse existing_category_keys where they fit. Give a one-line rationale for each.

@@ -1,0 +1,267 @@
+/* Toranly Design Tokens (design/DESIGN_SYSTEM.md) */
+
+:root {
+  /* 2.2 Colours */
+  --color-primary: #0f6e6e;
+  --color-primary-hover: #0b5858;
+  --color-primary-active: #084646;
+  --color-primary-subtle: #e6f2f2;
+  --color-on-primary: #ffffff; /* "white on primary" pairing, DESIGN_SYSTEM.md §2.3 */
+
+  --color-secondary: #3e4c9a;
+
+  --color-celebration: #f2a93b;
+  --color-celebration-subtle: #fff3dc;
+  --color-celebration-text: #8a5a00;
+
+  --color-accent: #b83a6b;
+
+  --color-bg: #fbf8f3;
+  --color-section-bg: #f1f1ee;
+  --color-surface: #ffffff;
+  --color-surface-subtle: #f4efe6;
+
+  --color-text: #1e2330;
+  --color-text-secondary: #474f5e;
+  --color-text-muted: #646b78;
+
+  --color-border: #e3dccf;
+  --color-border-strong: #8c8577;
+
+  --color-success: #1e7a46;
+  --color-success-bg: #e8f5ec;
+
+  --color-warning: #8a5a00;
+  --color-warning-bg: #fdf3e1;
+
+  --color-error: #b42318;
+  --color-error-bg: #fdecea;
+
+  --color-info: #2457a6;
+  --color-info-bg: #eaf1fb;
+
+  --color-focus: #3e4c9a;
+
+  --color-disabled-text: #8c8577;
+  --color-disabled-bg: #ede8df;
+
+  --color-overlay: rgba(30, 35, 48, 0.48);
+
+  /* 2.4 Scrollbar */
+  --scrollbar-width: 5px;
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: rgba(30, 35, 48, 0.12);
+  --scrollbar-thumb-hover: rgba(30, 35, 48, 0.32);
+  --scrollbar-thumb-active: rgba(30, 35, 48, 0.48);
+
+  /* 3. Typography Scale & Global Heading Hierarchy */
+  --font-display: 'Fraunces', Georgia, 'Noto Serif Devanagari', serif;
+  --font-heading: 'Fraunces', Georgia, serif;
+  --font-ui:
+    'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans Devanagari',
+    sans-serif;
+
+  /* Level 0: Event Title on Overview (Visual Anchor) */
+  --font-size-event-title: clamp(28px, 3.8vw, 34px);
+  --line-height-event-title: 1.2;
+  --letter-spacing-event-title: -0.02em;
+
+  /* Level 1: Primary Page Titles (Budget, Vendors, Timeline, Guests, Schedule, Ideas, AI Plan, Settings) */
+  --font-size-page-title: clamp(26px, 3.2vw, 32px);
+  --line-height-page-title: 1.22;
+  --letter-spacing-page-title: -0.02em;
+
+  /* Level 2: Major Section Headings (Bento Row Headers, Quotes Comparison, Category Groups) */
+  --font-size-section-heading: clamp(20px, 2.4vw, 24px);
+  --line-height-section-heading: 1.3;
+  --letter-spacing-section-heading: -0.01em;
+
+  /* Level 3: Card Headings & Dialog Headings (Vendor Names, Function Names, Metric Cards, Modal Titles) */
+  --font-size-card-heading: clamp(16px, 1.8vw, 18px);
+  --line-height-card-heading: 1.35;
+
+  /* Level 4: Card Sub-headings & Meta Labels */
+  --font-size-card-subheading: 0.9375rem; /* 15px */
+  --line-height-card-subheading: 1.4;
+
+  /* Supporting descriptions under Page Titles */
+  --font-size-page-subtitle: 14.5px;
+  --line-height-page-subtitle: 1.5;
+
+  --font-size-display: 2.25rem;
+  --line-height-display: 1.15;
+  --letter-spacing-display: -0.01em;
+
+  --font-size-h1: 1.75rem;
+  --line-height-h1: 1.2;
+
+  --font-size-h2: 1.375rem;
+  --line-height-h2: 1.3;
+
+  --font-size-h3: 1.125rem;
+  --line-height-h3: 1.4;
+
+  --font-size-body: 1rem;
+  --line-height-body: 1.55;
+
+  --font-size-label: 0.875rem;
+  --line-height-label: 1.45;
+  --letter-spacing-label: 0.005em;
+
+  --font-size-small: 0.875rem;
+  --line-height-small: 1.45;
+
+  --font-size-caption: 0.75rem;
+  --line-height-caption: 1.4;
+  --letter-spacing-caption: 0.01em;
+
+  /* 4. Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 48px;
+  --space-10: 64px;
+
+  /* 6. Shape and elevation */
+  --radius-pill: 999px;
+  --radius-xl: 20px;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 6px;
+  --radius-circle: 50%;
+
+  --shadow-overlay: 0 8px 24px rgba(30, 35, 48, 0.12);
+
+  /* 8. Motion */
+  --motion-fast: 120ms cubic-bezier(0.2, 0, 0, 1);
+  --motion-base: 200ms cubic-bezier(0.2, 0, 0, 1);
+  --motion-enter: 240ms cubic-bezier(0, 0, 0.2, 1);
+  --motion-exit: 160ms cubic-bezier(0.4, 0, 1, 1);
+  --motion-celebrate: 400ms ease-out;
+
+  /* Header heights (STEP 1 & STEP 2) */
+  --header-height-desktop: 72px;
+  --header-height-mobile: 64px;
+  --header-height: var(--header-height-mobile);
+
+  /* Landing Page Typography & Spacing Tokens (STEP 2) */
+  --font-landing-h1-size: clamp(2rem, 1.45rem + 2.4vw, 3.25rem);
+  --font-landing-h1-lh: 1.1;
+  --font-landing-h1-tracking: -0.015em;
+  --font-landing-h1-max-ch: 16ch;
+
+  --font-landing-h2-size: clamp(1.625rem, 1.35rem + 1vw, 2.125rem);
+  --font-landing-h2-lh: 1.2;
+  --font-landing-h2-max-ch: 22ch;
+
+  --font-landing-eyebrow-size: 12px;
+  --font-landing-eyebrow-weight: 600;
+  --font-landing-eyebrow-tracking: 0.12em;
+
+  --font-landing-intro-size: clamp(1rem, 0.95rem + 0.2vw, 1.0625rem);
+  --font-landing-intro-lh: 1.6;
+  --font-landing-intro-max-ch: 56ch;
+
+  --font-landing-body-size: 15px;
+  --font-landing-body-lh: 1.6;
+
+  --font-landing-card-title-size: 17px;
+  --font-landing-card-title-weight: 700;
+  --font-landing-card-text-size: 15px;
+
+  --font-landing-nav-size: 15px;
+  --font-landing-nav-weight: 500;
+
+  --landing-section-pad-y: clamp(56px, 7vw, 96px);
+  --landing-heading-gap: clamp(32px, 4vw, 48px);
+
+  /* Container tokens: Refined responsive width
+     - Fluid horizontal padding: 16px (<640px), 24px (640-1023px), 32px (1024-1439px), 40px (1440-1919px), 48px (>=1920px)
+     - Expanded comfortable max-width: 1240px (<1440px), 1380px (1440-1919px), 1460px (>=1920px)
+     - Expands gracefully to 1440-1480px on large displays with balanced gutters
+  */
+  --container-pad: var(--space-4); /* 16px */
+  --container-max: 1240px;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --container-pad: var(--space-6); /* 24px */
+    --font-landing-body-size: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-height: var(--header-height-desktop); /* 72px */
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --container-pad: var(--space-7); /* 32px */
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --container-pad: var(--space-8); /* 40px */
+    --container-max: 1380px;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --container-pad: var(--space-9); /* 48px */
+    --container-max: 1460px;
+  }
+}
+
+/* Shared Dropdown / Popover Animations */
+@keyframes selectMenuFadeInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes selectMenuFadeInTop {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark theme slot: DESIGN_SYSTEM.md specifies light theme only for MVP.
+   Structure prepared below without inventing unapproved dark values.
+*/
+[data-theme='dark'] {
+  /*
+  Missing dark tokens to be provided:
+  --color-bg
+  --color-surface
+  --color-surface-subtle
+  --color-text
+  --color-text-secondary
+  --color-text-muted
+  --color-border
+  --color-border-strong
+  --color-primary-subtle
+  --color-celebration-subtle
+  --color-celebration-text
+  --color-overlay
+  */
+}

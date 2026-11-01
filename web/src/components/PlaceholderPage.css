@@ -1,0 +1,26 @@
+.placeholder-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+}
+
+.placeholder-main {
+  flex: 1 0 auto;
+  padding: var(--space-10) 0;
+}
+
+.placeholder-content h1 {
+  margin-bottom: var(--space-4);
+}
+
+.placeholder-back-link {
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.placeholder-back-link:hover {
+  color: var(--color-primary-hover);
+}

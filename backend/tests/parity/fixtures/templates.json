@@ -1,0 +1,592 @@
+[
+  {
+    "name": "template wedding",
+    "fn": "template",
+    "input": {
+      "type": "wedding",
+      "budgetTotalPaise": 7500001,
+      "eventDate": "2027-02-14"
+    },
+    "expected": {
+      "categories": [
+        {
+          "key": "venue",
+          "label": "Venue & Stays",
+          "allocatedPaise": 2100000,
+          "position": 1
+        },
+        {
+          "key": "catering",
+          "label": "Catering & Dining",
+          "allocatedPaise": 2250001,
+          "position": 2
+        },
+        {
+          "key": "decor",
+          "label": "Decor & Mandap",
+          "allocatedPaise": 1050000,
+          "position": 3
+        },
+        {
+          "key": "attire",
+          "label": "Attire & Jewellery",
+          "allocatedPaise": 750000,
+          "position": 4
+        },
+        {
+          "key": "photo",
+          "label": "Photography & Film",
+          "allocatedPaise": 600000,
+          "position": 5
+        },
+        {
+          "key": "entertainment",
+          "label": "Music & Sangeet",
+          "allocatedPaise": 300000,
+          "position": 6
+        },
+        {
+          "key": "invitations",
+          "label": "Invitations & Favours",
+          "allocatedPaise": 225000,
+          "position": 7
+        },
+        {
+          "key": "contingency",
+          "label": "Contingency Fund",
+          "allocatedPaise": 225000,
+          "position": 8
+        }
+      ],
+      "tasks": [
+        {
+          "title": "Shortlist and visit shortlisted venues",
+          "categoryKey": "venue",
+          "offsetDays": 120,
+          "dueDate": "2026-10-17",
+          "isMilestone": false,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Lock in main venue & dates",
+          "categoryKey": "venue",
+          "offsetDays": 110,
+          "dueDate": "2026-10-27",
+          "isMilestone": true,
+          "dependsOnPositions": [
+            1
+          ]
+        },
+        {
+          "title": "Shortlist candid photographer & videographer",
+          "categoryKey": "photo",
+          "offsetDays": 95,
+          "dueDate": "2026-11-11",
+          "isMilestone": false,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Book photography team with deposit",
+          "categoryKey": "photo",
+          "offsetDays": 85,
+          "dueDate": "2026-11-21",
+          "isMilestone": true,
+          "dependsOnPositions": [
+            3
+          ]
+        },
+        {
+          "title": "Finalise caterer tasting and menu items",
+          "categoryKey": "catering",
+          "offsetDays": 70,
+          "dueDate": "2026-12-06",
+          "isMilestone": true,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Send invitations with RSVP links",
+          "categoryKey": "invitations",
+          "offsetDays": 60,
+          "dueDate": "2026-12-16",
+          "isMilestone": true,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Select bridal attire and schedule first fitting",
+          "categoryKey": "attire",
+          "offsetDays": 45,
+          "dueDate": "2026-12-31",
+          "isMilestone": false,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Finalise decor stage layout and floral palettes",
+          "categoryKey": "decor",
+          "offsetDays": 30,
+          "dueDate": "2027-01-15",
+          "isMilestone": false,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Confirm sangeet playlist and sound rehearsal",
+          "categoryKey": "entertainment",
+          "offsetDays": 14,
+          "dueDate": "2027-01-31",
+          "isMilestone": false,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Final walkthrough with day-of coordinator",
+          "categoryKey": "venue",
+          "offsetDays": 3,
+          "dueDate": "2027-02-11",
+          "isMilestone": true,
+          "dependsOnPositions": []
+        }
+      ]
+    },
+    "tsDivergence": null
+  },
+  {
+    "name": "template engagement",
+    "fn": "template",
+    "input": {
+      "type": "engagement",
+      "budgetTotalPaise": 7500001,
+      "eventDate": "2027-02-14"
+    },
+    "expected": {
+      "categories": [
+        {
+          "key": "venue",
+          "label": "Venue & Hospitality",
+          "allocatedPaise": 2400000,
+          "position": 1
+        },
+        {
+          "key": "catering",
+          "label": "Food & Bar",
+          "allocatedPaise": 2625001,
+          "position": 2
+        },
+        {
+          "key": "decor",
+          "label": "Stage & Ambient Decor",
+          "allocatedPaise": 1125000,
+          "position": 3
+        },
+        {
+          "key": "attire",
+          "label": "Attire & Rings",
+          "allocatedPaise": 750000,
+          "position": 4
+        },
+        {
+          "key": "contingency",
+          "label": "Contingency Reserve",
+          "allocatedPaise": 600000,
+          "position": 5
+        }
+      ],
+      "tasks": [
+        {
+          "title": "Select engagement venue and banquet hall",
+          "categoryKey": "venue",
+          "offsetDays": 60,
+          "dueDate": "2026-12-16",
+          "isMilestone": true,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Choose rings and celebratory attire",
+          "categoryKey": "attire",
+          "offsetDays": 45,
+          "dueDate": "2026-12-31",
+          "isMilestone": false,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Book candid photographer for ceremony",
+          "categoryKey": "photo",
+          "offsetDays": 35,
+          "dueDate": "2027-01-10",
+          "isMilestone": false,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Send digital invitations and collect RSVPs",
+          "categoryKey": "invitations",
+          "offsetDays": 28,
+          "dueDate": "2027-01-17",
+          "isMilestone": true,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Confirm menu tastings and live food stations",
+          "categoryKey": "catering",
+          "offsetDays": 12,
+          "dueDate": "2027-02-02",
+          "isMilestone": true,
+          "dependsOnPositions": []
+        }
+      ]
+    },
+    "tsDivergence": null
+  },
+  {
+    "name": "template birthday",
+    "fn": "template",
+    "input": {
+      "type": "birthday",
+      "budgetTotalPaise": 7500001,
+      "eventDate": "2027-02-14"
+    },
+    "expected": {
+      "categories": [
+        {
+          "key": "venue",
+          "label": "Party Venue",
+          "allocatedPaise": 1875000,
+          "position": 1
+        },
+        {
+          "key": "catering",
+          "label": "Catering & Beverages",
+          "allocatedPaise": 2625001,
+          "position": 2
+        },
+        {
+          "key": "cake",
+          "label": "Custom Cake & Treats",
+          "allocatedPaise": 900000,
+          "position": 3
+        },
+        {
+          "key": "decor",
+          "label": "Theme Decor & Balloons",
+          "allocatedPaise": 750000,
+          "position": 4
+        },
+        {
+          "key": "entertainment",
+          "label": "Host, Games & Music",
+          "allocatedPaise": 750000,
+          "position": 5
+        },
+        {
+          "key": "gifts",
+          "label": "Return Favours",
+          "allocatedPaise": 375000,
+          "position": 6
+        },
+        {
+          "key": "contingency",
+          "label": "Contingency Reserve",
+          "allocatedPaise": 225000,
+          "position": 7
+        }
+      ],
+      "tasks": [
+        {
+          "title": "Pick party theme and reserve venue",
+          "categoryKey": "venue",
+          "offsetDays": 30,
+          "dueDate": "2027-01-15",
+          "isMilestone": true,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Order custom birthday cake and flavour tasting",
+          "categoryKey": "cake",
+          "offsetDays": 18,
+          "dueDate": "2027-01-27",
+          "isMilestone": false,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Send party invitations with RSVP deadline",
+          "categoryKey": "invitations",
+          "offsetDays": 16,
+          "dueDate": "2027-01-29",
+          "isMilestone": true,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Book entertainer / games host / DJ",
+          "categoryKey": "entertainment",
+          "offsetDays": 12,
+          "dueDate": "2027-02-02",
+          "isMilestone": false,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Purchase party favours and return gifts",
+          "categoryKey": "gifts",
+          "offsetDays": 7,
+          "dueDate": "2027-02-07",
+          "isMilestone": false,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Confirm final headcount with catering",
+          "categoryKey": "catering",
+          "offsetDays": 3,
+          "dueDate": "2027-02-11",
+          "isMilestone": true,
+          "dependsOnPositions": []
+        }
+      ]
+    },
+    "tsDivergence": null
+  },
+  {
+    "name": "template anniversary",
+    "fn": "template",
+    "input": {
+      "type": "anniversary",
+      "budgetTotalPaise": 7500001,
+      "eventDate": "2027-02-14"
+    },
+    "expected": {
+      "categories": [
+        {
+          "key": "venue",
+          "label": "Celebration Banquet",
+          "allocatedPaise": 3375001,
+          "position": 1
+        },
+        {
+          "key": "decor",
+          "label": "Floral & Ambient Styling",
+          "allocatedPaise": 1500000,
+          "position": 2
+        },
+        {
+          "key": "photo",
+          "label": "Photography & Album",
+          "allocatedPaise": 1125000,
+          "position": 3
+        },
+        {
+          "key": "gifts",
+          "label": "Mementos & Gifts",
+          "allocatedPaise": 750000,
+          "position": 4
+        },
+        {
+          "key": "contingency",
+          "label": "Contingency Reserve",
+          "allocatedPaise": 750000,
+          "position": 5
+        }
+      ],
+      "tasks": [
+        {
+          "title": "Reserve private dining space or banquet",
+          "categoryKey": "venue",
+          "offsetDays": 35,
+          "dueDate": "2027-01-10",
+          "isMilestone": true,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Curate nostalgic photo presentation / video",
+          "categoryKey": "photo",
+          "offsetDays": 20,
+          "dueDate": "2027-01-25",
+          "isMilestone": false,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Send invitations to family and close friends",
+          "categoryKey": "invitations",
+          "offsetDays": 18,
+          "dueDate": "2027-01-27",
+          "isMilestone": true,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Confirm special anniversary cake and floral centerpiece",
+          "categoryKey": "decor",
+          "offsetDays": 8,
+          "dueDate": "2027-02-06",
+          "isMilestone": false,
+          "dependsOnPositions": []
+        }
+      ]
+    },
+    "tsDivergence": null
+  },
+  {
+    "name": "template community",
+    "fn": "template",
+    "input": {
+      "type": "community",
+      "budgetTotalPaise": 7500001,
+      "eventDate": "2027-02-14"
+    },
+    "expected": {
+      "categories": [
+        {
+          "key": "venue",
+          "label": "Grounds & Sound Infrastructure",
+          "allocatedPaise": 2625001,
+          "position": 1
+        },
+        {
+          "key": "catering",
+          "label": "Community Feasts & Refreshments",
+          "allocatedPaise": 2250000,
+          "position": 2
+        },
+        {
+          "key": "decor",
+          "label": "Marquee, Seating & Lighting",
+          "allocatedPaise": 1125000,
+          "position": 3
+        },
+        {
+          "key": "permits",
+          "label": "Permits, Security & Sanitation",
+          "allocatedPaise": 900000,
+          "position": 4
+        },
+        {
+          "key": "contingency",
+          "label": "Contingency Fund",
+          "allocatedPaise": 600000,
+          "position": 5
+        }
+      ],
+      "tasks": [
+        {
+          "title": "Obtain venue clearance and local municipality permits",
+          "categoryKey": "permits",
+          "offsetDays": 45,
+          "dueDate": "2026-12-31",
+          "isMilestone": true,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Arrange sound equipment, stage lighting, and generator backup",
+          "categoryKey": "venue",
+          "offsetDays": 30,
+          "dueDate": "2027-01-15",
+          "isMilestone": false,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Finalise community dining and prasadam preparation plan",
+          "categoryKey": "catering",
+          "offsetDays": 20,
+          "dueDate": "2027-01-25",
+          "isMilestone": false,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Organise volunteer coordination briefing",
+          "categoryKey": "permits",
+          "offsetDays": 10,
+          "dueDate": "2027-02-04",
+          "isMilestone": true,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Stage soundcheck and seating setup review",
+          "categoryKey": "venue",
+          "offsetDays": 2,
+          "dueDate": "2027-02-12",
+          "isMilestone": false,
+          "dependsOnPositions": []
+        }
+      ]
+    },
+    "tsDivergence": null
+  },
+  {
+    "name": "template family",
+    "fn": "template",
+    "input": {
+      "type": "family",
+      "budgetTotalPaise": 7500001,
+      "eventDate": "2027-02-14"
+    },
+    "expected": {
+      "categories": [
+        {
+          "key": "catering",
+          "label": "Feast & Traditional Delicacies",
+          "allocatedPaise": 3000001,
+          "position": 1
+        },
+        {
+          "key": "venue",
+          "label": "Venue & Accommodation",
+          "allocatedPaise": 1875000,
+          "position": 2
+        },
+        {
+          "key": "decor",
+          "label": "Traditional Decor & Lighting",
+          "allocatedPaise": 1125000,
+          "position": 3
+        },
+        {
+          "key": "gifts",
+          "label": "Family Mementos & Shagun",
+          "allocatedPaise": 750000,
+          "position": 4
+        },
+        {
+          "key": "contingency",
+          "label": "Contingency Reserve",
+          "allocatedPaise": 750000,
+          "position": 5
+        }
+      ],
+      "tasks": [
+        {
+          "title": "Confirm gathering venue or home preparation",
+          "categoryKey": "venue",
+          "offsetDays": 40,
+          "dueDate": "2027-01-05",
+          "isMilestone": true,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Coordinate family travel logistics and stay",
+          "categoryKey": "venue",
+          "offsetDays": 25,
+          "dueDate": "2027-01-20",
+          "isMilestone": false,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Curate multi-generation family feast menu",
+          "categoryKey": "catering",
+          "offsetDays": 20,
+          "dueDate": "2027-01-25",
+          "isMilestone": false,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Order festive toran and flower garlands",
+          "categoryKey": "decor",
+          "offsetDays": 6,
+          "dueDate": "2027-02-08",
+          "isMilestone": false,
+          "dependsOnPositions": []
+        },
+        {
+          "title": "Prepare welcome gifts and shagun hampers",
+          "categoryKey": "gifts",
+          "offsetDays": 3,
+          "dueDate": "2027-02-11",
+          "isMilestone": true,
+          "dependsOnPositions": []
+        }
+      ]
+    },
+    "tsDivergence": null
+  }
+]

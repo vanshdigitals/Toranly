@@ -1,0 +1,2 @@
+Draft a first full plan for this celebration.
+Include: a budget split as budget_share items whose share_pct values add up to 100; 8 to 20 task items with offset_days counted back from the event day (0 = on the day) and that fit within days_until_event where possible; 2 to 4 theme_idea items; 2 to 5 decor_idea items; menu_item dishes covering every diet group present; and vendor_category items for the vendors this event needs.

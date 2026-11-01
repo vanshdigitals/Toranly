@@ -1,0 +1,2346 @@
+{
+  "components": {
+    "schemas": {
+      "AiPreferences": {
+        "additionalProperties": false,
+        "description": "EventPreferences without `notes`: free-form notes never leave the browser.",
+        "properties": {
+          "avoid_colours": {
+            "items": {
+              "maxLength": 20,
+              "type": "string"
+            },
+            "maxItems": 5,
+            "title": "Avoid Colours",
+            "type": "array"
+          },
+          "customs": {
+            "items": {
+              "maxLength": 40,
+              "type": "string"
+            },
+            "maxItems": 10,
+            "title": "Customs",
+            "type": "array"
+          },
+          "diet_focus": {
+            "items": {
+              "$ref": "#/components/schemas/DietGroup"
+            },
+            "maxItems": 5,
+            "title": "Diet Focus",
+            "type": "array"
+          },
+          "theme_words": {
+            "items": {
+              "maxLength": 30,
+              "type": "string"
+            },
+            "maxItems": 5,
+            "title": "Theme Words",
+            "type": "array"
+          }
+        },
+        "title": "AiPreferences",
+        "type": "object"
+      },
+      "AiStatusResponse": {
+        "properties": {
+          "available": {
+            "title": "Available",
+            "type": "boolean"
+          },
+          "limitToday": {
+            "description": "AI suggestions each device gets per day",
+            "title": "Limittoday",
+            "type": "integer"
+          },
+          "message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Message"
+          },
+          "reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reason"
+          },
+          "remainingToday": {
+            "title": "Remainingtoday",
+            "type": "integer"
+          },
+          "resetsAt": {
+            "format": "date-time",
+            "title": "Resetsat",
+            "type": "string"
+          }
+        },
+        "required": [
+          "available",
+          "remainingToday",
+          "limitToday",
+          "resetsAt"
+        ],
+        "title": "AiStatusResponse",
+        "type": "object"
+      },
+      "BudgetCategory": {
+        "additionalProperties": false,
+        "properties": {
+          "allocatedPaise": {
+            "maximum": 10000000000000.0,
+            "minimum": 0.0,
+            "title": "Allocatedpaise",
+            "type": "integer"
+          },
+          "id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Id",
+            "type": "string"
+          },
+          "key": {
+            "maxLength": 60,
+            "minLength": 1,
+            "title": "Key",
+            "type": "string"
+          },
+          "label": {
+            "maxLength": 80,
+            "title": "Label",
+            "type": "string"
+          },
+          "position": {
+            "default": 1,
+            "maximum": 10000.0,
+            "minimum": 0.0,
+            "title": "Position",
+            "type": "integer"
+          },
+          "source": {
+            "anyOf": [
+              {
+                "enum": [
+                  "template",
+                  "user",
+                  "ai"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source"
+          }
+        },
+        "required": [
+          "id",
+          "key",
+          "label",
+          "allocatedPaise"
+        ],
+        "title": "BudgetCategory",
+        "type": "object"
+      },
+      "BudgetTotalsOut": {
+        "properties": {
+          "allocatedPaise": {
+            "title": "Allocatedpaise",
+            "type": "integer"
+          },
+          "committedPaise": {
+            "title": "Committedpaise",
+            "type": "integer"
+          },
+          "paidPaise": {
+            "title": "Paidpaise",
+            "type": "integer"
+          },
+          "percentCommitted": {
+            "title": "Percentcommitted",
+            "type": "integer"
+          },
+          "plannedPaise": {
+            "title": "Plannedpaise",
+            "type": "integer"
+          },
+          "quotedPaise": {
+            "title": "Quotedpaise",
+            "type": "integer"
+          },
+          "remainingPaise": {
+            "title": "Remainingpaise",
+            "type": "integer"
+          },
+          "status": {
+            "enum": [
+              "ok",
+              "warning",
+              "over"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "unallocatedPaise": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unallocatedpaise"
+          }
+        },
+        "required": [
+          "allocatedPaise",
+          "plannedPaise",
+          "quotedPaise",
+          "paidPaise",
+          "committedPaise",
+          "remainingPaise",
+          "unallocatedPaise",
+          "status",
+          "percentCommitted"
+        ],
+        "title": "BudgetTotalsOut",
+        "type": "object"
+      },
+      "CategoryMetricsOut": {
+        "properties": {
+          "allocatedPaise": {
+            "title": "Allocatedpaise",
+            "type": "integer"
+          },
+          "categoryId": {
+            "title": "Categoryid",
+            "type": "string"
+          },
+          "committedPaise": {
+            "title": "Committedpaise",
+            "type": "integer"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "paidPaise": {
+            "title": "Paidpaise",
+            "type": "integer"
+          },
+          "percentCommitted": {
+            "title": "Percentcommitted",
+            "type": "integer"
+          },
+          "plannedPaise": {
+            "title": "Plannedpaise",
+            "type": "integer"
+          },
+          "quotedPaise": {
+            "title": "Quotedpaise",
+            "type": "integer"
+          },
+          "remainingPaise": {
+            "title": "Remainingpaise",
+            "type": "integer"
+          },
+          "status": {
+            "enum": [
+              "ok",
+              "warning",
+              "over"
+            ],
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "categoryId",
+          "key",
+          "label",
+          "allocatedPaise",
+          "plannedPaise",
+          "quotedPaise",
+          "paidPaise",
+          "committedPaise",
+          "remainingPaise",
+          "status",
+          "percentCommitted"
+        ],
+        "title": "CategoryMetricsOut",
+        "type": "object"
+      },
+      "DatePreviewRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "newDate": {
+            "format": "date",
+            "title": "Newdate",
+            "type": "string"
+          },
+          "plan": {
+            "$ref": "#/components/schemas/Plan"
+          },
+          "shiftFixedTasks": {
+            "default": false,
+            "title": "Shiftfixedtasks",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "plan",
+          "newDate"
+        ],
+        "title": "DatePreviewRequest",
+        "type": "object"
+      },
+      "DatePreviewResponse": {
+        "properties": {
+          "deltaDays": {
+            "title": "Deltadays",
+            "type": "integer"
+          },
+          "newDate": {
+            "format": "date",
+            "title": "Newdate",
+            "type": "string"
+          },
+          "nowOverdue": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Nowoverdue",
+            "type": "array"
+          },
+          "oldDate": {
+            "format": "date",
+            "title": "Olddate",
+            "type": "string"
+          },
+          "shifted": {
+            "items": {
+              "$ref": "#/components/schemas/ShiftedTaskOut"
+            },
+            "title": "Shifted",
+            "type": "array"
+          },
+          "unchanged": {
+            "items": {
+              "$ref": "#/components/schemas/UnchangedTaskOut"
+            },
+            "title": "Unchanged",
+            "type": "array"
+          }
+        },
+        "required": [
+          "oldDate",
+          "newDate",
+          "deltaDays",
+          "shifted",
+          "unchanged",
+          "nowOverdue"
+        ],
+        "title": "DatePreviewResponse",
+        "type": "object"
+      },
+      "DietCoverageOut": {
+        "properties": {
+          "covered": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Covered",
+            "type": "array"
+          },
+          "fullyCovered": {
+            "title": "Fullycovered",
+            "type": "boolean"
+          },
+          "uncovered": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Uncovered",
+            "type": "array"
+          }
+        },
+        "required": [
+          "covered",
+          "uncovered",
+          "fullyCovered"
+        ],
+        "title": "DietCoverageOut",
+        "type": "object"
+      },
+      "DietGroup": {
+        "enum": [
+          "veg",
+          "non_veg",
+          "jain",
+          "eggetarian",
+          "vegan"
+        ],
+        "title": "DietGroup",
+        "type": "string"
+      },
+      "EventDetails": {
+        "additionalProperties": false,
+        "properties": {
+          "budgetTotalPaise": {
+            "anyOf": [
+              {
+                "maximum": 10000000000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Budgettotalpaise"
+          },
+          "city": {
+            "anyOf": [
+              {
+                "maxLength": 80,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "City"
+          },
+          "currency": {
+            "const": "INR",
+            "default": "INR",
+            "title": "Currency",
+            "type": "string"
+          },
+          "eventDate": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Eventdate"
+          },
+          "guestEstimate": {
+            "default": 0,
+            "maximum": 10000.0,
+            "minimum": 0.0,
+            "title": "Guestestimate",
+            "type": "integer"
+          },
+          "preferences": {
+            "$ref": "#/components/schemas/EventPreferences"
+          },
+          "timezone": {
+            "default": "Asia/Kolkata",
+            "maxLength": 64,
+            "title": "Timezone",
+            "type": "string"
+          },
+          "title": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "wedding",
+              "engagement",
+              "birthday",
+              "anniversary",
+              "community",
+              "family"
+            ],
+            "title": "Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "title"
+        ],
+        "title": "EventDetails",
+        "type": "object"
+      },
+      "EventPreferences": {
+        "additionalProperties": false,
+        "properties": {
+          "avoidColours": {
+            "items": {
+              "maxLength": 60,
+              "type": "string"
+            },
+            "maxItems": 20,
+            "title": "Avoidcolours",
+            "type": "array"
+          },
+          "customs": {
+            "items": {
+              "maxLength": 60,
+              "type": "string"
+            },
+            "maxItems": 20,
+            "title": "Customs",
+            "type": "array"
+          },
+          "dietFocus": {
+            "items": {
+              "maxLength": 60,
+              "type": "string"
+            },
+            "maxItems": 10,
+            "title": "Dietfocus",
+            "type": "array"
+          },
+          "notes": {
+            "default": "",
+            "maxLength": 500,
+            "title": "Notes",
+            "type": "string"
+          },
+          "themeWords": {
+            "items": {
+              "maxLength": 60,
+              "type": "string"
+            },
+            "maxItems": 20,
+            "title": "Themewords",
+            "type": "array"
+          }
+        },
+        "title": "EventPreferences",
+        "type": "object"
+      },
+      "EventType": {
+        "enum": [
+          "wedding",
+          "engagement",
+          "birthday",
+          "anniversary",
+          "community",
+          "family"
+        ],
+        "title": "EventType",
+        "type": "string"
+      },
+      "ExpenseItem": {
+        "additionalProperties": false,
+        "properties": {
+          "amountPaise": {
+            "maximum": 10000000000000.0,
+            "minimum": 0.0,
+            "title": "Amountpaise",
+            "type": "integer"
+          },
+          "categoryId": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Categoryid",
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Description",
+            "type": "string"
+          },
+          "id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "planned",
+              "quoted",
+              "paid"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "spentOn": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Spenton"
+          },
+          "vendorId": {
+            "anyOf": [
+              {
+                "maxLength": 100,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Vendorid"
+          }
+        },
+        "required": [
+          "id",
+          "categoryId",
+          "description",
+          "amountPaise",
+          "kind"
+        ],
+        "title": "ExpenseItem",
+        "type": "object"
+      },
+      "FunctionItem": {
+        "additionalProperties": false,
+        "properties": {
+          "date": {
+            "format": "date",
+            "title": "Date",
+            "type": "string"
+          },
+          "endTime": {
+            "anyOf": [
+              {
+                "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Endtime"
+          },
+          "id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "maxLength": 60,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          },
+          "position": {
+            "default": 1,
+            "maximum": 10000.0,
+            "minimum": 0.0,
+            "title": "Position",
+            "type": "integer"
+          },
+          "startTime": {
+            "anyOf": [
+              {
+                "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Starttime"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "date"
+        ],
+        "title": "FunctionItem",
+        "type": "object"
+      },
+      "GuestsSummary": {
+        "additionalProperties": false,
+        "properties": {
+          "accessibilityNeeds": {
+            "items": {
+              "maxLength": 60,
+              "type": "string"
+            },
+            "maxItems": 10,
+            "title": "Accessibilityneeds",
+            "type": "array"
+          },
+          "allergyTags": {
+            "items": {
+              "maxLength": 60,
+              "type": "string"
+            },
+            "maxItems": 20,
+            "title": "Allergytags",
+            "type": "array"
+          },
+          "eggetarian": {
+            "default": 0,
+            "maximum": 100000.0,
+            "minimum": 0.0,
+            "title": "Eggetarian",
+            "type": "integer"
+          },
+          "jain": {
+            "default": 0,
+            "maximum": 100000.0,
+            "minimum": 0.0,
+            "title": "Jain",
+            "type": "integer"
+          },
+          "nonVeg": {
+            "default": 0,
+            "maximum": 100000.0,
+            "minimum": 0.0,
+            "title": "Nonveg",
+            "type": "integer"
+          },
+          "total": {
+            "maximum": 100000.0,
+            "minimum": 0.0,
+            "title": "Total",
+            "type": "integer"
+          },
+          "veg": {
+            "default": 0,
+            "maximum": 100000.0,
+            "minimum": 0.0,
+            "title": "Veg",
+            "type": "integer"
+          },
+          "vegan": {
+            "default": 0,
+            "maximum": 100000.0,
+            "minimum": 0.0,
+            "title": "Vegan",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "total"
+        ],
+        "title": "GuestsSummary",
+        "type": "object"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "title": "Detail",
+            "type": "array"
+          }
+        },
+        "title": "HTTPValidationError",
+        "type": "object"
+      },
+      "IdeaItem": {
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Body"
+          },
+          "confirmed": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Confirmed"
+          },
+          "dietTags": {
+            "items": {
+              "maxLength": 60,
+              "type": "string"
+            },
+            "maxItems": 10,
+            "title": "Diettags",
+            "type": "array"
+          },
+          "estimateMaxPaise": {
+            "anyOf": [
+              {
+                "maximum": 10000000000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Estimatemaxpaise"
+          },
+          "estimateMinPaise": {
+            "anyOf": [
+              {
+                "maximum": 10000000000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Estimateminpaise"
+          },
+          "id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "theme",
+              "decor",
+              "menu",
+              "saving",
+              "other"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "personalNote": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Personalnote"
+          },
+          "personalized": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Personalized"
+          },
+          "source": {
+            "default": "user",
+            "enum": [
+              "ai",
+              "user"
+            ],
+            "title": "Source",
+            "type": "string"
+          },
+          "title": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "title"
+        ],
+        "title": "IdeaItem",
+        "type": "object"
+      },
+      "OverdueTaskOut": {
+        "properties": {
+          "dueDate": {
+            "format": "date",
+            "title": "Duedate",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "dueDate"
+        ],
+        "title": "OverdueTaskOut",
+        "type": "object"
+      },
+      "Plan": {
+        "additionalProperties": false,
+        "properties": {
+          "budgetCategories": {
+            "items": {
+              "$ref": "#/components/schemas/BudgetCategory"
+            },
+            "maxItems": 60,
+            "title": "Budgetcategories",
+            "type": "array"
+          },
+          "createdAt": {
+            "maxLength": 40,
+            "title": "Createdat",
+            "type": "string"
+          },
+          "event": {
+            "$ref": "#/components/schemas/EventDetails"
+          },
+          "expenses": {
+            "items": {
+              "$ref": "#/components/schemas/ExpenseItem"
+            },
+            "maxItems": 1000,
+            "title": "Expenses",
+            "type": "array"
+          },
+          "functions": {
+            "items": {
+              "$ref": "#/components/schemas/FunctionItem"
+            },
+            "maxItems": 20,
+            "title": "Functions",
+            "type": "array"
+          },
+          "guests": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/GuestsSummary"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Id",
+            "type": "string"
+          },
+          "ideas": {
+            "items": {
+              "$ref": "#/components/schemas/IdeaItem"
+            },
+            "maxItems": 500,
+            "title": "Ideas",
+            "type": "array"
+          },
+          "quotes": {
+            "items": {
+              "$ref": "#/components/schemas/QuoteItem"
+            },
+            "maxItems": 500,
+            "title": "Quotes",
+            "type": "array"
+          },
+          "scheduleItems": {
+            "items": {
+              "$ref": "#/components/schemas/ScheduleItem"
+            },
+            "maxItems": 500,
+            "title": "Scheduleitems",
+            "type": "array"
+          },
+          "schemaVersion": {
+            "const": 1,
+            "default": 1,
+            "title": "Schemaversion",
+            "type": "integer"
+          },
+          "status": {
+            "default": "draft",
+            "enum": [
+              "draft",
+              "active",
+              "completed"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "tasks": {
+            "items": {
+              "$ref": "#/components/schemas/TaskItem"
+            },
+            "maxItems": 500,
+            "title": "Tasks",
+            "type": "array"
+          },
+          "updatedAt": {
+            "maxLength": 40,
+            "title": "Updatedat",
+            "type": "string"
+          },
+          "vendors": {
+            "items": {
+              "$ref": "#/components/schemas/VendorItem"
+            },
+            "maxItems": 200,
+            "title": "Vendors",
+            "type": "array"
+          },
+          "wizardStep": {
+            "default": 1,
+            "maximum": 4.0,
+            "minimum": 1.0,
+            "title": "Wizardstep",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "createdAt",
+          "updatedAt",
+          "event"
+        ],
+        "title": "Plan",
+        "type": "object"
+      },
+      "PlanContext": {
+        "additionalProperties": false,
+        "properties": {
+          "budget_total_inr": {
+            "maximum": 100000000000.0,
+            "minimum": 0.0,
+            "title": "Budget Total Inr",
+            "type": "integer"
+          },
+          "city": {
+            "anyOf": [
+              {
+                "maxLength": 80,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "City"
+          },
+          "days_until_event": {
+            "maximum": 1500.0,
+            "minimum": 0.0,
+            "title": "Days Until Event",
+            "type": "integer"
+          },
+          "diet_counts": {
+            "additionalProperties": {
+              "maximum": 100000.0,
+              "minimum": 0.0,
+              "type": "integer"
+            },
+            "propertyNames": {
+              "$ref": "#/components/schemas/DietGroup"
+            },
+            "title": "Diet Counts",
+            "type": "object"
+          },
+          "event_type": {
+            "$ref": "#/components/schemas/EventType"
+          },
+          "existing_category_keys": {
+            "items": {
+              "pattern": "^[a-z_]{2,30}$",
+              "type": "string"
+            },
+            "maxItems": 60,
+            "title": "Existing Category Keys",
+            "type": "array"
+          },
+          "existing_task_titles": {
+            "items": {
+              "maxLength": 120,
+              "type": "string"
+            },
+            "maxItems": 200,
+            "title": "Existing Task Titles",
+            "type": "array"
+          },
+          "functions": {
+            "items": {
+              "maxLength": 60,
+              "type": "string"
+            },
+            "maxItems": 10,
+            "title": "Functions",
+            "type": "array"
+          },
+          "guest_band": {
+            "enum": [
+              "1-25",
+              "26-75",
+              "76-150",
+              "151-300",
+              "301-600",
+              "600+"
+            ],
+            "title": "Guest Band",
+            "type": "string"
+          },
+          "month": {
+            "pattern": "^\\d{4}-(0[1-9]|1[0-2])$",
+            "title": "Month",
+            "type": "string"
+          },
+          "preferences": {
+            "$ref": "#/components/schemas/AiPreferences"
+          },
+          "rejected_reasons": {
+            "items": {
+              "maxLength": 200,
+              "type": "string"
+            },
+            "maxItems": 20,
+            "title": "Rejected Reasons",
+            "type": "array"
+          }
+        },
+        "required": [
+          "event_type",
+          "month",
+          "days_until_event",
+          "guest_band",
+          "budget_total_inr"
+        ],
+        "title": "PlanContext",
+        "type": "object"
+      },
+      "PlanRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "plan": {
+            "$ref": "#/components/schemas/Plan"
+          }
+        },
+        "required": [
+          "plan"
+        ],
+        "title": "PlanRequest",
+        "type": "object"
+      },
+      "QuoteItem": {
+        "additionalProperties": false,
+        "properties": {
+          "amountPaise": {
+            "maximum": 10000000000000.0,
+            "minimum": 0.0,
+            "title": "Amountpaise",
+            "type": "integer"
+          },
+          "id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Id",
+            "type": "string"
+          },
+          "inclusions": {
+            "items": {
+              "maxLength": 60,
+              "type": "string"
+            },
+            "maxItems": 20,
+            "title": "Inclusions",
+            "type": "array"
+          },
+          "unit": {
+            "default": "total",
+            "enum": [
+              "total",
+              "per_plate",
+              "per_guest"
+            ],
+            "title": "Unit",
+            "type": "string"
+          },
+          "units": {
+            "anyOf": [
+              {
+                "maximum": 100000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Units"
+          },
+          "validUntil": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Validuntil"
+          },
+          "vendorId": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Vendorid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "vendorId",
+          "amountPaise"
+        ],
+        "title": "QuoteItem",
+        "type": "object"
+      },
+      "ScheduleItem": {
+        "additionalProperties": false,
+        "properties": {
+          "durationMin": {
+            "maximum": 1440.0,
+            "minimum": 1.0,
+            "title": "Durationmin",
+            "type": "integer"
+          },
+          "functionId": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Functionid",
+            "type": "string"
+          },
+          "id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Id",
+            "type": "string"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "position": {
+            "default": 1,
+            "maximum": 100000.0,
+            "minimum": 0.0,
+            "title": "Position",
+            "type": "integer"
+          },
+          "startTime": {
+            "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$",
+            "title": "Starttime",
+            "type": "string"
+          },
+          "title": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "functionId",
+          "startTime",
+          "durationMin",
+          "title"
+        ],
+        "title": "ScheduleItem",
+        "type": "object"
+      },
+      "ShiftedTaskOut": {
+        "properties": {
+          "becomesOverdue": {
+            "title": "Becomesoverdue",
+            "type": "boolean"
+          },
+          "dateMode": {
+            "title": "Datemode",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "newDue": {
+            "format": "date",
+            "title": "Newdue",
+            "type": "string"
+          },
+          "offsetDays": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Offsetdays"
+          },
+          "oldDue": {
+            "format": "date",
+            "title": "Olddue",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "oldDue",
+          "newDue",
+          "offsetDays",
+          "dateMode",
+          "becomesOverdue"
+        ],
+        "title": "ShiftedTaskOut",
+        "type": "object"
+      },
+      "StarterTaskOut": {
+        "properties": {
+          "categoryKey": {
+            "title": "Categorykey",
+            "type": "string"
+          },
+          "dependsOnPositions": {
+            "items": {
+              "type": "integer"
+            },
+            "title": "Dependsonpositions",
+            "type": "array"
+          },
+          "dueDate": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Duedate"
+          },
+          "isMilestone": {
+            "title": "Ismilestone",
+            "type": "boolean"
+          },
+          "offsetDays": {
+            "title": "Offsetdays",
+            "type": "integer"
+          },
+          "position": {
+            "title": "Position",
+            "type": "integer"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "position",
+          "title",
+          "categoryKey",
+          "offsetDays",
+          "dueDate",
+          "isMilestone",
+          "dependsOnPositions"
+        ],
+        "title": "StarterTaskOut",
+        "type": "object"
+      },
+      "SuggestRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "context": {
+            "$ref": "#/components/schemas/PlanContext"
+          },
+          "contract": {
+            "enum": [
+              "plan.generate",
+              "plan.revise",
+              "budget.suggest",
+              "timeline.suggest",
+              "theme.suggest",
+              "menu.suggest",
+              "vendors.categories",
+              "budget.savings",
+              "schedule.draft"
+            ],
+            "title": "Contract",
+            "type": "string"
+          },
+          "feedback": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Feedback"
+          }
+        },
+        "required": [
+          "contract",
+          "context"
+        ],
+        "title": "SuggestRequest",
+        "type": "object"
+      },
+      "SuggestResponse": {
+        "properties": {
+          "assumptions": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Assumptions",
+            "type": "array"
+          },
+          "items": {
+            "description": "Validated items in AI_SCHEMAS.md \u00a74 format",
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Message"
+          },
+          "status": {
+            "enum": [
+              "ready",
+              "fallback",
+              "failed"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "usage": {
+            "$ref": "#/components/schemas/UsageOut"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Warnings",
+            "type": "array"
+          }
+        },
+        "required": [
+          "status",
+          "items",
+          "assumptions",
+          "warnings",
+          "message",
+          "usage"
+        ],
+        "title": "SuggestResponse",
+        "type": "object"
+      },
+      "SummaryResponse": {
+        "properties": {
+          "budget": {
+            "$ref": "#/components/schemas/BudgetTotalsOut"
+          },
+          "categories": {
+            "items": {
+              "$ref": "#/components/schemas/CategoryMetricsOut"
+            },
+            "title": "Categories",
+            "type": "array"
+          },
+          "dietCoverage": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DietCoverageOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "overdueTasks": {
+            "items": {
+              "$ref": "#/components/schemas/OverdueTaskOut"
+            },
+            "title": "Overduetasks",
+            "type": "array"
+          },
+          "today": {
+            "format": "date",
+            "title": "Today",
+            "type": "string"
+          }
+        },
+        "required": [
+          "today",
+          "budget",
+          "categories",
+          "overdueTasks",
+          "dietCoverage"
+        ],
+        "title": "SummaryResponse",
+        "type": "object"
+      },
+      "TaskItem": {
+        "additionalProperties": false,
+        "properties": {
+          "categoryKey": {
+            "anyOf": [
+              {
+                "maxLength": 60,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Categorykey"
+          },
+          "completedAt": {
+            "anyOf": [
+              {
+                "maxLength": 40,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completedat"
+          },
+          "dateMode": {
+            "default": "relative",
+            "enum": [
+              "relative",
+              "fixed"
+            ],
+            "title": "Datemode",
+            "type": "string"
+          },
+          "dependsOn": {
+            "items": {
+              "maxLength": 100,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 50,
+            "title": "Dependson",
+            "type": "array"
+          },
+          "dueDate": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Duedate"
+          },
+          "id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Id",
+            "type": "string"
+          },
+          "isMilestone": {
+            "default": false,
+            "title": "Ismilestone",
+            "type": "boolean"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "offsetDays": {
+            "anyOf": [
+              {
+                "maximum": 3650.0,
+                "minimum": -3650.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Offsetdays"
+          },
+          "position": {
+            "default": 1,
+            "maximum": 100000.0,
+            "minimum": 0.0,
+            "title": "Position",
+            "type": "integer"
+          },
+          "source": {
+            "default": "template",
+            "enum": [
+              "template",
+              "user",
+              "ai"
+            ],
+            "title": "Source",
+            "type": "string"
+          },
+          "status": {
+            "default": "open",
+            "enum": [
+              "open",
+              "done"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "title": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "title"
+        ],
+        "title": "TaskItem",
+        "type": "object"
+      },
+      "TemplateCategoryOut": {
+        "properties": {
+          "allocatedPaise": {
+            "title": "Allocatedpaise",
+            "type": "integer"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "position": {
+            "title": "Position",
+            "type": "integer"
+          },
+          "sharePercent": {
+            "title": "Sharepercent",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "key",
+          "label",
+          "sharePercent",
+          "allocatedPaise",
+          "position"
+        ],
+        "title": "TemplateCategoryOut",
+        "type": "object"
+      },
+      "TemplateRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "budgetTotalPaise": {
+            "anyOf": [
+              {
+                "maximum": 10000000000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Budgettotalpaise"
+          },
+          "eventDate": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Eventdate"
+          },
+          "type": {
+            "enum": [
+              "wedding",
+              "engagement",
+              "birthday",
+              "anniversary",
+              "community",
+              "family"
+            ],
+            "title": "Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ],
+        "title": "TemplateRequest",
+        "type": "object"
+      },
+      "TemplateResponse": {
+        "properties": {
+          "budgetTotalPaise": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Budgettotalpaise"
+          },
+          "categories": {
+            "items": {
+              "$ref": "#/components/schemas/TemplateCategoryOut"
+            },
+            "title": "Categories",
+            "type": "array"
+          },
+          "eventDate": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Eventdate"
+          },
+          "tasks": {
+            "items": {
+              "$ref": "#/components/schemas/StarterTaskOut"
+            },
+            "title": "Tasks",
+            "type": "array"
+          },
+          "type": {
+            "enum": [
+              "wedding",
+              "engagement",
+              "birthday",
+              "anniversary",
+              "community",
+              "family"
+            ],
+            "title": "Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "budgetTotalPaise",
+          "eventDate",
+          "categories",
+          "tasks"
+        ],
+        "title": "TemplateResponse",
+        "type": "object"
+      },
+      "UnchangedTaskOut": {
+        "properties": {
+          "dueDate": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Duedate"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "dueDate"
+        ],
+        "title": "UnchangedTaskOut",
+        "type": "object"
+      },
+      "UsageOut": {
+        "properties": {
+          "inputTokens": {
+            "title": "Inputtokens",
+            "type": "integer"
+          },
+          "outputTokens": {
+            "title": "Outputtokens",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "inputTokens",
+          "outputTokens"
+        ],
+        "title": "UsageOut",
+        "type": "object"
+      },
+      "ValidateResponse": {
+        "properties": {
+          "problems": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationProblem"
+            },
+            "title": "Problems",
+            "type": "array"
+          },
+          "valid": {
+            "title": "Valid",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "valid",
+          "problems"
+        ],
+        "title": "ValidateResponse",
+        "type": "object"
+      },
+      "ValidationError": {
+        "properties": {
+          "ctx": {
+            "title": "Context",
+            "type": "object"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "title": "Location",
+            "type": "array"
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError",
+        "type": "object"
+      },
+      "ValidationProblem": {
+        "properties": {
+          "code": {
+            "title": "Code",
+            "type": "string"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          },
+          "refs": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Refs",
+            "type": "array"
+          },
+          "severity": {
+            "enum": [
+              "error",
+              "warning"
+            ],
+            "title": "Severity",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "severity",
+          "message",
+          "refs"
+        ],
+        "title": "ValidationProblem",
+        "type": "object"
+      },
+      "VendorItem": {
+        "additionalProperties": false,
+        "properties": {
+          "categoryKey": {
+            "maxLength": 60,
+            "title": "Categorykey",
+            "type": "string"
+          },
+          "email": {
+            "anyOf": [
+              {
+                "maxLength": 254,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email"
+          },
+          "id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "phone": {
+            "anyOf": [
+              {
+                "maxLength": 40,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Phone"
+          },
+          "status": {
+            "default": "shortlisted",
+            "enum": [
+              "shortlisted",
+              "booked",
+              "dropped"
+            ],
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "categoryKey",
+          "name"
+        ],
+        "title": "VendorItem",
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "title": "Toranly API",
+    "version": "0.1.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/api/v1/ai/status": {
+      "get": {
+        "operationId": "ai_status_api_v1_ai_status_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AiStatusResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Ai Status",
+        "tags": [
+          "ai"
+        ]
+      }
+    },
+    "/api/v1/ai/suggest": {
+      "post": {
+        "operationId": "ai_suggest_api_v1_ai_suggest_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SuggestRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuggestResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Ai Suggest",
+        "tags": [
+          "ai"
+        ]
+      }
+    },
+    "/api/v1/health": {
+      "get": {
+        "operationId": "health_api_v1_health_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Health Api V1 Health Get",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Health",
+        "tags": [
+          "health"
+        ]
+      }
+    },
+    "/api/v1/health/ready": {
+      "get": {
+        "operationId": "ready_api_v1_health_ready_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Ready Api V1 Health Ready Get",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Ready",
+        "tags": [
+          "health"
+        ]
+      }
+    },
+    "/api/v1/plan/date-preview": {
+      "post": {
+        "operationId": "plan_date_preview_api_v1_plan_date_preview_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatePreviewRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DatePreviewResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Plan Date Preview",
+        "tags": [
+          "plan"
+        ]
+      }
+    },
+    "/api/v1/plan/summary": {
+      "post": {
+        "operationId": "plan_summary_api_v1_plan_summary_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlanRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SummaryResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Plan Summary",
+        "tags": [
+          "plan"
+        ]
+      }
+    },
+    "/api/v1/plan/template": {
+      "post": {
+        "operationId": "plan_template_api_v1_plan_template_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TemplateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TemplateResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Plan Template",
+        "tags": [
+          "plan"
+        ]
+      }
+    },
+    "/api/v1/plan/validate": {
+      "post": {
+        "operationId": "plan_validate_api_v1_plan_validate_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlanRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidateResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Plan Validate",
+        "tags": [
+          "plan"
+        ]
+      }
+    }
+  }
+}

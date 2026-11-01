@@ -1,0 +1,777 @@
+/* ==========================================================================
+   Toranly — Create Account (Register) Screen Styles
+   Grounded in Toranly Design System & Stitch Reference S-03
+   ========================================================================== */
+
+.register-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  box-sizing: border-box;
+}
+
+/* 1. Header */
+.register-header {
+  width: 100%;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg);
+  box-sizing: border-box;
+}
+
+.register-header-inner {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .register-header-inner {
+    padding: 0 var(--space-6);
+  }
+}
+
+.register-header-left,
+.register-header-right {
+  width: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.register-header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  transition: color var(--motion-fast);
+}
+
+.register-back-link:hover {
+  color: var(--color-text);
+}
+
+.register-back-link:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.register-header-brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.register-header-brand:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.register-header-wordmark {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+/* 2. Main Content: Centered Register Card */
+.register-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px 40px 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 639.98px) {
+  .register-main {
+    padding: 16px 16px 32px 16px;
+    align-items: flex-start;
+  }
+}
+
+.register-card {
+  width: 100%;
+  max-width: 440px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); /* 16px */
+  padding: 36px 32px 32px 32px;
+  box-shadow: 0 4px 20px rgba(30, 35, 48, 0.04);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+@media (max-width: 639.98px) {
+  .register-card {
+    padding: 28px 20px 24px 20px;
+    border-radius: var(--radius-lg);
+  }
+}
+
+/* Card Branding */
+.register-card-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.register-card-logomark {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.register-card-brand-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1;
+}
+
+/* Card Eyebrow, Heading & Supporting Text */
+.register-card-heading-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.register-card-eyebrow {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  line-height: 1.3;
+}
+
+.register-card-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.register-card-subtitle {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* 409 Conflict Error Banner */
+.register-alert-conflict {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  background-color: var(--color-error-bg);
+  border: 1px solid color-mix(in srgb, var(--color-error) 25%, transparent);
+  border-radius: var(--radius-md); /* 12px */
+  margin-bottom: 20px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.register-alert-icon {
+  color: var(--color-error);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.register-alert-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.register-alert-title {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-error);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.register-alert-desc {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-error);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.register-conflict-link {
+  color: var(--color-error);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.register-conflict-link:hover {
+  color: var(--color-text);
+}
+
+/* Form Styles */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.register-field-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+}
+
+.register-label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+/* ==========================================================================
+   Input & Select Border & Focus Styling
+   Strictly single 1px clean border: NO double border, NO ring, NO glow
+   ========================================================================== */
+.register-input,
+.register-select {
+  width: 100%;
+  height: 44px;
+  padding: 0 16px;
+  background-color: var(--color-surface);
+  /* Single clean 1px border */
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md); /* Consistent 12px radius */
+  font-family: var(--font-ui);
+  font-size: 15px;
+  line-height: normal;
+  color: var(--color-text);
+  /* Strip all browser outlines, rings, and box shadows */
+  outline: none;
+  box-shadow: none;
+  transition: border-color var(--motion-fast);
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.register-input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.65;
+}
+
+/* Hover: subtle color shift with identical 1px thickness */
+.register-input:hover:not(:disabled),
+.register-select:hover:not(:disabled) {
+  border-color: var(--color-border-strong);
+}
+
+/* Focus: single clean border changes to primary brand color (#0f6e6e)
+   Strictly NO second border, NO outline, NO ring, NO box-shadow, NO layout shift */
+.register-input:focus,
+.register-input:focus-visible,
+.register-select:focus,
+.register-select:focus-visible {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: none;
+}
+
+/* Error state: single clean 1px border in error color */
+.register-input.is-invalid {
+  border-color: var(--color-error);
+}
+
+.register-input.is-invalid:focus,
+.register-input.is-invalid:focus-visible {
+  border-color: var(--color-error);
+  outline: none;
+  box-shadow: none;
+}
+
+/* Disabled state */
+.register-input:disabled,
+.register-select:disabled {
+  background-color: var(--color-disabled-bg);
+  color: var(--color-disabled-text);
+  cursor: not-allowed;
+  border-color: var(--color-border);
+}
+
+/* Password Input & Show/Hide Button */
+.register-password-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Generous right padding (48px) ensures text never overlaps toggle button */
+.register-password-input {
+  padding-right: 48px;
+}
+
+.register-password-toggle {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-circle);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition:
+    color var(--motion-fast),
+    background-color var(--motion-fast);
+}
+
+.register-password-toggle:hover:not(:disabled) {
+  color: var(--color-text);
+  background-color: var(--color-surface-subtle);
+}
+
+.register-password-toggle:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Select Dropdown Wrapper & Custom Chevron */
+.register-select-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.register-select {
+  cursor: pointer;
+  padding-right: 40px; /* Space for chevron */
+}
+
+.register-select-chevron {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--color-text-secondary);
+}
+
+/* Stable Field Feedback / Error / Hint Container (prevents layout shifts) */
+.register-field-feedback {
+  min-height: 20px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  box-sizing: border-box;
+}
+
+.register-field-feedback--empty {
+  min-height: 8px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.register-error-text {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--color-error);
+}
+
+.register-hint-text {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--color-text-muted);
+}
+
+/* Security Callout Box (SECURITY.md §2 specification) */
+.register-security-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  background-color: var(--color-info-bg);
+  border: 1px solid color-mix(in srgb, var(--color-info) 20%, transparent);
+  border-radius: var(--radius-md); /* 12px */
+  margin: 6px 0 16px 0;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.register-security-icon {
+  color: var(--color-info);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.register-security-text {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Submit Row & Button */
+.register-submit-row {
+  margin-top: 4px;
+  width: 100%;
+}
+
+.register-submit-btn {
+  width: 100%;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-sizing: border-box;
+  transition:
+    background-color var(--motion-fast),
+    transform var(--motion-fast);
+}
+
+.register-submit-btn:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+}
+
+.register-submit-btn:active:not(:disabled) {
+  background-color: var(--color-primary-active);
+  transform: scale(0.98);
+}
+
+.register-submit-btn:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.register-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.register-spinner {
+  animation: register-spin 1s linear infinite;
+}
+
+@keyframes register-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Card Footer: Already have an account? Sign in */
+.register-card-footer {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.register-footer-prompt {
+  color: var(--color-text-secondary);
+}
+
+.register-footer-link {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--motion-fast);
+}
+
+.register-footer-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.register-footer-link:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Prototype Success State */
+.register-success-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 12px 0 6px 0;
+}
+
+.register-success-icon-wrap {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-circle);
+  background-color: var(--color-success-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.register-success-icon {
+  color: var(--color-success);
+}
+
+.register-success-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 8px 0;
+  line-height: 1.25;
+}
+
+.register-success-desc {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  margin: 0 0 16px 0;
+  max-width: 360px;
+}
+
+.register-prototype-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  background-color: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  margin-bottom: 24px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.register-prototype-notice-icon {
+  color: var(--color-primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.register-prototype-notice-text {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.register-prototype-notice-text code {
+  font-family: monospace;
+  font-size: 12px;
+  background-color: var(--color-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  color: var(--color-primary);
+}
+
+.register-success-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.register-success-btn {
+  width: 100%;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition:
+    background-color var(--motion-fast),
+    transform var(--motion-fast);
+}
+
+.register-success-btn.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.register-success-btn.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.register-success-btn.btn-secondary {
+  background-color: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.register-success-btn.btn-secondary:hover {
+  border-color: var(--color-border-strong);
+  background-color: var(--color-surface-subtle);
+}
+
+.register-try-again-btn {
+  margin-top: 4px;
+  background: none;
+  border: none;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: 6px;
+  transition: color var(--motion-fast);
+}
+
+.register-try-again-btn:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+/* 3. Subtle Bottom Operational Bar */
+.register-bottom-bar {
+  width: 100%;
+  padding: 16px var(--space-4);
+  box-sizing: border-box;
+}
+
+.register-bottom-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 639.98px) {
+  .register-bottom-inner {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+.register-status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.register-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-circle);
+  background-color: var(--color-success);
+  flex-shrink: 0;
+}
+
+.register-status-text {
+  line-height: 1;
+}
+
+.register-legal-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.register-legal-item {
+  color: var(--color-text-muted);
+}
+
+.register-legal-sep {
+  user-select: none;
+}
+
+/* Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  .register-submit-btn,
+  .register-submit-btn:active,
+  .register-success-btn {
+    transform: none;
+    transition: none;
+  }
+
+  .register-spinner {
+    animation: none;
+  }
+}

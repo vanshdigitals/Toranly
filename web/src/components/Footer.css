@@ -1,0 +1,340 @@
+/* Toranly — Premium Footer Refinements */
+
+.landing-footer {
+  width: 100%;
+  background-color: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Responsive Paddings & Main Layout
+   ========================================================================== */
+
+/* Desktop (1024px and up): Spacious multi-column layout */
+@media (min-width: 1024px) {
+  .landing-footer {
+    padding-top: var(--space-10); /* 64px */
+    padding-bottom: var(--space-8); /* 40px */
+  }
+
+  .footer-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-9); /* 48px */
+  }
+
+  .footer-brand-area {
+    flex: 0 1 400px;
+    max-width: 440px;
+  }
+
+  .footer-nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(130px, 1fr));
+    gap: var(--space-8); /* 40px */
+    flex: 1 1 auto;
+    max-width: 580px;
+    justify-content: end;
+  }
+
+  .footer-divider {
+    margin-top: var(--space-9); /* 48px */
+    margin-bottom: var(--space-6); /* 24px */
+  }
+
+  .footer-bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+  }
+}
+
+/* Tablet (640px to 1023.98px): Brand on top, 3-column nav grid below */
+@media (min-width: 640px) and (max-width: 1023.98px) {
+  .landing-footer {
+    padding-top: var(--space-9); /* 48px */
+    padding-bottom: var(--space-7); /* 32px */
+  }
+
+  .footer-main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-8); /* 40px */
+  }
+
+  .footer-brand-area {
+    width: 100%;
+    max-width: 560px;
+  }
+
+  .footer-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6); /* 24px */
+    width: 100%;
+  }
+
+  .footer-divider {
+    margin-top: var(--space-8); /* 40px */
+    margin-bottom: var(--space-5); /* 20px */
+  }
+
+  .footer-bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+  }
+}
+
+/* Mobile (under 640px): Stacked brand area and categories, compact copyright */
+@media (max-width: 639.98px) {
+  .landing-footer {
+    padding-top: var(--space-8); /* 40px */
+    padding-bottom: var(--space-6); /* 24px */
+  }
+
+  .footer-main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-7); /* 32px */
+  }
+
+  .footer-brand-area {
+    width: 100%;
+  }
+
+  .footer-brand-logo {
+    width: clamp(180px, 48vw, 220px);
+  }
+
+  .footer-nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6); /* 24px */
+    width: 100%;
+  }
+
+  .footer-nav-link {
+    min-height: 44px; /* Accessible touch target */
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-nav-unavailable {
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .footer-divider {
+    margin-top: var(--space-7); /* 32px */
+    margin-bottom: var(--space-4); /* 16px */
+  }
+
+  .footer-bottom-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2); /* 8px */
+  }
+}
+
+/* ==========================================================================
+   1. Brand Area & Matching Gold Divider
+   ========================================================================== */
+
+.footer-brand-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Brand Logo Image */
+.footer-brand-logo {
+  display: block;
+  width: 220px;
+  height: auto;
+  aspect-ratio: 1983 / 793;
+  object-fit: contain;
+  margin-bottom: var(--space-3); /* 12px balanced spacing directly to tagline */
+}
+
+/* Brand Tagline directly below gold divider line */
+.footer-brand-tagline {
+  font-family: var(--font-display);
+  font-size: 1.125rem; /* 18px */
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.35;
+  margin: 0 0 var(--space-2) 0; /* 8px bottom to description */
+  text-align: left;
+}
+
+/* Short Description */
+.footer-brand-desc {
+  font-family: var(--font-ui);
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  max-width: 40ch;
+  margin: 0;
+  text-align: left;
+}
+
+/* ==========================================================================
+   2. Category-Wise Navigation & Forest-Green Headings
+   ========================================================================== */
+
+.footer-nav-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Category Headings in refined dark forest-green tone */
+.footer-group-title {
+  font-family: var(--font-ui);
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0d4e43; /* Refined dark forest green */
+  margin: 0 0 var(--space-4) 0; /* 16px */
+}
+
+.footer-group-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3); /* 12px */
+}
+
+.footer-nav-item {
+  display: flex;
+  align-items: center;
+}
+
+/* Normal Navigation Links */
+.footer-nav-link {
+  font-family: var(--font-ui);
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 500;
+  color: var(--color-text-secondary); /* Separate muted color */
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color var(--motion-fast);
+}
+
+/* Hover: light-green / emerald accent, explicitly NO underline */
+.footer-nav-link:hover {
+  color: #127a68; /* Light-green / emerald accent */
+  text-decoration: none; /* No underline on hover */
+}
+
+/* Keyboard focus: emerald accent, accessible focus outline */
+.footer-nav-link:focus-visible {
+  color: #127a68;
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+}
+
+/* Unavailable / Nonexistent Destinations (No fake links, no badges) */
+.footer-nav-unavailable {
+  font-family: var(--font-ui);
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 400;
+  color: var(--color-disabled-text);
+  line-height: 1.4;
+  cursor: default;
+  user-select: none;
+}
+
+/* ==========================================================================
+   3. Divider & Bottom Copyright Bar
+   ========================================================================== */
+
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-border);
+}
+
+.footer-copyright {
+  font-family: var(--font-ui);
+  font-size: var(--font-size-small); /* 14px */
+  font-weight: 400;
+  line-height: var(--line-height-small);
+  color: var(--color-text-secondary);
+  margin: 0;
+  text-align: left;
+}
+
+.footer-signature {
+  font-family: var(--font-ui);
+  font-size: var(--font-size-small); /* 14px */
+  font-weight: 500;
+  font-style: italic;
+  line-height: var(--line-height-small);
+  color: var(--color-text-muted);
+  margin: 0;
+  text-align: left;
+}
+
+/* ==========================================================================
+   4. Theme-Aware Colors (Dark Mode Adaptation)
+   ========================================================================== */
+
+[data-theme='dark'] .footer-brand-tagline {
+  color: #f5f6f8;
+}
+
+[data-theme='dark'] .footer-brand-desc {
+  color: #a4acb9;
+}
+
+[data-theme='dark'] .footer-group-title {
+  color: #4eaf9c; /* Readable forest-green / emerald in dark mode */
+}
+
+[data-theme='dark'] .footer-nav-link {
+  color: #a4acb9;
+}
+
+[data-theme='dark'] .footer-nav-link:hover,
+[data-theme='dark'] .footer-nav-link:focus-visible {
+  color: #5fd3bc; /* Light emerald accent in dark mode */
+  text-decoration: none;
+}
+
+[data-theme='dark'] .footer-nav-unavailable {
+  color: #687180;
+}
+
+[data-theme='dark'] .footer-copyright {
+  color: #a4acb9;
+}
+
+[data-theme='dark'] .footer-signature {
+  color: #8c94a0;
+}
+
+/* ==========================================================================
+   5. Reduced Motion Preferences
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-nav-link {
+    transition: none;
+  }
+}

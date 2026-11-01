@@ -1,0 +1,1 @@
+Suggest themes and decor for this celebration. Return 2 to 4 theme_idea items (palette described in words, not colour codes) and 3 to 6 decor_idea items with rough INR estimate ranges that fit the budget.

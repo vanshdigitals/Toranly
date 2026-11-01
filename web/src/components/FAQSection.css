@@ -1,0 +1,175 @@
+/* ==========================================================================
+   Toranly — FAQ Section Styles
+   ========================================================================== */
+
+.faq-section {
+  width: 100%;
+  background-color: var(--color-bg);
+  padding-top: var(--landing-section-pad-y);
+  padding-bottom: var(--landing-section-pad-y);
+  scroll-margin-top: calc(var(--header-height, 72px) + 16px);
+  box-sizing: border-box;
+}
+
+/* Columns:
+   - 1024px and up: two columns with a 48px gap. Left column: 1 to 4, Right column: 5 to 8. Top aligned.
+   - Below 1024px: one column, questions 1 to 8 in order.
+*/
+.faq-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .faq-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-9); /* 48px gap */
+    align-items: start; /* Columns align to the top */
+  }
+}
+
+.faq-column {
+  width: 100%;
+}
+
+/* FAQ List:
+   - No boxes, shadows or background fills.
+   - 1px hairline above each item, and one after the last item in each column.
+*/
+.faq-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border-bottom: 1px solid var(--color-border); /* Hairline after the last item in each column */
+}
+
+@media (max-width: 1023.98px) {
+  /* When columns stack into one list below 1024px, avoid double hairline between lists */
+  .faq-column:first-child .faq-list {
+    border-bottom: none;
+  }
+}
+
+.faq-item {
+  width: 100%;
+  border-top: 1px solid var(--color-border); /* 1px hairline above each item */
+  background: transparent;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+.faq-question-heading {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+/* Question row:
+   - Plus Jakarta Sans 600, 18px (16px on mobile), text colour token.
+   - At least 56px tall.
+   - Click and tap target covers the whole row.
+*/
+.faq-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 56px;
+  padding: var(--space-4) 0; /* 16px vertical padding */
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: var(--space-4);
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+@media (max-width: 639.98px) {
+  .faq-trigger {
+    font-size: 16px;
+  }
+}
+
+/* Visible 2px focus ring (--color-focus) with 2px offset */
+.faq-trigger:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.faq-question-text {
+  flex: 1 1 auto;
+  margin-right: var(--space-2);
+}
+
+/* Lucide chevron-down icon: 20px, secondary text token, rotates 180 degrees */
+.faq-chevron {
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+  transition: transform 200ms ease;
+  transform-origin: center;
+}
+
+.faq-item.is-open .faq-chevron {
+  transform: rotate(180deg);
+}
+
+/* Answer panel:
+   - Plus Jakarta Sans 400, 16px, line-height 1.6, secondary text token.
+   - max-width 60ch, 16px bottom padding.
+   - 200ms transition on height/opacity.
+*/
+.faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    grid-template-rows 200ms ease,
+    opacity 200ms ease,
+    visibility 0s linear 200ms;
+}
+
+.faq-panel[data-open='true'] {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  opacity: 1;
+  transition:
+    grid-template-rows 200ms ease,
+    opacity 200ms ease,
+    visibility 0s linear 0s;
+}
+
+.faq-panel-inner {
+  overflow: hidden;
+}
+
+.faq-answer-text {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  max-width: 60ch;
+  margin: 0;
+  padding-bottom: var(--space-4); /* 16px bottom padding */
+}
+
+/* Prefers Reduced Motion: open and close instantly */
+@media (prefers-reduced-motion: reduce) {
+  .faq-panel,
+  .faq-chevron {
+    transition: none !important;
+  }
+}

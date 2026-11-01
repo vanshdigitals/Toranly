@@ -1,0 +1,366 @@
+[
+  {
+    "name": "due 2027-03-01 minus 1",
+    "fn": "dueDate",
+    "input": {
+      "eventDate": "2027-03-01",
+      "offsetDays": 1
+    },
+    "expected": "2027-02-28",
+    "tsDivergence": null
+  },
+  {
+    "name": "due 2028-03-01 minus 1",
+    "fn": "dueDate",
+    "input": {
+      "eventDate": "2028-03-01",
+      "offsetDays": 1
+    },
+    "expected": "2028-02-29",
+    "tsDivergence": null
+  },
+  {
+    "name": "due 2028-02-29 minus 365",
+    "fn": "dueDate",
+    "input": {
+      "eventDate": "2028-02-29",
+      "offsetDays": 365
+    },
+    "expected": "2027-03-01",
+    "tsDivergence": null
+  },
+  {
+    "name": "due 2027-01-31 minus 31",
+    "fn": "dueDate",
+    "input": {
+      "eventDate": "2027-01-31",
+      "offsetDays": 31
+    },
+    "expected": "2026-12-31",
+    "tsDivergence": null
+  },
+  {
+    "name": "due 2026-11-30 minus 0",
+    "fn": "dueDate",
+    "input": {
+      "eventDate": "2026-11-30",
+      "offsetDays": 0
+    },
+    "expected": "2026-11-30",
+    "tsDivergence": null
+  },
+  {
+    "name": "due 2027-02-14 minus 120",
+    "fn": "dueDate",
+    "input": {
+      "eventDate": "2027-02-14",
+      "offsetDays": 120
+    },
+    "expected": "2026-10-17",
+    "tsDivergence": null
+  },
+  {
+    "name": "date preview, fixed tasks unchanged",
+    "fn": "datePreview",
+    "input": {
+      "tasks": [
+        {
+          "id": "a",
+          "title": "Book venue",
+          "offsetDays": 10,
+          "dueDate": "2027-02-04",
+          "dateMode": "relative",
+          "status": "open",
+          "dependsOn": []
+        },
+        {
+          "id": "b",
+          "title": "Print banner",
+          "dueDate": "2026-12-01",
+          "dateMode": "fixed",
+          "status": "open",
+          "dependsOn": []
+        },
+        {
+          "id": "c",
+          "title": "Shortlist caterers",
+          "offsetDays": 120,
+          "dateMode": "relative",
+          "status": "open",
+          "dependsOn": [
+            "a"
+          ]
+        },
+        {
+          "id": "d",
+          "title": "Pay deposit",
+          "offsetDays": 120,
+          "dateMode": "relative",
+          "status": "done",
+          "dependsOn": []
+        }
+      ],
+      "oldEventDate": "2027-02-14",
+      "newEventDate": "2027-01-14",
+      "today": "2026-10-28"
+    },
+    "expected": {
+      "deltaDays": -31,
+      "shifted": [
+        {
+          "id": "a",
+          "title": "Book venue",
+          "oldDueDate": "2027-02-04",
+          "newDueDate": "2027-01-04",
+          "offsetDays": 10,
+          "becomesOverdue": false
+        },
+        {
+          "id": "c",
+          "title": "Shortlist caterers",
+          "oldDueDate": "2026-10-17",
+          "newDueDate": "2026-09-16",
+          "offsetDays": 120,
+          "becomesOverdue": true
+        },
+        {
+          "id": "d",
+          "title": "Pay deposit",
+          "oldDueDate": "2026-10-17",
+          "newDueDate": "2026-09-16",
+          "offsetDays": 120,
+          "becomesOverdue": false
+        }
+      ],
+      "fixedUnchanged": [
+        {
+          "id": "b",
+          "title": "Print banner",
+          "dueDate": "2026-12-01"
+        }
+      ],
+      "overdueCount": 1
+    },
+    "tsDivergence": null
+  },
+  {
+    "name": "date preview, later date",
+    "fn": "datePreview",
+    "input": {
+      "tasks": [
+        {
+          "id": "a",
+          "title": "Book venue",
+          "offsetDays": 10,
+          "dueDate": "2027-02-04",
+          "dateMode": "relative",
+          "status": "open",
+          "dependsOn": []
+        },
+        {
+          "id": "b",
+          "title": "Print banner",
+          "dueDate": "2026-12-01",
+          "dateMode": "fixed",
+          "status": "open",
+          "dependsOn": []
+        },
+        {
+          "id": "c",
+          "title": "Shortlist caterers",
+          "offsetDays": 120,
+          "dateMode": "relative",
+          "status": "open",
+          "dependsOn": [
+            "a"
+          ]
+        },
+        {
+          "id": "d",
+          "title": "Pay deposit",
+          "offsetDays": 120,
+          "dateMode": "relative",
+          "status": "done",
+          "dependsOn": []
+        }
+      ],
+      "oldEventDate": "2027-02-14",
+      "newEventDate": "2027-03-01",
+      "today": "2026-10-28"
+    },
+    "expected": {
+      "deltaDays": 15,
+      "shifted": [
+        {
+          "id": "a",
+          "title": "Book venue",
+          "oldDueDate": "2027-02-04",
+          "newDueDate": "2027-02-19",
+          "offsetDays": 10,
+          "becomesOverdue": false
+        },
+        {
+          "id": "c",
+          "title": "Shortlist caterers",
+          "oldDueDate": "2026-10-17",
+          "newDueDate": "2026-11-01",
+          "offsetDays": 120,
+          "becomesOverdue": false
+        },
+        {
+          "id": "d",
+          "title": "Pay deposit",
+          "oldDueDate": "2026-10-17",
+          "newDueDate": "2026-11-01",
+          "offsetDays": 120,
+          "becomesOverdue": false
+        }
+      ],
+      "fixedUnchanged": [
+        {
+          "id": "b",
+          "title": "Print banner",
+          "dueDate": "2026-12-01"
+        }
+      ],
+      "overdueCount": 0
+    },
+    "tsDivergence": null
+  },
+  {
+    "name": "no cycle",
+    "fn": "cycle",
+    "input": {
+      "tasks": [
+        {
+          "id": "a",
+          "dependsOn": []
+        },
+        {
+          "id": "b",
+          "dependsOn": [
+            "a"
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "hasCycle": false,
+      "cycleTaskIds": []
+    },
+    "tsDivergence": null
+  },
+  {
+    "name": "cycle with blocked task",
+    "fn": "cycle",
+    "input": {
+      "tasks": [
+        {
+          "id": "a",
+          "dependsOn": [
+            "b"
+          ]
+        },
+        {
+          "id": "b",
+          "dependsOn": [
+            "a"
+          ]
+        },
+        {
+          "id": "c",
+          "dependsOn": [
+            "a"
+          ]
+        },
+        {
+          "id": "d",
+          "dependsOn": []
+        }
+      ]
+    },
+    "expected": {
+      "hasCycle": true,
+      "cycleTaskIds": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    "tsDivergence": null
+  },
+  {
+    "name": "self dependency",
+    "fn": "cycle",
+    "input": {
+      "tasks": [
+        {
+          "id": "a",
+          "dependsOn": [
+            "a"
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "hasCycle": true,
+      "cycleTaskIds": [
+        "a"
+      ]
+    },
+    "tsDivergence": null
+  },
+  {
+    "name": "unknown dependency ignored",
+    "fn": "cycle",
+    "input": {
+      "tasks": [
+        {
+          "id": "a",
+          "dependsOn": [
+            "zzz"
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "hasCycle": false,
+      "cycleTaskIds": []
+    },
+    "tsDivergence": null
+  },
+  {
+    "name": "gate blocked by open prerequisite",
+    "fn": "gate",
+    "input": {
+      "taskId": "c",
+      "tasks": [
+        {
+          "id": "a",
+          "status": "open",
+          "dependsOn": []
+        },
+        {
+          "id": "b",
+          "status": "done",
+          "dependsOn": []
+        },
+        {
+          "id": "c",
+          "status": "open",
+          "dependsOn": [
+            "a",
+            "b"
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "canComplete": false,
+      "blockingTaskIds": [
+        "a"
+      ]
+    },
+    "tsDivergence": null
+  }
+]

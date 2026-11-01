@@ -1,0 +1,6 @@
+{"contract_version":"1.0","items":[
+ {"kind":"task","title":"Fix the guest list draft","offset_days":40,"category_key":"invitations","is_milestone":false,"depends_on_titles":[]},
+ {"kind":"task","title":"Choose the party venue","offset_days":30,"category_key":"venue","is_milestone":true,"depends_on_titles":["Fix the guest list draft"]},
+ {"kind":"task","title":"Order the birthday cake","offset_days":10,"category_key":"cake","is_milestone":false,"depends_on_titles":["Choose the party venue","A task that does not exist"]},
+ {"kind":"task","title":"Confirm final headcount with catering","offset_days":3,"category_key":"catering","is_milestone":true,"depends_on_titles":[]}
+],"assumptions":["Guest count may change by about 10%."],"warnings":[],"refusal":null}

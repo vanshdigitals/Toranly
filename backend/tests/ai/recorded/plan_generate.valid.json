@@ -1,0 +1,11 @@
+{"contract_version":"1.0","items":[
+ {"kind":"budget_share","category_key":"venue","label":"Venue","share_pct":30,"rationale":"Covers the hall for an evening."},
+ {"kind":"budget_share","category_key":"catering","label":"Food","share_pct":40,"rationale":"Largest cost for 60 guests."},
+ {"kind":"budget_share","category_key":"decor","label":"Decor","share_pct":15,"rationale":"Garden theme with flowers."},
+ {"kind":"budget_share","category_key":"contingency","label":"Buffer","share_pct":16,"rationale":"Room for surprises."},
+ {"kind":"task","title":"Choose the party venue","offset_days":30,"category_key":"venue","is_milestone":true,"depends_on_titles":[]},
+ {"kind":"theme_idea","title":"Garden afternoon","description":"Soft greens, fairy lights and potted plants.","palette_words":["sage","cream"]},
+ {"kind":"decor_idea","title":"Fairy light canopy","description":"Warm lights over the seating area.","estimate_inr_min":9000,"estimate_inr_max":4000},
+ {"kind":"menu_item","course":"main","dish_name":"Paneer tikka masala","diet_tags":["veg"],"allergen_notes":"Contains dairy"},
+ {"kind":"vendor_category","category_key":"decor","label":"Decorator","questions_to_ask":["What is included in setup?"],"book_by_offset_days":21}
+],"assumptions":["Evening event"],"warnings":[],"refusal":null}

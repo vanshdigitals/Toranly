@@ -1,0 +1,182 @@
+[
+  {
+    "name": "status 89900 of 100000",
+    "fn": "budgetStatus",
+    "input": {
+      "allocatedPaise": 100000,
+      "committedPaise": 89900
+    },
+    "expected": "ok",
+    "tsDivergence": null
+  },
+  {
+    "name": "status 90000 of 100000",
+    "fn": "budgetStatus",
+    "input": {
+      "allocatedPaise": 100000,
+      "committedPaise": 90000
+    },
+    "expected": "warning",
+    "tsDivergence": null
+  },
+  {
+    "name": "status 100000 of 100000",
+    "fn": "budgetStatus",
+    "input": {
+      "allocatedPaise": 100000,
+      "committedPaise": 100000
+    },
+    "expected": "warning",
+    "tsDivergence": null
+  },
+  {
+    "name": "status 100100 of 100000",
+    "fn": "budgetStatus",
+    "input": {
+      "allocatedPaise": 100000,
+      "committedPaise": 100100
+    },
+    "expected": "over",
+    "tsDivergence": null
+  },
+  {
+    "name": "status zero allocation, zero committed",
+    "fn": "budgetStatus",
+    "input": {
+      "allocatedPaise": 0,
+      "committedPaise": 0
+    },
+    "expected": "ok",
+    "tsDivergence": null
+  },
+  {
+    "name": "status zero allocation, committed",
+    "fn": "budgetStatus",
+    "input": {
+      "allocatedPaise": 0,
+      "committedPaise": 1
+    },
+    "expected": "over",
+    "tsDivergence": null
+  },
+  {
+    "name": "status 899 of 999 (exact 90% rule)",
+    "fn": "budgetStatus",
+    "input": {
+      "allocatedPaise": 999,
+      "committedPaise": 899
+    },
+    "expected": "ok",
+    "tsDivergence": null
+  },
+  {
+    "name": "status 896 of 995",
+    "fn": "budgetStatus",
+    "input": {
+      "allocatedPaise": 995,
+      "committedPaise": 896
+    },
+    "expected": "warning",
+    "tsDivergence": null
+  },
+  {
+    "name": "metrics committed is max of kinds",
+    "fn": "budgetMetrics",
+    "input": {
+      "categories": [
+        {
+          "id": "c1",
+          "key": "food",
+          "label": "Food",
+          "allocatedPaise": 2625000
+        },
+        {
+          "id": "c2",
+          "key": "venue",
+          "label": "Venue",
+          "allocatedPaise": 1000000
+        },
+        {
+          "id": "c3",
+          "key": "decor",
+          "label": "Decor",
+          "allocatedPaise": 0
+        }
+      ],
+      "expenses": [
+        {
+          "categoryId": "c1",
+          "amountPaise": 2800000,
+          "kind": "quoted"
+        },
+        {
+          "categoryId": "c1",
+          "amountPaise": 500000,
+          "kind": "paid"
+        },
+        {
+          "categoryId": "c1",
+          "amountPaise": 100000,
+          "kind": "planned"
+        },
+        {
+          "categoryId": "venue",
+          "amountPaise": 950000,
+          "kind": "planned"
+        }
+      ]
+    },
+    "expected": {
+      "totalAllocatedPaise": 3625000,
+      "totalPlannedPaise": 1050000,
+      "totalQuotedPaise": 2800000,
+      "totalPaidPaise": 500000,
+      "totalCommittedPaise": 3750000,
+      "totalRemainingPaise": -125000,
+      "overallStatus": "over",
+      "percentCommitted": 100,
+      "categories": [
+        {
+          "categoryId": "c1",
+          "key": "food",
+          "label": "Food",
+          "allocatedPaise": 2625000,
+          "plannedPaise": 100000,
+          "quotedPaise": 2800000,
+          "paidPaise": 500000,
+          "committedPaise": 2800000,
+          "remainingPaise": -175000,
+          "status": "over",
+          "percentCommitted": 100
+        },
+        {
+          "categoryId": "c2",
+          "key": "venue",
+          "label": "Venue",
+          "allocatedPaise": 1000000,
+          "plannedPaise": 950000,
+          "quotedPaise": 0,
+          "paidPaise": 0,
+          "committedPaise": 950000,
+          "remainingPaise": 50000,
+          "status": "warning",
+          "percentCommitted": 95
+        },
+        {
+          "categoryId": "c3",
+          "key": "decor",
+          "label": "Decor",
+          "allocatedPaise": 0,
+          "plannedPaise": 0,
+          "quotedPaise": 0,
+          "paidPaise": 0,
+          "committedPaise": 0,
+          "remainingPaise": 0,
+          "status": "ok",
+          "percentCommitted": 0
+        }
+      ]
+    },
+    "tsDivergence": null
+  }
+]
