@@ -58,7 +58,7 @@
   align-items: center;
   gap: 6px;
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
   text-decoration: none;
@@ -90,7 +90,7 @@
 
 .register-header-wordmark {
   font-family: var(--font-display);
-  font-size: 26px;
+  font-size: 1.625rem;
   font-weight: 600;
   color: var(--color-text);
   line-height: 1;
@@ -151,7 +151,7 @@
 
 .register-card-brand-name {
   font-family: var(--font-display);
-  font-size: 22px;
+  font-size: 1.375rem;
   font-weight: 600;
   color: var(--color-text);
   line-height: 1;
@@ -169,7 +169,7 @@
 .register-card-eyebrow {
   display: block;
   font-family: var(--font-ui);
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -179,7 +179,7 @@
 
 .register-card-title {
   font-family: var(--font-display);
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.25;
   color: var(--color-text);
@@ -188,7 +188,7 @@
 
 .register-card-subtitle {
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.5;
   color: var(--color-text-secondary);
   margin: 0;
@@ -222,7 +222,7 @@
 
 .register-alert-title {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   color: var(--color-error);
   margin: 0;
@@ -231,7 +231,7 @@
 
 .register-alert-desc {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 400;
   color: var(--color-error);
   margin: 0;
@@ -266,7 +266,7 @@
 .register-label {
   display: block;
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text);
   margin-bottom: 6px;
@@ -287,7 +287,7 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md); /* Consistent 12px radius */
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: 0.9375rem;
   line-height: normal;
   color: var(--color-text);
   /* Strip all browser outlines, rings, and box shadows */
@@ -425,7 +425,7 @@
 .register-error-text {
   display: block;
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 1.35;
   color: var(--color-error);
 }
@@ -433,7 +433,7 @@
 .register-hint-text {
   display: block;
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 1.35;
   color: var(--color-text-muted);
 }
@@ -460,7 +460,7 @@
 
 .register-security-text {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 0.8125rem;
   line-height: 1.45;
   color: var(--color-text-secondary);
   margin: 0;
@@ -479,7 +479,7 @@
   background-color: var(--color-primary);
   color: var(--color-on-primary);
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 600;
   line-height: 1;
   border: none;
@@ -536,7 +536,7 @@
   justify-content: center;
   gap: 6px;
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.4;
   text-align: center;
 }
@@ -589,7 +589,7 @@
 
 .register-success-title {
   font-family: var(--font-display);
-  font-size: 22px;
+  font-size: 1.375rem;
   font-weight: 600;
   color: var(--color-text);
   margin: 0 0 8px 0;
@@ -598,7 +598,7 @@
 
 .register-success-desc {
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.5;
   color: var(--color-text-secondary);
   margin: 0 0 16px 0;
@@ -626,7 +626,7 @@
 
 .register-prototype-notice-text {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 0.8125rem;
   line-height: 1.45;
   color: var(--color-text-secondary);
   margin: 0;
@@ -634,7 +634,7 @@
 
 .register-prototype-notice-text code {
   font-family: monospace;
-  font-size: 12px;
+  font-size: 0.75rem;
   background-color: var(--color-bg);
   padding: 2px 6px;
   border-radius: 4px;
@@ -657,7 +657,7 @@
   align-items: center;
   justify-content: center;
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 600;
   text-decoration: none;
   box-sizing: border-box;
@@ -691,7 +691,7 @@
   background: none;
   border: none;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 500;
   color: var(--color-text-secondary);
   cursor: pointer;
@@ -718,7 +718,7 @@
   align-items: center;
   justify-content: space-between;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--color-text-muted);
 }
 

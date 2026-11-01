@@ -74,7 +74,7 @@
 
 .date-change-title {
   font-family: var(--font-heading, Fraunces, serif);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--color-text-main, #0f172a);
   margin: 0 0 8px 0;
@@ -82,7 +82,7 @@
 
 .date-change-intro {
   font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.5;
   color: var(--color-text-muted, #475569);
   margin: 0 0 18px 0;
@@ -94,7 +94,7 @@
 
 .date-picker-label {
   display: block;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   color: var(--color-text-main, #0f172a);
   margin-bottom: 6px;
@@ -106,7 +106,7 @@
   padding: 10px 14px;
   border: 1px solid var(--color-border, #cbd5e1);
   border-radius: var(--radius-md, 8px);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
   color: var(--color-text-main, #0f172a);
 }
@@ -133,7 +133,7 @@
 
 .preview-stat-value {
   display: block;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--color-primary, #0f6e6e);
 }
@@ -143,7 +143,7 @@
 }
 
 .preview-stat-label {
-  font-size: 11px;
+  font-size: 0.6875rem;
   color: var(--color-text-muted, #64748b);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -167,7 +167,7 @@
 }
 
 .warning-box-text {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: #991b1b;
   margin: 0;
 }
@@ -180,7 +180,7 @@
 }
 
 .preview-list-heading {
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   margin: 0 0 8px 0;
   color: var(--color-text-main, #0f172a);
@@ -199,7 +199,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 12px;
+  font-size: 0.75rem;
   padding: 4px 6px;
   border-radius: 4px;
 }
@@ -238,7 +238,7 @@
 }
 
 .preview-more-item {
-  font-size: 11px;
+  font-size: 0.6875rem;
   color: var(--color-text-muted, #64748b);
   font-style: italic;
   padding: 4px;

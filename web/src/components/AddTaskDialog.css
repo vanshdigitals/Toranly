@@ -67,7 +67,7 @@
 
 .task-modal-title {
   font-family: var(--font-heading, Fraunces, serif);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--color-text-main, #0f172a);
   margin: 0 0 16px 0;
@@ -79,7 +79,7 @@
 
 .task-field-label {
   display: block;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 500;
   color: var(--color-text-main, #0f172a);
   margin-bottom: 6px;
@@ -92,7 +92,7 @@
   padding: 10px 12px;
   border: 1px solid var(--color-border, #cbd5e1);
   border-radius: var(--radius-md, 8px);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
   color: var(--color-text-main, #0f172a);
   background-color: #ffffff;
@@ -116,7 +116,7 @@
   border: 1px solid var(--color-border, #cbd5e1);
   background-color: #ffffff;
   border-radius: 6px;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 500;
   cursor: pointer;
   color: var(--color-text-muted, #475569);
@@ -138,7 +138,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--color-text-main, #0f172a);
   cursor: pointer;
 }
@@ -159,7 +159,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--color-text-main, #0f172a);
   cursor: pointer;
 }
@@ -168,7 +168,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #dc2626;
   background-color: #fef2f2;
   border: 1px solid #fecaca;

@@ -66,7 +66,7 @@
 
 .cat-modal-title {
   font-family: var(--font-heading, Fraunces, serif);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--color-text-main, #0f172a);
   margin: 0 0 16px 0;
@@ -78,7 +78,7 @@
 
 .cat-field-label {
   display: block;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   color: var(--color-text, #1e2330);
   margin-bottom: 6px;
@@ -87,7 +87,7 @@
 .cat-input {
   width: 100%;
   padding: 9px 12px;
-  font-size: 14px;
+  font-size: 0.875rem;
   border: 1px solid var(--color-border, #e3dccf);
   border-radius: 8px;
   box-sizing: border-box;
@@ -115,7 +115,7 @@
   position: absolute;
   left: 12px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--color-text-secondary, #474f5e);
   pointer-events: none;
 }
@@ -128,7 +128,7 @@
 
 .cat-field-hint {
   display: block;
-  font-size: 11px;
+  font-size: 0.6875rem;
   color: var(--color-text-muted, #646b78);
   margin-top: 5px;
 }
@@ -140,7 +140,7 @@
   border: 1px solid #fecdd3;
   color: #b42318;
   border-radius: 6px;
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 .cat-modal-actions {

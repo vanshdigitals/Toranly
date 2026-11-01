@@ -28,6 +28,7 @@ import { FunctionFormDialog } from './FunctionFormDialog';
 import { DateChangeDialog } from './DateChangeDialog';
 import { DeletePlanDialog } from './DeletePlanDialog';
 import { UnsavedChangesDialog } from './UnsavedChangesDialog';
+import { TextSizeControl } from './TextSizeControl';
 import './SettingsTab.css';
 
 interface SettingsTabProps {
@@ -839,6 +840,10 @@ export const SettingsTab: React.FC<SettingsTabProps> = ({
           {/* ========================================================= */}
           {/* 6. DATA & EXPORT CARD                                    */}
           {/* ========================================================= */}
+          <section className="settings-card" aria-label="Text size">
+            <TextSizeControl />
+          </section>
+
           <section className="settings-card" aria-labelledby="card-data-export">
             <h2 id="card-data-export" className="settings-card-title">
               Data &amp; Export

@@ -65,7 +65,7 @@
 
 .conflict-title {
   font-family: var(--font-heading, Fraunces, serif);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--color-text-main, #0f172a);
   margin: 0 0 8px 0;
@@ -73,7 +73,7 @@
 
 .conflict-intro {
   font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.5;
   color: var(--color-text-muted, #475569);
   margin: 0 0 16px 0;
@@ -104,7 +104,7 @@
 
 .conflict-card-tag {
   display: inline-block;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -114,14 +114,14 @@
 
 .conflict-card-title {
   font-family: var(--font-heading, Fraunces, serif);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--color-text-main, #0f172a);
   margin: 0 0 4px 0;
 }
 
 .conflict-card-meta {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--color-text-muted, #64748b);
   margin: 0;
 }

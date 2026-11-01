@@ -1,6 +1,6 @@
-import React, { useRef, useEffect, useCallback } from 'react';
+import React, { useRef, useEffect, useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, Pause, Play } from 'lucide-react';
 import { Container } from './Container';
 import { SectionHeading } from './SectionHeading';
 import './CelebrationsSection.css';
@@ -79,6 +79,9 @@ export const CelebrationsSection: React.FC = () => {
   const stepTargetOffsetRef = useRef(0);
   const stepResumeTimerRef = useRef<number | null>(null);
   const isPausedForStepRef = useRef(false);
+  // WCAG 2.2.2: visitors can stop the moving row themselves.
+  const [userPaused, setUserPaused] = useState(false);
+  const isUserPausedRef = useRef(false);
 
   // Interaction pausing refs
   const isHoveredRef = useRef(false);
@@ -213,6 +216,7 @@ export const CelebrationsSection: React.FC = () => {
           !isFocusedRef.current &&
           !isTouchingRef.current &&
           !isInteractionPausedRef.current &&
+          !isUserPausedRef.current &&
           !isPausedForStepRef.current;
 
         if (canAutoMove) {
@@ -448,6 +452,22 @@ export const CelebrationsSection: React.FC = () => {
             onClick={() => triggerStep('prev')}
           >
             <ChevronLeft size={20} />
+          </button>
+          <button
+            type="button"
+            className="celebrations-arrow-btn"
+            aria-pressed={userPaused}
+            aria-label={userPaused ? 'Play moving celebrations' : 'Pause moving celebrations'}
+            onClick={() => {
+              isUserPausedRef.current = !userPaused;
+              setUserPaused(!userPaused);
+            }}
+          >
+            {userPaused ? (
+              <Play size={18} aria-hidden="true" />
+            ) : (
+              <Pause size={18} aria-hidden="true" />
+            )}
           </button>
           <button
             type="button"

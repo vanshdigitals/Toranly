@@ -73,7 +73,8 @@
 
 html {
   font-family: var(--font-ui);
-  font-size: 16px;
+  /* 100% respects the browser's own font setting; Text size multiplies it. */
+  font-size: 100%;
   color: var(--color-text);
   background-color: var(--color-bg);
   scroll-behavior: smooth;
@@ -247,4 +248,28 @@ select:focus-visible {
 
 :is(input, textarea, select):focus-visible {
   box-shadow: 0 0 0 2px var(--color-focus);
+}
+
+/* Text size (Settings): every font is in rem, so scaling the root scales the whole app. */
+html[data-text-size='large'] {
+  font-size: 112.5%;
+}
+
+html[data-text-size='x-large'] {
+  font-size: 125%;
+}
+
+/* Phones: 17px body text at Standard, scaled the same way for Large and Extra large. */
+@media (max-width: 640px) {
+  html {
+    font-size: 106.25%;
+  }
+
+  html[data-text-size='large'] {
+    font-size: 118.75%;
+  }
+
+  html[data-text-size='x-large'] {
+    font-size: 131.25%;
+  }
 }

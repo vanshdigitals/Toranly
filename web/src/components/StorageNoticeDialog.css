@@ -66,7 +66,7 @@
 
 .storage-notice-title {
   font-family: var(--font-heading, Fraunces, serif);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--color-text-main, #0f172a);
   margin: 0 0 8px 0;
@@ -74,7 +74,7 @@
 
 .storage-notice-text {
   font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.5;
   color: var(--color-text-muted, #475569);
   margin: 0 0 16px 0;
@@ -98,7 +98,7 @@
 
 .storage-notice-callout-text {
   font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
-  font-size: 13px;
+  font-size: 0.8125rem;
   line-height: 1.45;
   color: var(--color-celebration-dark, #8f5400);
   margin: 0;

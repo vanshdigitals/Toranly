@@ -1,0 +1,82 @@
+.text-size-control {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.text-size-legend {
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.text-size-help {
+  margin: 4px 0 var(--space-3);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.text-size-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: var(--space-2);
+}
+
+.text-size-option {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  min-height: 48px;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  cursor: pointer;
+}
+
+.text-size-option.is-active {
+  border-color: var(--color-primary);
+  background: var(--color-primary-subtle);
+}
+
+/* The real radio stays in the tab order (visually hidden); the card shows its state. */
+.text-size-option input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.text-size-option:has(input:focus-visible) {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.text-size-sample {
+  font-family: var(--font-display, serif);
+  line-height: 1;
+  color: var(--color-text);
+}
+
+.sample-standard {
+  font-size: 1.25rem;
+}
+
+.sample-large {
+  font-size: 1.5rem;
+}
+
+.sample-x-large {
+  font-size: 1.75rem;
+}
+
+.text-size-label {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.text-size-hint {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}

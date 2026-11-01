@@ -57,7 +57,7 @@
   align-items: center;
   gap: 6px;
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
   text-decoration: none;
@@ -89,7 +89,7 @@
 
 .signin-header-wordmark {
   font-family: var(--font-display);
-  font-size: 26px;
+  font-size: 1.625rem;
   font-weight: 600;
   color: var(--color-text);
   line-height: 1;
@@ -150,7 +150,7 @@
 
 .signin-card-brand-name {
   font-family: var(--font-display);
-  font-size: 22px;
+  font-size: 1.375rem;
   font-weight: 600;
   color: var(--color-text);
   line-height: 1;
@@ -167,7 +167,7 @@
 
 .signin-card-title {
   font-family: var(--font-display);
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.25;
   color: var(--color-text);
@@ -176,7 +176,7 @@
 
 .signin-card-subtitle {
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.5;
   color: var(--color-text-secondary);
   margin: 0;
@@ -210,7 +210,7 @@
 
 .signin-alert-title {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   color: var(--color-error);
   margin: 0;
@@ -219,7 +219,7 @@
 
 .signin-alert-desc {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 400;
   color: var(--color-error);
   margin: 0;
@@ -243,7 +243,7 @@
 .signin-label {
   display: block;
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text);
   margin-bottom: 6px;
@@ -262,7 +262,7 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md); /* Consistent 12px radius */
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: 0.9375rem;
   line-height: normal;
   color: var(--color-text);
   /* Remove outlines, rings, and box shadows */
@@ -368,7 +368,7 @@
 .signin-error-text {
   display: block;
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 1.35;
   color: var(--color-error);
 }
@@ -386,7 +386,7 @@
   background-color: var(--color-primary);
   color: var(--color-on-primary);
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 600;
   line-height: 1;
   border: none;
@@ -443,7 +443,7 @@
   justify-content: center;
   gap: 6px;
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.4;
   text-align: center;
 }
@@ -484,7 +484,7 @@
   align-items: center;
   justify-content: space-between;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--color-text-muted);
 }
 

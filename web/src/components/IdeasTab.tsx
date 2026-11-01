@@ -1126,7 +1126,7 @@ export const IdeasTab: React.FC<IdeasTabProps> = ({
                     ? aiStatus.message
                     : AI_UNAVAILABLE_MESSAGE}
                 </p>
-                <p style={{ marginTop: 6, fontSize: 12, color: 'var(--color-text-muted)' }}>
+                <p style={{ marginTop: 6, fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>
                   Everything else in Toranly keeps working without AI.
                 </p>
               </div>
@@ -1204,7 +1204,7 @@ export const IdeasTab: React.FC<IdeasTabProps> = ({
                   <div>
                     <h4
                       style={{
-                        fontSize: 13,
+                        fontSize: '0.8125rem',
                         fontWeight: 700,
                         textTransform: 'uppercase',
                         letterSpacing: '0.06em',
@@ -1242,7 +1242,10 @@ export const IdeasTab: React.FC<IdeasTabProps> = ({
                               {desc && <p className="ideas-ai-result-desc">{desc}</p>}
                               <div className="ideas-ai-result-chips">
                                 {estStr && (
-                                  <span className="idea-estimate-chip" style={{ fontSize: 11 }}>
+                                  <span
+                                    className="idea-estimate-chip"
+                                    style={{ fontSize: '0.6875rem' }}
+                                  >
                                     <Clock size={11} />
                                     <span>{estStr}</span>
                                   </span>
@@ -1252,7 +1255,7 @@ export const IdeasTab: React.FC<IdeasTabProps> = ({
                                     <span
                                       key={String(t)}
                                       className="idea-diet-tag idea-diet-veg"
-                                      style={{ fontSize: 10.5 }}
+                                      style={{ fontSize: '0.6562rem' }}
                                     >
                                       {String(t)}
                                     </span>

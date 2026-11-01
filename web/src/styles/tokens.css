@@ -85,7 +85,7 @@
   --line-height-card-subheading: 1.4;
 
   /* Supporting descriptions under Page Titles */
-  --font-size-page-subtitle: 14.5px;
+  --font-size-page-subtitle: 0.9062rem;
   --line-height-page-subtitle: 1.5;
 
   --font-size-display: 2.25rem;
@@ -159,7 +159,7 @@
   --font-landing-h2-lh: 1.2;
   --font-landing-h2-max-ch: 22ch;
 
-  --font-landing-eyebrow-size: 12px;
+  --font-landing-eyebrow-size: 0.75rem;
   --font-landing-eyebrow-weight: 600;
   --font-landing-eyebrow-tracking: 0.12em;
 
@@ -167,14 +167,14 @@
   --font-landing-intro-lh: 1.6;
   --font-landing-intro-max-ch: 56ch;
 
-  --font-landing-body-size: 15px;
+  --font-landing-body-size: 0.9375rem;
   --font-landing-body-lh: 1.6;
 
-  --font-landing-card-title-size: 17px;
+  --font-landing-card-title-size: 1.0625rem;
   --font-landing-card-title-weight: 700;
-  --font-landing-card-text-size: 15px;
+  --font-landing-card-text-size: 0.9375rem;
 
-  --font-landing-nav-size: 15px;
+  --font-landing-nav-size: 0.9375rem;
   --font-landing-nav-weight: 500;
 
   --landing-section-pad-y: clamp(56px, 7vw, 96px);
@@ -192,7 +192,7 @@
 @media (min-width: 640px) {
   :root {
     --container-pad: var(--space-6); /* 24px */
-    --font-landing-body-size: 16px;
+    --font-landing-body-size: 1rem;
   }
 }
 

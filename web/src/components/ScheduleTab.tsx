@@ -445,7 +445,7 @@ export const ScheduleTab: React.FC<ScheduleTabProps> = ({
                     padding: '16px 8px',
                     textAlign: 'center',
                     color: '#8b92a0',
-                    fontSize: '13px',
+                    fontSize: '0.8125rem',
                   }}
                 >
                   No functions yet. Click <strong>Add function</strong> above to start.
@@ -565,7 +565,7 @@ export const ScheduleTab: React.FC<ScheduleTabProps> = ({
                             padding: '8px 14px',
                             border: 'none',
                             background: 'transparent',
-                            fontSize: 13,
+                            fontSize: '0.8125rem',
                             color: '#1e2330',
                             cursor: 'pointer',
                           }}
@@ -588,7 +588,7 @@ export const ScheduleTab: React.FC<ScheduleTabProps> = ({
                             padding: '8px 14px',
                             border: 'none',
                             background: 'transparent',
-                            fontSize: 13,
+                            fontSize: '0.8125rem',
                             color: '#dc2626',
                             cursor: 'pointer',
                           }}
@@ -732,7 +732,7 @@ export const ScheduleTab: React.FC<ScheduleTabProps> = ({
                                           padding: '8px 12px',
                                           border: 'none',
                                           background: 'transparent',
-                                          fontSize: 12.5,
+                                          fontSize: '0.7812rem',
                                           color: '#1e2330',
                                           cursor: 'pointer',
                                         }}
@@ -752,7 +752,7 @@ export const ScheduleTab: React.FC<ScheduleTabProps> = ({
                                           padding: '8px 12px',
                                           border: 'none',
                                           background: 'transparent',
-                                          fontSize: 12.5,
+                                          fontSize: '0.7812rem',
                                           color: '#dc2626',
                                           cursor: 'pointer',
                                         }}
@@ -858,7 +858,7 @@ export const ScheduleTab: React.FC<ScheduleTabProps> = ({
                                         padding: '8px 12px',
                                         border: 'none',
                                         background: 'transparent',
-                                        fontSize: 12.5,
+                                        fontSize: '0.7812rem',
                                         color: '#1e2330',
                                         cursor: 'pointer',
                                       }}
@@ -878,7 +878,7 @@ export const ScheduleTab: React.FC<ScheduleTabProps> = ({
                                         padding: '8px 12px',
                                         border: 'none',
                                         background: 'transparent',
-                                        fontSize: 12.5,
+                                        fontSize: '0.7812rem',
                                         color: '#dc2626',
                                         cursor: 'pointer',
                                       }}
@@ -973,7 +973,7 @@ export const ScheduleTab: React.FC<ScheduleTabProps> = ({
                     background: '#fef2f2',
                     border: '1px solid #fecaca',
                     color: '#b91c1c',
-                    fontSize: 13,
+                    fontSize: '0.8125rem',
                     marginBottom: 16,
                   }}
                 >

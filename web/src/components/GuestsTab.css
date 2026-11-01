@@ -31,7 +31,7 @@
 
 .guests-title {
   font-family: var(--font-serif, 'Fraunces', Georgia, serif);
-  font-size: 28px;
+  font-size: 1.75rem;
   line-height: 1.2;
   font-weight: 600;
   color: var(--color-text, #1e2330);
@@ -41,7 +41,7 @@
 
 .guests-desc {
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--color-text-secondary, #646b7a);
   margin-top: 6px;
   margin-bottom: 0;
@@ -69,7 +69,7 @@
   background-color: #0f6e6e !important;
   color: #ffffff !important;
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   border-radius: 9999px;
   border: none;
@@ -107,7 +107,7 @@
   background-color: #ffffff;
   color: #005454;
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   border-radius: 12px;
   border: 1px solid #8c8577;
@@ -136,7 +136,7 @@
   padding: 0;
   color: #005454;
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   transition:
@@ -158,7 +158,7 @@
   background-color: #ffffff;
   color: #474f5e;
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   border-radius: 12px;
   border: 1px solid #e3dccf;
@@ -218,7 +218,7 @@
 
 .guests-card-title {
   font-family: var(--font-serif, 'Fraunces', Georgia, serif);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
   color: #1e2330;
   letter-spacing: -0.01em;
@@ -227,7 +227,7 @@
 
 .guests-card-subtitle {
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: #646b7a;
   margin-top: 4px;
   margin-bottom: 0;
@@ -244,7 +244,7 @@
   padding: 6px 14px;
   border-radius: 9999px;
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   flex-shrink: 0;
   transition: all 180ms ease;
@@ -292,7 +292,7 @@
 
 .guests-field-label {
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   color: #1e2330;
 }
@@ -318,7 +318,7 @@
   border-radius: 12px;
   background-color: #ffffff;
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   color: #1e2330;
   font-variant-numeric: tabular-nums;
@@ -337,7 +337,7 @@
   position: absolute;
   right: 14px;
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: #646b7a;
   pointer-events: none;
   font-weight: 500;
@@ -372,7 +372,7 @@
 
 .guests-field-hint {
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #646b7a;
   margin: 0;
   line-height: 1.4;
@@ -423,14 +423,14 @@
 
 .guests-caterer-title {
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   color: #1e2330;
 }
 
 .guests-caterer-calc {
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #474f5e;
   font-variant-numeric: tabular-nums;
 }
@@ -449,7 +449,7 @@
   color: #2457a6;
   border-radius: 9999px;
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 600;
   flex-shrink: 0;
 }
@@ -520,7 +520,7 @@
 
 .diet-card-name {
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   color: #1e2330;
 }
@@ -534,7 +534,7 @@
 
 .diet-card-sub {
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #646b7a;
 }
 
@@ -586,7 +586,7 @@
 
 .diet-step-val {
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #1e2330;
   font-variant-numeric: tabular-nums;
@@ -594,7 +594,7 @@
 
 .diet-pct-label {
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #474f5e;
   text-align: center;
   font-variant-numeric: tabular-nums;
@@ -646,7 +646,7 @@
 
 .diet-status-strip-text {
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 500;
   margin: 0;
   line-height: 1.4;
@@ -659,7 +659,7 @@
 
 .diet-status-strip-badge {
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -690,7 +690,7 @@
   background-color: #f4efe6;
   border: 1px solid #e3dccf;
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   color: #1e2330;
 }
@@ -713,7 +713,7 @@
 
 .allergy-empty-hint {
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: #646b7a;
   margin: 0;
   font-style: italic;
@@ -734,7 +734,7 @@
   border-radius: 12px;
   background-color: #ffffff;
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #1e2330;
   outline: none;
   transition:
@@ -758,7 +758,7 @@
   border-radius: 12px;
   color: #005454;
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   cursor: pointer;
   flex-shrink: 0;
@@ -892,14 +892,14 @@
 
 .accessibility-title {
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   color: #1e2330;
 }
 
 .accessibility-desc {
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #646b7a;
   line-height: 1.4;
 }
@@ -938,7 +938,7 @@
 
 .guests-coverage-title {
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 700;
   color: #1e2330;
   margin: 0;
@@ -951,7 +951,7 @@
   background-color: rgba(255, 255, 255, 0.85);
   border: 1px solid #e3dccf;
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 600;
   color: #646b7a;
 }
@@ -964,7 +964,7 @@
 
 .guests-coverage-covered {
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #1e2330;
   margin: 0;
   line-height: 1.5;
@@ -984,7 +984,7 @@
   border: 1px solid rgba(217, 119, 6, 0.25);
   color: #8a5a00;
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 13px;
+  font-size: 0.8125rem;
   line-height: 1.4;
 }
 
@@ -998,7 +998,7 @@
   border: 1px solid rgba(30, 122, 70, 0.25);
   color: #1e7a46;
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 13px;
+  font-size: 0.8125rem;
 }
 
 .guests-coverage-actions {
@@ -1037,7 +1037,7 @@
   align-items: center;
   gap: 8px;
   font-family: var(--font-sans, 'Plus Jakarta Sans', -apple-system, sans-serif);
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: #646b7a;
 }
 
@@ -1052,5 +1052,16 @@
 @media (min-width: 640px) {
   .guests-save-actions {
     width: auto;
+  }
+}
+
+/* Large text on phones: the input may shrink, the Add button wraps below when needed */
+.allergy-text-input {
+  min-width: 0;
+}
+
+@media (max-width: 480px) {
+  .allergy-add-form {
+    flex-wrap: wrap;
   }
 }

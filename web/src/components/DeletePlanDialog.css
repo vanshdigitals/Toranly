@@ -65,7 +65,7 @@
 
 .delete-title {
   font-family: var(--font-heading, Fraunces, serif);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
   color: #b91c1c;
   margin: 0 0 8px 0;
@@ -73,7 +73,7 @@
 
 .delete-warning-text {
   font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.5;
   color: var(--color-text-muted, #475569);
   margin: 0 0 18px 0;
@@ -85,7 +85,7 @@
 
 .delete-input-label {
   display: block;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 500;
   color: var(--color-text-main, #0f172a);
   margin-bottom: 8px;
@@ -103,7 +103,7 @@
   padding: 10px 14px;
   border: 1px solid var(--color-border, #cbd5e1);
   border-radius: var(--radius-md, 8px);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
   color: var(--color-text-main, #0f172a);
   outline: none;
@@ -128,7 +128,7 @@
   gap: 8px;
   padding: 10px 18px;
   border-radius: var(--radius-full, 9999px);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
   background-color: #dc2626;

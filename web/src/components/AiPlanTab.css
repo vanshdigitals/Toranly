@@ -517,3 +517,13 @@
     transition: none;
   }
 }
+
+.ai-history {
+  flex-wrap: wrap;
+}
+
+.ai-history select {
+  min-width: 0;
+  width: 100%;
+  max-width: 28rem;
+}

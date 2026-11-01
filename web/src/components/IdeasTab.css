@@ -73,7 +73,7 @@
   background-color: var(--color-primary, #0f6e6e);
   color: #ffffff;
   font-family: var(--font-ui, system-ui, sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   border: 1px solid transparent;
   cursor: pointer;
@@ -105,7 +105,7 @@
   color: var(--color-text, #1e2330);
   border: 1px solid var(--color-border-strong, #8c8577);
   font-family: var(--font-ui, system-ui, sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   transition:
@@ -159,7 +159,7 @@
   height: 34px;
   padding: 0 14px;
   border-radius: 9999px;
-  font-size: 12.5px;
+  font-size: 0.7812rem;
   font-weight: 500;
   white-space: nowrap;
   background-color: var(--color-surface, #ffffff);
@@ -193,7 +193,7 @@
 }
 
 .ideas-count-display {
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 500;
   color: var(--color-text-muted, #646b78);
   white-space: nowrap;
@@ -220,7 +220,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  font-size: 14px;
+  font-size: 0.875rem;
   box-shadow: 0 1px 3px rgba(30, 35, 48, 0.04);
 }
 
@@ -242,7 +242,7 @@
   gap: 6px;
   padding: 3px 10px;
   border-radius: 6px;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 600;
   background-color: var(--color-warning-bg, #fdf3e1);
   color: var(--color-warning, #8a5a00);
@@ -254,7 +254,7 @@
   gap: 6px;
   padding: 3px 10px;
   border-radius: 6px;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 600;
   background-color: var(--color-success-bg, #e8f5ec);
   color: var(--color-success, #1e7a46);
@@ -264,7 +264,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   color: var(--color-primary, #0f6e6e);
   background: transparent;
@@ -304,7 +304,7 @@
 }
 
 .idea-group-title {
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -313,7 +313,7 @@
 }
 
 .idea-group-count {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 500;
   color: var(--color-text-muted, #646b78);
 }
@@ -367,7 +367,7 @@
 }
 
 .idea-card-category-tag {
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -438,7 +438,7 @@
   background: transparent;
   border: none;
   font-family: var(--font-ui, system-ui, sans-serif);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 500;
   color: var(--color-text, #1e2330);
   text-align: left;
@@ -461,7 +461,7 @@
 }
 
 .idea-card-title {
-  font-size: 16.5px;
+  font-size: 1.0312rem;
   font-weight: 700;
   line-height: 1.35;
   color: var(--color-text, #1e2330);
@@ -469,7 +469,7 @@
 }
 
 .idea-card-body {
-  font-size: 14.5px;
+  font-size: 0.9062rem;
   line-height: 1.5;
   color: var(--color-text-secondary, #474f5e);
   margin: 0 0 14px 0;
@@ -490,7 +490,7 @@
   gap: 6px;
   padding: 2.5px 10px;
   border-radius: 9999px;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 500;
   background-color: var(--color-info-bg, #eaf1fb);
   color: var(--color-info, #2457a6);
@@ -501,7 +501,7 @@
   align-items: center;
   padding: 2.5px 9px;
   border-radius: 9999px;
-  font-size: 11.5px;
+  font-size: 0.7188rem;
   font-weight: 600;
   line-height: 1;
 }
@@ -539,7 +539,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 .idea-source-tag {
@@ -555,7 +555,7 @@
 }
 
 .idea-status-tag {
-  font-size: 11.5px;
+  font-size: 0.7188rem;
   font-weight: 500;
   color: var(--color-text-muted, #646b78);
 }
@@ -585,14 +585,14 @@
 
 .ideas-empty-title {
   font-family: var(--font-heading, 'Fraunces', Georgia, serif);
-  font-size: 22px;
+  font-size: 1.375rem;
   font-weight: 700;
   color: var(--color-text, #1e2330);
   margin: 0 0 8px 0;
 }
 
 .ideas-empty-desc {
-  font-size: 14.5px;
+  font-size: 0.9062rem;
   line-height: 1.55;
   color: var(--color-text-secondary, #474f5e);
   margin: 0 0 24px 0;
@@ -676,7 +676,7 @@
 
 .ideas-modal-title {
   font-family: var(--font-heading, 'Fraunces', Georgia, serif);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--color-text, #1e2330);
   margin: 0;
@@ -722,7 +722,7 @@
 }
 
 .ideas-form-label {
-  font-size: 13.5px;
+  font-size: 0.8438rem;
   font-weight: 600;
   color: var(--color-text, #1e2330);
 }
@@ -730,11 +730,11 @@
 .ideas-label-optional {
   font-weight: 400;
   color: var(--color-text-muted, #646b78);
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 .ideas-form-error-msg {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 500;
   color: var(--color-error, #b42318);
 }
@@ -748,7 +748,7 @@
   background-color: var(--color-surface, #ffffff);
   color: var(--color-text, #1e2330);
   font-family: var(--font-ui, system-ui, sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   transition:
     border-color 0.15s ease,
     box-shadow 0.15s ease;
@@ -770,7 +770,7 @@
 }
 
 .ideas-form-help {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--color-text-muted, #646b78);
   margin: 2px 0 0 0;
 }
@@ -787,7 +787,7 @@
 }
 
 .ideas-diet-checkboxes-title {
-  font-size: 11.5px;
+  font-size: 0.7188rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -805,7 +805,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 13.5px;
+  font-size: 0.8438rem;
   font-weight: 500;
   color: var(--color-text, #1e2330);
   cursor: pointer;
@@ -839,7 +839,7 @@
   left: 14px;
   color: var(--color-text-muted, #646b78);
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.875rem;
   pointer-events: none;
 }
 
@@ -856,7 +856,7 @@
   background-color: var(--color-surface, #ffffff);
   color: var(--color-text, #1e2330);
   font-family: var(--font-ui, system-ui, sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.5;
   resize: vertical;
   min-height: 84px;
@@ -872,7 +872,7 @@
 }
 
 .ideas-char-counter {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 500;
   color: var(--color-text-muted, #646b78);
   font-variant-numeric: tabular-nums;
@@ -897,7 +897,7 @@
   border: 1px solid var(--color-border-strong, #8c8577);
   color: var(--color-text, #1e2330);
   font-family: var(--font-ui, system-ui, sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.15s ease;
@@ -915,7 +915,7 @@
   border: 1px solid transparent;
   color: #ffffff;
   font-family: var(--font-ui, system-ui, sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   transition:
@@ -939,7 +939,7 @@
   border: 1px solid transparent;
   color: #ffffff;
   font-family: var(--font-ui, system-ui, sans-serif);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   transition:
@@ -976,7 +976,7 @@
 }
 
 .ideas-delete-text {
-  font-size: 14.5px;
+  font-size: 0.9062rem;
   line-height: 1.55;
   color: var(--color-text-secondary, #474f5e);
   margin: 0 0 20px 0;
@@ -995,7 +995,7 @@
   border: 1px solid var(--color-border, #e3dccf);
   border-radius: 12px;
   padding: 16px;
-  font-size: 13.5px;
+  font-size: 0.8438rem;
   line-height: 1.5;
   color: var(--color-text-secondary, #474f5e);
 }
@@ -1033,14 +1033,14 @@
 }
 
 .ideas-ai-result-title {
-  font-size: 14.5px;
+  font-size: 0.9062rem;
   font-weight: 700;
   color: var(--color-text, #1e2330);
   margin: 0 0 4px 0;
 }
 
 .ideas-ai-result-desc {
-  font-size: 13.5px;
+  font-size: 0.8438rem;
   line-height: 1.45;
   color: var(--color-text-secondary, #474f5e);
   margin: 0 0 8px 0;
@@ -1057,7 +1057,7 @@
   height: 34px;
   padding: 0 12px;
   border-radius: 9999px;
-  font-size: 12.5px;
+  font-size: 0.7812rem;
   font-weight: 600;
   background-color: var(--color-primary, #0f6e6e);
   color: #ffffff;
@@ -1082,7 +1082,7 @@
 }
 
 .ideas-ai-quota-text {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--color-text-muted, #646b78);
   font-weight: 500;
 }

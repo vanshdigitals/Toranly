@@ -144,7 +144,7 @@
   padding: 0 28px;
   border-radius: var(--radius-pill);
   font-family: var(--font-ui);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1;
   text-decoration: none;
@@ -300,7 +300,7 @@
   background-color: var(--color-primary-subtle);
   color: var(--color-primary);
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   line-height: 1;
   padding: 4px 10px;
@@ -438,7 +438,7 @@
 .final-cta-eyebrow {
   display: block;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: 0.12em;
@@ -451,7 +451,7 @@
 /* Headline */
 .final-cta-headline {
   font-family: var(--font-display);
-  font-size: 44px;
+  font-size: 2.75rem;
   font-weight: 600;
   line-height: 1.12;
   color: var(--color-primary-active);
@@ -463,14 +463,14 @@
 
 @media (min-width: 640px) and (max-width: 1023.98px) {
   .final-cta-headline {
-    font-size: 36px;
+    font-size: 2.25rem;
     line-height: 1.15;
   }
 }
 
 @media (max-width: 639.98px) {
   .final-cta-headline {
-    font-size: 30px;
+    font-size: 1.875rem;
     line-height: 1.15;
   }
 }
@@ -478,7 +478,7 @@
 /* Supporting text */
 .final-cta-supporting {
   font-family: var(--font-ui);
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.6;
   color: var(--color-primary-active);
@@ -528,7 +528,7 @@
 /* Secondary Sign-in line */
 .final-cta-secondary {
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.5;
   color: var(--color-primary-active);
