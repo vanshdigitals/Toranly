@@ -161,6 +161,8 @@ def test_security_headers_on_every_response(client: TestClient) -> None:
         assert "frame-ancestors 'none'" in csp and "default-src 'self'" in csp
         assert r.headers["x-content-type-options"] == "nosniff"
         assert r.headers["referrer-policy"] == "same-origin"
+        assert "camera=()" in r.headers["permissions-policy"]
+        assert r.headers["cross-origin-opener-policy"] == "same-origin"
         assert "strict-transport-security" not in r.headers
         assert r.headers["cache-control"] == "no-store"
 

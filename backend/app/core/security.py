@@ -27,6 +27,7 @@ DEVICE_COOKIE_PATH = "/api"
 DEVICE_COOKIE_MAX_AGE = 180 * 24 * 3600
 DEVICE_ID_BYTES = 32
 
+PERMISSIONS_POLICY = "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
 CSP = (
     "default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; "
     "connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
@@ -189,6 +190,9 @@ class SecurityMiddleware:
             (b"x-content-type-options", b"nosniff"),
             (b"referrer-policy", b"same-origin"),
             (b"x-frame-options", b"DENY"),
+            # The planner needs no device features; deny them outright.
+            (b"permissions-policy", PERMISSIONS_POLICY.encode()),
+            (b"cross-origin-opener-policy", b"same-origin"),
         ]
         if self.settings.is_production:
             headers.append((b"strict-transport-security", b"max-age=63072000; includeSubDomains"))
