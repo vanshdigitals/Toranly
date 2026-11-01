@@ -11,6 +11,7 @@ from app.domain.money import round_half_up_div
 BudgetStatus = Literal["ok", "warning", "over"]
 
 # Warning threshold as an exact fraction: committed / allocated >= 9 / 10.
+EXPENSE_KINDS = ("planned", "quoted", "paid")
 WARNING_NUMERATOR = 9
 WARNING_DENOMINATOR = 10
 
@@ -92,12 +93,16 @@ def budget_summary(
     An expense belongs to a category when its category_id equals the category id or key
     (the web app accepts both).
     """
+    # One pass over the expenses (O(categories + expenses)), not one per category.
+    by_ref: dict[str, dict[str, int]] = {}
+    for exp in expenses:
+        if exp.kind in EXPENSE_KINDS:
+            ref = by_ref.setdefault(exp.category_id, dict.fromkeys(EXPENSE_KINDS, 0))
+            ref[exp.kind] += exp.amount_paise
     metrics: list[CategoryMetrics] = []
     for cat in categories:
-        sums = {"planned": 0, "quoted": 0, "paid": 0}
-        for exp in expenses:
-            if exp.category_id in (cat.id, cat.key) and exp.kind in sums:
-                sums[exp.kind] += exp.amount_paise
+        refs = {cat.id, cat.key}  # a set, so id == key is counted once
+        sums = {k: sum(by_ref.get(r, {}).get(k, 0) for r in refs) for k in EXPENSE_KINDS}
         committed = max(sums["planned"], sums["quoted"], sums["paid"])
         metrics.append(
             CategoryMetrics(

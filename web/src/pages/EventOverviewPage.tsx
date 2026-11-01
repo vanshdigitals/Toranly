@@ -12,10 +12,6 @@ import { AddQuoteDialog } from '../components/AddQuoteDialog';
 import { VendorDetailsDrawer } from '../components/VendorDetailsDrawer';
 import { CompareQuotesModal } from '../components/CompareQuotesModal';
 import { PlannerWorkspaceShell } from '../components/PlannerWorkspaceShell';
-import { SettingsTab } from '../components/SettingsTab';
-import { IdeasTab } from '../components/IdeasTab';
-import { ScheduleTab } from '../components/ScheduleTab';
-import { GuestsTab } from '../components/GuestsTab';
 import './EventOverviewPage.css';
 import './TimelineScheduleGuests.css';
 import { derivePlanView, usePlanner } from './event-overview/usePlanner';
@@ -24,7 +20,19 @@ import { BudgetTab } from './event-overview/BudgetTab';
 import { TimelineTab } from './event-overview/TimelineTab';
 import { VendorsTab } from './event-overview/VendorsTab';
 
-// The AI plan tab loads on demand (only visitors who open it download it).
+// Tabs outside the core four load on demand (only visitors who open them download them).
+const SettingsTab = lazy(() =>
+  import('../components/SettingsTab').then((m) => ({ default: m.SettingsTab })),
+);
+const IdeasTab = lazy(() =>
+  import('../components/IdeasTab').then((m) => ({ default: m.IdeasTab })),
+);
+const ScheduleTab = lazy(() =>
+  import('../components/ScheduleTab').then((m) => ({ default: m.ScheduleTab })),
+);
+const GuestsTab = lazy(() =>
+  import('../components/GuestsTab').then((m) => ({ default: m.GuestsTab })),
+);
 const AiPlanTab = lazy(() =>
   import('../components/AiPlanTab').then((m) => ({ default: m.AiPlanTab })),
 );
@@ -122,74 +130,74 @@ export const EventOverviewPage: React.FC = () => {
         )}
 
         <div className="overview-content-wrapper">
-          {/* TAB: OVERVIEW */}
-          {activeTab === 'overview' && <OverviewTab planner={planner} />}
+          <Suspense
+            fallback={
+              <div className="route-loading" role="status">
+                Loading…
+              </div>
+            }
+          >
+            {/* TAB: OVERVIEW */}
+            {activeTab === 'overview' && <OverviewTab planner={planner} />}
 
-          {/* TAB: BUDGET */}
-          {activeTab === 'budget' && <BudgetTab planner={planner} />}
+            {/* TAB: BUDGET */}
+            {activeTab === 'budget' && <BudgetTab planner={planner} />}
 
-          {/* TAB: TIMELINE */}
-          {activeTab === 'timeline' && <TimelineTab planner={planner} />}
+            {/* TAB: TIMELINE */}
+            {activeTab === 'timeline' && <TimelineTab planner={planner} />}
 
-          {/* TAB: VENDORS */}
-          {activeTab === 'vendors' && <VendorsTab planner={planner} />}
+            {/* TAB: VENDORS */}
+            {activeTab === 'vendors' && <VendorsTab planner={planner} />}
 
-          {/* TAB: GUESTS */}
-          {activeTab === 'guests' && (
-            <GuestsTab
-              plan={plan}
-              onSavePlan={persistPlan}
-              onNavigateTab={(tab) => setTab(tab)}
-              onShowToast={showToast}
-            />
-          )}
+            {/* TAB: GUESTS */}
+            {activeTab === 'guests' && (
+              <GuestsTab
+                plan={plan}
+                onSavePlan={persistPlan}
+                onNavigateTab={(tab) => setTab(tab)}
+                onShowToast={showToast}
+              />
+            )}
 
-          {/* TAB: SCHEDULE */}
-          {activeTab === 'schedule' && (
-            <ScheduleTab
-              plan={plan}
-              onSavePlan={persistPlan}
-              onShowToast={showToast}
-              onOpenAddFunction={() => setFunctionDialog({ open: true, fn: null })}
-              onOpenEditFunction={(fn) => setFunctionDialog({ open: true, fn })}
-            />
-          )}
+            {/* TAB: SCHEDULE */}
+            {activeTab === 'schedule' && (
+              <ScheduleTab
+                plan={plan}
+                onSavePlan={persistPlan}
+                onShowToast={showToast}
+                onOpenAddFunction={() => setFunctionDialog({ open: true, fn: null })}
+                onOpenEditFunction={(fn) => setFunctionDialog({ open: true, fn })}
+              />
+            )}
 
-          {/* TAB: IDEAS */}
-          {activeTab === 'ideas' && (
-            <IdeasTab
-              plan={plan}
-              onSavePlan={persistPlan}
-              onNavigateTab={(tab) => setTab(tab)}
-              onShowToast={showToast}
-            />
-          )}
+            {/* TAB: IDEAS */}
+            {activeTab === 'ideas' && (
+              <IdeasTab
+                plan={plan}
+                onSavePlan={persistPlan}
+                onNavigateTab={(tab) => setTab(tab)}
+                onShowToast={showToast}
+              />
+            )}
 
-          {/* TAB: AI PLAN */}
-          {(activeTab === 'plan' || activeTab === 'ai-plan') && (
-            <Suspense
-              fallback={
-                <div className="route-loading" role="status">
-                  Loading…
-                </div>
-              }
-            >
+            {/* TAB: AI PLAN */}
+            {(activeTab === 'plan' || activeTab === 'ai-plan') && (
               <AiPlanTab plan={plan} onSavePlan={persistPlan} onShowToast={showToast} />
-            </Suspense>
-          )}
+            )}
 
-          {/* TAB: SETTINGS */}
-          {activeTab === 'settings' && (
-            <SettingsTab
-              plan={plan}
-              snapshots={snapshots}
-              onSavePlan={persistPlan}
-              onRestoreSnapshot={handleRestoreSnapshot}
-              onDeletePlan={handleDeleteCelebration}
-              showToast={showToast}
-              onRequestTabChange={setTab}
-            />
-          )}
+            {/* TAB: SETTINGS */}
+            {activeTab === 'settings' && (
+              <SettingsTab
+                plan={plan}
+                snapshots={snapshots}
+                onSavePlan={persistPlan}
+                onRestoreSnapshot={handleRestoreSnapshot}
+                onDeletePlan={handleDeleteCelebration}
+                showToast={showToast}
+                onRequestTabChange={setTab}
+              />
+            )}
+          </Suspense>
         </div>
       </PlannerWorkspaceShell>
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useId, useMemo } from 'react';
+import React, { useState, useEffect, useId, useMemo, useRef } from 'react';
 import { useNavigate, useSearchParams, useParams, Link } from 'react-router-dom';
 import {
   ArrowLeft,
@@ -34,6 +34,8 @@ import './EventWizardPage.css';
 interface EventWizardPageProps {
   initialStep?: number;
 }
+
+const DRAFT_SAVE_DELAY_MS = 500;
 
 export const EventWizardPage: React.FC<EventWizardPageProps> = ({ initialStep }) => {
   const navigate = useNavigate();
@@ -141,9 +143,40 @@ export const EventWizardPage: React.FC<EventWizardPageProps> = ({ initialStep })
   }, [currentStep]);
 
   // Save changes helper
+  // The screen updates on every keystroke; the draft is written to this device at most
+  // every DRAFT_SAVE_DELAY_MS and flushed when the wizard closes or the page is left.
+  const latestDraft = useRef(wizardData);
+  const pendingSave = useRef<number | null>(null);
+  useEffect(() => {
+    latestDraft.current = wizardData;
+  }, [wizardData]);
+  const flushDraft = () => {
+    if (pendingSave.current === null) return;
+    window.clearTimeout(pendingSave.current);
+    pendingSave.current = null;
+    saveWizardDraft(latestDraft.current);
+  };
+  useEffect(() => {
+    window.addEventListener('pagehide', flushDraft);
+    return () => {
+      window.removeEventListener('pagehide', flushDraft);
+      flushDraft();
+    };
+  }, []);
+
   const updateData = (updates: Partial<WizardData>) => {
-    const next = saveWizardDraft(updates);
+    const next: WizardData = {
+      ...latestDraft.current,
+      ...updates,
+      updatedAt: new Date().toISOString(),
+    };
+    latestDraft.current = next;
     setWizardData(next);
+    if (pendingSave.current !== null) window.clearTimeout(pendingSave.current);
+    pendingSave.current = window.setTimeout(() => {
+      pendingSave.current = null;
+      saveWizardDraft(next);
+    }, DRAFT_SAVE_DELAY_MS);
     return next;
   };
 

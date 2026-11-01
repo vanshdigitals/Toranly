@@ -46,14 +46,17 @@ def detect_overlaps(items: Sequence[ScheduleItemLike]) -> list[Overlap]:
         by_function.setdefault(item.function_id, []).append(item)
     overlaps: list[Overlap] = []
     for function_id, group in by_function.items():
-        for i, a in enumerate(group):
-            start_a = to_minutes(a.start_time)
-            end_a = start_a + a.duration_min
-            for b in group[i + 1 :]:
-                start_b = to_minutes(b.start_time)
-                end_b = start_b + b.duration_min
-                if start_a < end_b and start_b < end_a:
-                    overlaps.append(Overlap(a.id, b.id, function_id))
+        # Sweep by start time: O(n log n + pairs) instead of comparing every pair.
+        spans = [(to_minutes(it.start_time), i, it) for i, it in enumerate(group)]
+        spans.sort(key=lambda s: (s[0], s[1]))
+        active: list[tuple[int, int, ScheduleItemLike]] = []  # (end, input index, item)
+        pairs: list[tuple[int, int]] = []
+        for start, index, _item in spans:
+            active = [a for a in active if a[0] > start]
+            pairs.extend((min(a[1], index), max(a[1], index)) for a in active)
+            active.append((start + group[index].duration_min, index, group[index]))
+        # Report in input order, exactly as a pairwise scan would.
+        overlaps.extend(Overlap(group[i].id, group[j].id, function_id) for i, j in sorted(pairs))
     return overlaps
 
 
